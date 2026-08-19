@@ -4,6 +4,7 @@ import '../styles/global.css';
 const title = 'Advocate Jahanzaib | Civil, Criminal & Corporate Lawyer in Karachi';
 const description = 'Advocate Jahanzaib provides civil, criminal, family and corporate legal services in Karachi, including litigation, SECP registration, tax compliance, property law and trademarks.';
 const siteUrl = 'https://nexus-alpha-ten-66.vercel.app';
+const serviceCities = ['Karachi', 'Hyderabad', 'Sukkur', 'Lahore', 'Islamabad', 'Rawalpindi', 'Faisalabad', 'Multan', 'Gujranwala', 'Sialkot', 'Bahawalpur', 'Peshawar', 'Quetta', 'Abbottabad', 'Muzaffarabad', 'Gilgit'];
 
 const legalServiceSchema = {
 	'@type': 'LegalService',
@@ -17,7 +18,7 @@ const legalServiceSchema = {
 	'currenciesAccepted': 'PKR',
 	'paymentAccepted': 'Cash, Bank Transfer',
 	'areaServed': [
-		{ '@type': 'City', name: 'Karachi' },
+		...serviceCities.map((name) => ({ '@type': 'City', name })),
 		{ '@type': 'State', name: 'Sindh' },
 		{ '@type': 'Country', name: 'Pakistan' }
 	],
