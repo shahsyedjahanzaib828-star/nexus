@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Keep controls and links comfortable for keyboard and touch users. */
+a,
+button,
+summary,
+input,
+select,
+textarea {
+	min-height: 48px;
+}
+
+a,
+button,
+summary {
+	display: inline-flex;
+	align-items: center;
+}
+
+summary {
+	cursor: pointer;
+}
+
+.skip-link {
+	position: fixed;
+	left: 1rem;
+	top: 1rem;
+	z-index: 50;
+	transform: translateY(-200%);
+	border-radius: 999px;
+	background: #d5e767;
+	padding: 0 1rem;
+	font-weight: 700;
+	color: #163a2a;
+	transition: transform 150ms ease;
+}
+
+.skip-link:focus {
+	transform: translateY(0);
+}
