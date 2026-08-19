@@ -123,6 +123,69 @@ export const blogPosts = [
 			['Can FBR and SECP records affect each other?', 'Yes. Differences in business activity, ownership, directors, addresses, or financial information can create questions across regulatory and tax records.'],
 			['Should a business respond to a show-cause notice without a lawyer?', 'A business should at least obtain a timely legal review where rights, penalties, directors, or recovery are involved. The response should be evidence-led and tailored to the notice.']
 		]
+	},
+	{
+		slug: 'property-due-diligence-checklist-karachi-pakistan',
+		title: 'Property Due Diligence in Karachi: A Legal Checklist Before You Buy',
+		seoTitle: 'Property Lawyer Karachi: Due Diligence Checklist',
+		description: 'A practical Karachi property lawyer checklist for title verification, ownership records, encumbrances, approvals, and safer property transactions in Pakistan.',
+		date: '2026-08-20',
+		label: 'Property Law',
+		readingTime: '8 min read',
+		intro: 'A property purchase can involve more than a sale agreement and payment. Before buying land, a flat, a house, or commercial premises in Karachi, the buyer should verify ownership, authority, approvals, possession, and outstanding claims.',
+		sections: [
+			{ heading: 'Why property verification matters', paragraphs: ['A document that looks complete may not answer every legal question. The seller may have limited authority, the property may be subject to a mortgage or dispute, or the building and land records may not match the description being marketed.', 'Due diligence is designed to identify problems before money, possession, and construction plans become difficult to unwind. It should be proportionate to the property value and the risk of the transaction.'] },
+			{ heading: 'Core documents and checks', paragraphs: ['A review commonly examines the title chain, registry or lease documents, mutation and revenue records where relevant, identity and authority of the seller, approved plans, tax and utility position, possession, and any power of attorney used in the transaction.', 'For Karachi property, the relevant authority and record depend on the location and property type. A buyer should not assume that one certificate proves every aspect of ownership or development compliance.'], points: ['Match the seller identity with the ownership and authority documents.', 'Check whether the property is mortgaged, disputed, leased, or subject to a restriction.', 'Verify approvals, layout, building permissions, and the actual physical condition.', 'Use a written agreement that clearly covers price, possession, defaults, documents, and risk.'] },
+			{ heading: 'Red flags that deserve caution', paragraphs: ['Pressure to pay quickly, missing originals, inconsistent measurements, unexplained co-owners, an informal broker-only arrangement, unusual powers of attorney, or promises that approvals will be obtained later should trigger a pause. A low price does not remove the need for verification.', 'The buyer should preserve copies of advertisements, messages, receipts, plans, and all statements made during negotiation. These records can become important if the transaction is disputed.'] },
+			{ heading: 'A safer Karachi property transaction', paragraphs: ['A property lawyer can review the record, identify gaps, coordinate searches, draft protective terms, and explain whether the proposed payment and possession structure is sensible. Legal review cannot eliminate every market risk, but it can prevent avoidable surprises and improve the buyer’s evidence.'] }
+		],
+		faq: [
+			['Should I pay an advance before property verification?', 'Obtain a document review before making a significant or non-refundable payment. If an advance is unavoidable, use written terms that address verification and refund consequences.'],
+			['Is a registry document alone enough to buy property safely?', 'Not always. Ownership authority, prior transactions, encumbrances, approvals, possession, and the property description should also be assessed.'],
+			['Can a Karachi property lawyer verify every risk?', 'A lawyer can identify and investigate legal risks, but physical, valuation, engineering, and authority checks may also require other qualified professionals.']
+		]
+	},
+	{
+		slug: 'khula-divorce-custody-maintenance-first-steps-pakistan',
+		title: 'Khula, Divorce, Custody and Maintenance in Pakistan: First Legal Steps',
+		seoTitle: 'Family Lawyer Karachi: Khula, Custody & Maintenance',
+		description: 'Understand the first legal steps for khula, divorce, child custody, and maintenance matters in Pakistan, with practical guidance from a Karachi family lawyer.',
+		date: '2026-08-20',
+		label: 'Family Law',
+		readingTime: '8 min read',
+		intro: 'Family disputes are personal, urgent, and fact-specific. Understanding the available legal route, documents, children’s needs, and immediate safety concerns can help a person make a calmer and better-informed first decision.',
+		sections: [
+			{ heading: 'Start with safety and documents', paragraphs: ['Where there is violence, coercion, threats, or a risk to a child, safety should be prioritised and urgent support should be considered. Preserve identity documents, marriage records, birth certificates, medical evidence, messages, financial records, and relevant court or police documents.', 'A legal consultation should establish the immediate problem, the relief required, the parties involved, and whether any case or notice is already pending.'] },
+			{ heading: 'Khula, divorce, and related claims', paragraphs: ['The correct process depends on the marriage documents, the facts, the parties’ position, and the relief being sought. Khula, talaq-related issues, dissolution, dower, maintenance, custody, visitation, and recovery of belongings may involve connected but distinct questions.', 'A person should avoid relying on a generic form or social-media advice where deadlines, children, property, or allegations are involved. The pleadings and evidence should reflect the actual facts.'], points: ['Keep the original nikahnama and obtain clear copies.', 'Record children’s care arrangements, schooling, health, and expenses.', 'Preserve evidence without editing or deleting messages and documents.', 'Do not sign a settlement without understanding its full legal effect.'] },
+			{ heading: 'Child custody and maintenance focus on facts', paragraphs: ['Courts consider the welfare and circumstances of the child, not simply which parent makes the loudest claim. Stable care, schooling, health, safety, financial support, and the practical ability to maintain contact may all matter.', 'Maintenance questions should be supported by realistic information about needs, income, expenses, and existing support. A clear record is more useful than an unsupported demand or denial.'] },
+			{ heading: 'How a Karachi family lawyer can help', paragraphs: ['A family lawyer can explain the possible route, prepare or review documents, advise on urgent relief, and help keep connected claims organised. The objective is a lawful, evidence-based process that protects rights while reducing unnecessary escalation.'] }
+		],
+		faq: [
+			['What documents are useful for a khula or family-law consultation?', 'The nikahnama, identity documents, children’s records, financial evidence, relevant messages, medical or police records, and any existing notices or court papers are commonly useful.'],
+			['Can custody and maintenance be discussed in the same family dispute?', 'They may arise together, but each issue has its own facts and legal considerations. Obtain advice on the specific claims and relief required.'],
+			['Should I sign a family settlement immediately?', 'Do not sign until you understand the rights, obligations, children’s arrangements, property terms, and whether the document closes or preserves future claims.']
+		]
+	},
+	{
+		slug: 'pre-arrest-bail-and-post-arrest-bail-pakistan-guide',
+		title: 'Pre-Arrest Bail and Post-Arrest Bail in Pakistan: What to Do First',
+		seoTitle: 'Criminal Lawyer Karachi: Bail Process in Pakistan',
+		description: 'A practical guide to first steps after a criminal complaint or FIR in Pakistan, including pre-arrest bail, post-arrest bail, documents, and urgent deadlines.',
+		date: '2026-08-20',
+		label: 'Criminal Law',
+		readingTime: '8 min read',
+		intro: 'A criminal complaint or FIR can create immediate pressure for an accused person and their family. Bail strategy depends on the allegations, evidence, sections involved, investigation stage, and the person’s conduct, so urgent legal review matters.',
+		sections: [
+			{ heading: 'Do not delay the first legal review', paragraphs: ['The first step is to obtain the FIR or complaint details, identify the investigating agency and alleged offences, and understand whether arrest is a real and immediate risk. Family members should preserve notices, call records, documents, and any evidence that explains the dispute.', 'Do not hide, destroy, or alter evidence, pressure witnesses, or make casual statements that may later be misunderstood. A lawyer should review the facts before deciding the appropriate court strategy.'] },
+			{ heading: 'Pre-arrest and post-arrest bail are different', paragraphs: ['Pre-arrest bail is sought where a person fears arrest and the legal requirements for protective relief may be met. Post-arrest bail concerns a person already arrested and depends on the allegations, investigation, custody record, and applicable law.', 'The exact court, timing, grounds, and evidence depend on the case. Bail is not an acquittal and does not end the criminal proceedings.'], points: ['Obtain accurate FIR and case information as soon as possible.', 'Keep identity, address, employment, medical, and relevant documentary records ready.', 'Attend court and investigation proceedings as advised.', 'Strictly follow every bail condition and avoid contact that could be viewed as interference.'] },
+			{ heading: 'Evidence and conduct can affect the strategy', paragraphs: ['Contradictions, unexplained delay, medical records, documentary disputes, prior proceedings, cooperation with investigation, and the possibility of witness influence may all affect the legal assessment. A strong strategy is based on the actual record rather than a one-line claim that the case is false.', 'The accused should tell counsel the complete facts, including uncomfortable details. Confidential legal advice is more useful when the lawyer is not working from an incomplete story.'] },
+			{ heading: 'Urgent help for Karachi criminal matters', paragraphs: ['A Karachi criminal lawyer can review the FIR, identify urgent deadlines, prepare bail grounds, coordinate documents, and advise on lawful conduct during investigation. Where the matter is outside Karachi, local court procedure and immediate representation should also be arranged.'] }
+		],
+		faq: [
+			['Does bail mean the criminal case is finished?', 'No. Bail generally concerns liberty during proceedings. The investigation and trial or other lawful process may continue.'],
+			['What should I bring to a bail consultation?', 'Bring the FIR or complaint details, notices, identity documents, relevant medical or employment records, prior case papers, and a clear timeline of events.'],
+			['Can I ignore an investigation notice after getting legal advice?', 'No. Follow lawful advice and all court or investigation requirements. Ignoring conditions can create additional risk.']
+		]
 	}
 ];
 
