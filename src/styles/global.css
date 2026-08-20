@@ -17,6 +17,22 @@ summary {
 	align-items: center;
 }
 
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+	outline: 3px solid #789400;
+	outline-offset: 3px;
+}
+
+input:invalid:not(:focus),
+select:invalid:not(:focus),
+textarea:invalid:not(:focus) {
+	border-color: #a63d40;
+}
+
 summary {
 	cursor: pointer;
 }
@@ -37,4 +53,15 @@ summary {
 
 .skip-link:focus {
 	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
 }
