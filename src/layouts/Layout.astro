@@ -2,7 +2,7 @@
 import '../styles/global.css';
 
 const title = 'Jahanzaib Legal Services | Civil, Criminal, Family and Corporate Law in Karachi';
-const description = 'Advocate Jahanzaib provides civil, criminal, family and corporate legal services in Karachi, including litigation, SECP registration, tax compliance, property law and trademarks.';
+const description = 'Jahanzaib Legal Practice provides civil, criminal, family and corporate legal services in Karachi, including litigation, SECP registration, tax compliance, property law and trademarks.';
 const siteUrl = 'https://nexus-alpha-ten-66.vercel.app';
 const serviceCities = ['Karachi', 'Hyderabad', 'Sukkur', 'Lahore', 'Islamabad', 'Rawalpindi', 'Faisalabad', 'Multan', 'Gujranwala', 'Sialkot', 'Bahawalpur', 'Peshawar', 'Quetta', 'Abbottabad', 'Muzaffarabad', 'Gilgit'];
 
@@ -37,7 +37,7 @@ const websiteSchema = {
 	'@type': 'WebSite',
 	'@id': `${siteUrl}/#website`,
 	'url': `${siteUrl}/`,
-	'name': 'Advocate Jahanzaib',
+	'name': 'Jahanzaib Legal Practice',
 	'publisher': { '@id': `${siteUrl}/#legal-service` },
 	'potentialAction': {
 		'@type': 'SearchAction',
@@ -77,7 +77,7 @@ const breadcrumbSchema = {
 	'itemListElement': [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` }]
 };
 
-const { title: pageTitle = title, description: pageDescription = description, canonical, schema = {}, type = 'website', ogImage = '/og/home.svg', ogImageAlt = 'Advocate Jahanzaib legal services in Karachi' } = Astro.props;
+const { title: pageTitle = title, description: pageDescription = description, canonical, schema = {}, type = 'website', ogImage = '/og/home.svg', ogImageAlt = 'Jahanzaib legal services in Karachi' } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage, siteUrl).href;
 const pageSchema = (Array.isArray(schema?.['@graph']) ? schema['@graph'] : [schema]).map(({ '@context': _context, ...entry }) => entry);
