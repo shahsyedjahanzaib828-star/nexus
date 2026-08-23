@@ -11,7 +11,7 @@ const links = [
 const linkClass = (key: string) => (current === key ? 'text-[#547000]' : 'hover:text-[#163a2a]');
 ---
 
-<header class="border-b border-[#dfe3d9] bg-[#f6f7f2]">
+<header class="sticky top-0 z-40 border-b border-[#dfe3d9] bg-[#f6f7f2]/95 backdrop-blur">
 	<div class="hidden border-b border-[#dfe3d9] bg-[#163a2a] text-[#dce4d8] lg:block">
 		<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2 text-xs font-semibold lg:px-10">
 			<p>{site.city} · {site.region} · {site.country}</p>

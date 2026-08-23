@@ -1,13 +1,12 @@
 ---
 import '../styles/global.css';
 import MobileDock from '../components/MobileDock.astro';
-import { site } from '../data/site';
+import { site, serviceCities } from '../data/site';
 import { services } from '../data/services';
 
 const title = 'Lawyer in Karachi | Civil, Criminal, Family & Corporate Law';
 const description = `${site.city} legal practice for civil, criminal and family litigation, SECP company registration, FBR tax filing, property matters and trademark protection.`;
 const siteUrl = site.url;
-const serviceCities = ['Karachi', 'Hyderabad', 'Sukkur', 'Lahore', 'Islamabad', 'Rawalpindi', 'Faisalabad', 'Multan', 'Gujranwala', 'Sialkot', 'Bahawalpur', 'Peshawar', 'Quetta', 'Abbottabad', 'Muzaffarabad', 'Gilgit'];
 
 // LegalService is a subtype of LocalBusiness, so a single node carries the local
 // signals instead of splitting them across competing entities.
