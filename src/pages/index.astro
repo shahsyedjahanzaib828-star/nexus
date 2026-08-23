@@ -1,47 +1,78 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const phone = '03343108863';
-const phoneHref = `tel:+92${phone.slice(1)}`;
-const whatsappHref = `https://wa.me/92${phone.slice(1)}`;
-const email = 'shahsyedjahanzaib828@gmail.com';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { services } from '../data/services';
+import { blogPosts } from '../data/blog';
+import { site, phoneHref, whatsappHref, mailHref } from '../data/site';
 
-const practiceAreas = [
-	['§', 'Civil, Criminal & Family Litigation', ['Civil Litigation & Commercial Dispute Resolution', 'Criminal Defense, Bail Matters, & Criminal Law Consultancy', 'Family Law: Khula, Divorce, Custody, Maintenance & Guardianship', 'Inheritance, Succession Certificates, & Property Partition Suits', 'High Court Constitutional Writs & Legal Notices']],
-	['⌂', 'Real Estate, Land & Construction Law', ['Property Title Verification & Ownership Search', 'Sale, Lease & Gift Deeds and Real Estate Conveyancing', 'SBCA Approvals & Building Plan Compliance', 'Land Revenue, KDA, MDA & Local Authority Representation']],
-	['↗', 'WeBOC Import, Export & Trade Licensing', ['WeBOC ID Registration through PSW', 'Import & Export License Setup and KCCI Membership', 'Customs Duty Advisory & International Trade Legal Support']],
-	['▣', 'SECP Company Setup & Business Registration', ['Private Limited Company (Pvt Ltd) Formation', 'Single Member Company (SMC-Pvt Ltd) Setup', 'Sole Proprietorship Registration & NTN Issuance', 'Partnership Firm (AOP) & LLP Registration']],
-	['%', 'FBR, SRB & International Tax Filing', ['Individual & Business FBR Income Tax Return Filing', 'STRN Sales Tax Registration & SRB Service Tax Compliance', 'US/UK LLC Tax Filing & Compliance for Freelancers and Businesses', 'Tax Audit Handling & Exemption Certificates']],
-	['™', 'IPO Pakistan Trademark & IP Protection', ['Trademark Registration & Official TM Search (TM-55)', 'Brand Name, Logo, Copyright & Patent Protection', 'Trademark Opposition, Show Cause Responses & IPO Hearings']]
+const latestPosts = blogPosts.slice(0, 3);
+
+const homeFaq: [string, string][] = [
+	[
+		'What areas of law does the practice cover in Karachi?',
+		'Civil, criminal and family litigation, property and construction matters including SBCA approvals, SECP company registration and corporate compliance, FBR and SRB tax filing, WeBOC import and export registration, and trademark protection through IPO Pakistan.'
+	],
+	[
+		'How do I start a consultation?',
+		'Call or send a WhatsApp message on ' + site.phone + ', or submit the enquiry form on this page with a brief summary of the matter. An initial enquiry does not create an advocate-client relationship.'
+	],
+	[
+		'Does the practice handle matters outside Karachi?',
+		'The practice is based in ' + site.city + ' and appears before the courts and authorities of ' + site.region + '. Corporate, tax, trademark and advisory work is handled for clients across ' + site.country + ', including those operating through foreign entities.'
+	],
+	[
+		'What should I bring to a first consultation?',
+		'Any documents connected to the matter: agreements, notices, FIR or court papers, title or revenue records, tax notices, company filings, and correspondence with the other side. The available record usually determines the realistic options.'
+	],
+	[
+		'Can the outcome of a case be guaranteed?',
+		'No. Outcomes depend on the facts, the evidence and the court or authority deciding the matter. The practice provides representation and legal analysis, not assurances of a particular result.'
+	]
 ];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			'mainEntity': homeFaq.map(([question, answer]) => ({
+				'@type': 'Question',
+				name: question,
+				acceptedAnswer: { '@type': 'Answer', text: answer }
+			}))
+		}
+	]
+};
 ---
 
-<Layout>
+<Layout schema={schema}>
 	<div class="min-h-screen bg-[#f6f7f2] text-[#18231e] selection:bg-[#d5e767] selection:text-[#18231e]">
-		<header class="border-b border-[#dfe3d9] bg-[#f6f7f2]"><div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 lg:px-10"><a href="/" aria-label="Jahanzaib Legal Services home" class="flex items-center gap-3"><span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#163a2a] text-xl text-[#d5e767]">§</span><span class="text-sm font-bold leading-tight">Jahanzaib Legal Services <span class="block text-[10px] font-medium uppercase tracking-[0.15em] text-[#18231e]">Legal Practitioner & Corporate Consultant</span></span></a><nav class="hidden gap-7 text-sm font-semibold text-[#516058] lg:flex" aria-label="Main navigation"><a href="#practice-areas" class="hover:text-[#163a2a]">Practice Areas</a><a href="/blog" class="hover:text-[#163a2a]">Blog</a><a href="#contact" class="hover:text-[#163a2a]">Contact</a></nav><details class="relative lg:hidden"><summary class="list-none rounded-full border border-[#b8c3b6] px-4 py-2.5 text-sm font-bold text-[#163a2a]"><span aria-hidden="true">☰</span><span class="sr-only">Open navigation menu</span></summary><nav class="absolute right-0 top-full z-20 mt-2 grid min-w-48 gap-1 rounded-2xl border border-[#dfe3d9] bg-white p-2 text-sm font-semibold text-[#516058] shadow-xl" aria-label="Mobile navigation"><a href="#practice-areas" class="rounded-xl px-4 py-3 hover:bg-[#edf1e8] hover:text-[#163a2a]">Practice Areas</a><a href="/blog" class="mt-1 border-y border-[#dfe3d9] px-4 py-4 text-base font-bold text-[#163a2a] hover:bg-[#edf1e8]">Blog</a><a href="#contact" class="rounded-xl px-4 py-3 hover:bg-[#edf1e8] hover:text-[#163a2a]">Contact</a></nav></details><a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="whitespace-nowrap rounded-full bg-[#163a2a] px-4 py-2.5 text-sm font-bold text-white hover:-translate-y-0.5">WhatsApp <span aria-hidden="true">↗</span></a></div></header>
+		<SiteHeader current="home" />
 
 		<main id="main-content">
 			<section class="border-b border-[#dfe3d9] bg-[#edf1e8]">
 				<div class="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-10 lg:py-24">
 					<div>
-						<p class="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-slate-900">Karachi · Sindh · Pakistan</p>
+						<p class="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-slate-900">{site.city} · {site.region} · {site.country}</p>
 						<h1 class="text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-[#163a2a] sm:text-7xl lg:text-[6.5rem]">
 							Legal counsel for <span class="text-[#547000]">real stakes.</span>
 						</h1>
 						<p class="mt-8 max-w-2xl text-lg leading-8 text-slate-900">
-							Jahanzaib Legal Services provides comprehensive legal, corporate, tax, and litigation counsel for individuals, families, founders, and businesses across Karachi and Pakistan.
+							{site.name} provides comprehensive legal, corporate, tax, and litigation counsel for individuals, families, founders, and businesses across {site.city} and {site.country}.
 						</p>
 						<div class="mt-9 flex flex-wrap gap-4">
 							<a href="#contact" class="rounded-full bg-[#d5e767] px-6 py-3.5 text-sm font-bold text-[#163a2a]">
 								Discuss your matter ↗
 							</a>
 							<a href={phoneHref} class="rounded-full border border-[#b8c3b6] px-5 py-3.5 text-sm font-bold text-[#163a2a]">
-								Call Now: {phone}
+								Call Now: {site.phone}
 							</a>
 						</div>
 						<div class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-xs font-semibold text-slate-900">
-							<span class="text-slate-900">✓ Karachi-based counsel</span>
+							<span class="text-slate-900">✓ {site.city}-based counsel</span>
 							<span class="text-slate-900">✓ Confidential consultation</span>
-							<span class="text-slate-900">✓ Pakistan-wide support</span>
+							<span class="text-slate-900">✓ {site.country}-wide support</span>
 						</div>
 					</div>
 					<div class="rounded-[2rem] bg-[#163a2a] p-7 text-white shadow-xl shadow-[#163a2a]/15 sm:p-9">
@@ -49,16 +80,16 @@ const practiceAreas = [
 						<h2 class="mt-3 text-3xl font-semibold leading-tight">One trusted point of contact.</h2>
 						<div class="grid grid-cols-2 gap-8 pt-8">
 							<div>
-								<p class="text-3xl font-semibold text-[#d5e767]">6</p>
+								<p class="text-3xl font-semibold text-[#d5e767]">{services.length}</p>
 								<p class="text-xs text-[#bec9bf]">core practice areas</p>
 							</div>
 							<div>
 								<p class="text-3xl font-semibold text-[#d5e767]">360°</p>
-								<p class="text-xs text-[#bec9bf]">legal & corporate support</p>
+								<p class="text-xs text-[#bec9bf]">legal &amp; corporate support</p>
 							</div>
 							<div>
 								<p class="text-3xl font-semibold text-[#d5e767]">PK</p>
-								<p class="text-xs text-[#bec9bf]">Karachi-based, nationwide</p>
+								<p class="text-xs text-[#bec9bf]">{site.city}-based, nationwide</p>
 							</div>
 							<div>
 								<p class="text-3xl font-semibold text-[#d5e767]">1:1</p>
@@ -72,9 +103,112 @@ const practiceAreas = [
 				</div>
 			</section>
 
-			<section id="practice-areas" class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28"><div class="max-w-2xl"><p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Comprehensive legal portfolio</p><h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#163a2a] sm:text-5xl">Legal support that meets the whole picture.</h2><p class="mt-5 text-base leading-7 text-[#18231e]">Practical counsel grounded in the realities of Karachi, Sindh, and Pakistan.</p></div><div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">{practiceAreas.map((area, index) => <article class="flex flex-col rounded-3xl border border-[#dfe3d9] bg-white p-6 hover:-translate-y-1 hover:border-[#a9ba57] hover:shadow-lg"><div class="flex items-start justify-between"><span class="grid h-11 w-11 place-items-center rounded-2xl bg-[#e6f0d4] text-xl font-semibold text-[#547000]">{area[0]}</span><span class="text-xs font-bold text-[#18231e]">0{index + 1}</span></div><h3 class="mt-8 text-xl font-semibold leading-tight text-[#163a2a]">{area[1]}</h3><ul class="mt-6 space-y-3 border-t border-[#e5e8e1] pt-5">{(area[2] as any).map((service: any) => <li class="flex gap-2 text-sm leading-5 text-[#4e5b53]"><span class="text-[#789400]">+</span><span>{service}</span></li>)}</ul></article>)}</div></section>
+			<section id="practice-areas" class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
+				<div class="max-w-2xl">
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Comprehensive legal portfolio</p>
+					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#163a2a] sm:text-5xl">Legal support that meets the whole picture.</h2>
+					<p class="mt-5 text-base leading-7 text-[#18231e]">Practical counsel grounded in the realities of {site.city}, {site.region}, and {site.country}.</p>
+				</div>
+				<div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+					{services.map((service, index) => (
+						<article class="group flex flex-col rounded-3xl border border-[#dfe3d9] bg-white p-6 hover:-translate-y-1 hover:border-[#a9ba57] hover:shadow-lg">
+							<div class="flex items-start justify-between">
+								<span class="grid h-11 w-11 place-items-center rounded-2xl bg-[#e6f0d4] text-xl font-semibold text-[#547000]" aria-hidden="true">{service.icon}</span>
+								<span class="text-xs font-bold text-[#18231e]">0{index + 1}</span>
+							</div>
+							<h3 class="mt-8 text-xl font-semibold leading-tight text-[#163a2a]">
+								<a href={`/services/${service.slug}`} class="hover:text-[#547000]">{service.heading}</a>
+							</h3>
+							<ul class="mt-6 space-y-3 border-t border-[#e5e8e1] pt-5">
+								{service.offerings.slice(0, 4).map((offering) => (
+									<li class="flex gap-2 text-sm leading-5 text-[#4e5b53]"><span class="text-[#789400]">+</span><span>{offering}</span></li>
+								))}
+							</ul>
+							<a href={`/services/${service.slug}`} class="mt-6 text-sm font-bold text-[#547000] group-hover:text-[#163a2a]">
+								Learn more <span aria-hidden="true">↗</span>
+							</a>
+						</article>
+					))}
+				</div>
+				<a href="/services" class="mt-10 inline-flex rounded-full border border-[#b8c3b6] px-6 py-3.5 text-sm font-bold text-[#163a2a] hover:bg-white">
+					View all practice areas ↗
+				</a>
+			</section>
 
-			<section class="border-y border-[#dfe3d9] bg-[#163a2a] text-white"><div class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28"><p class="text-xs font-bold uppercase tracking-[0.2em] text-[#d5e767]">A steady legal partner</p><h2 class="mt-5 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Clarity before complexity.</h2><div class="mt-12 grid gap-8 md:grid-cols-3"><div><span class="text-sm font-bold text-[#d5e767]">01</span><h3 class="mt-5 text-lg font-semibold">Share the situation</h3><p class="mt-3 text-sm leading-6 text-[#b9c7bb]">Tell us what happened, what matters, and what outcome you need.</p></div><div><span class="text-sm font-bold text-[#d5e767]">02</span><h3 class="mt-5 text-lg font-semibold">Get a clear route</h3><p class="mt-3 text-sm leading-6 text-[#b9c7bb]">We identify the practical legal path, timelines, and next documents.</p></div><div><span class="text-sm font-bold text-[#d5e767]">03</span><h3 class="mt-5 text-lg font-semibold">Move with counsel</h3><p class="mt-3 text-sm leading-6 text-[#b9c7bb]">Get focused representation and support from first step to resolution.</p></div></div></div></section>
+			<section class="border-y border-[#dfe3d9] bg-[#163a2a] text-white">
+				<div class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#d5e767]">A steady legal partner</p>
+					<h2 class="mt-5 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Clarity before complexity.</h2>
+					<div class="mt-12 grid gap-8 md:grid-cols-3">
+						<div>
+							<span class="text-sm font-bold text-[#d5e767]">01</span>
+							<h3 class="mt-5 text-lg font-semibold">Share the situation</h3>
+							<p class="mt-3 text-sm leading-6 text-[#b9c7bb]">Tell us what happened, what matters, and what outcome you need.</p>
+						</div>
+						<div>
+							<span class="text-sm font-bold text-[#d5e767]">02</span>
+							<h3 class="mt-5 text-lg font-semibold">Get a clear route</h3>
+							<p class="mt-3 text-sm leading-6 text-[#b9c7bb]">We identify the practical legal path, timelines, and next documents.</p>
+						</div>
+						<div>
+							<span class="text-sm font-bold text-[#d5e767]">03</span>
+							<h3 class="mt-5 text-lg font-semibold">Move with counsel</h3>
+							<p class="mt-3 text-sm leading-6 text-[#b9c7bb]">Get focused representation and support from first step to resolution.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-24">
+				<div class="flex flex-wrap items-end justify-between gap-6">
+					<div class="max-w-2xl">
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Legal insights</p>
+						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#163a2a] sm:text-5xl">Guidance on the questions clients ask most.</h2>
+					</div>
+					<a href="/blog" class="rounded-full border border-[#b8c3b6] px-5 py-3.5 text-sm font-bold text-[#163a2a] hover:bg-white">All articles ↗</a>
+				</div>
+				<div class="mt-12 grid gap-5 md:grid-cols-3">
+					{latestPosts.map((post) => (
+						<article class="group flex flex-col rounded-3xl border border-[#dfe3d9] bg-white p-6 hover:-translate-y-1 hover:shadow-lg">
+							<div class="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#789400]">
+								<span>{post.label}</span>
+								<time datetime={post.date} class="font-medium tracking-normal text-[#18231e]">{post.date}</time>
+							</div>
+							<h3 class="mt-6 text-xl font-semibold leading-tight tracking-[-0.03em] text-[#163a2a]">
+								<a href={`/blog/${post.slug}`} class="hover:text-[#547000]">{post.title}</a>
+							</h3>
+							<p class="mt-4 text-sm leading-6 text-[#4e5b53]">{post.description}</p>
+							<div class="mt-6 flex items-center justify-between border-t border-[#e5e8e1] pt-5 text-sm">
+								<span class="text-[#18231e]">{post.readingTime}</span>
+								<a href={`/blog/${post.slug}`} class="font-bold text-[#547000] group-hover:text-[#163a2a]">Read article <span aria-hidden="true">↗</span></a>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section id="faq" class="border-y border-[#dfe3d9] bg-white">
+				<div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-24">
+					<div>
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Frequently asked questions</p>
+						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#163a2a] sm:text-5xl">Before you get in touch.</h2>
+						<p class="mt-5 max-w-sm text-base leading-7 text-[#4e5b53]">
+							If your question is not covered here, ask it directly on a call or by WhatsApp.
+						</p>
+						<a href="/about" class="mt-7 inline-flex text-sm font-bold text-[#547000]">About the practice ↗</a>
+					</div>
+					<div class="space-y-4">
+						{homeFaq.map(([question, answer]) => (
+							<details class="group rounded-2xl border border-[#dfe3d9] bg-[#fbfcf9] p-5">
+								<summary class="cursor-pointer list-none pr-6 text-base font-semibold text-[#163a2a] marker:hidden">
+									{question}<span class="float-right text-[#789400] group-open:rotate-45">+</span>
+								</summary>
+								<p class="mt-4 text-sm leading-7 text-[#4e5b53]">{answer}</p>
+							</details>
+						))}
+					</div>
+				</div>
+			</section>
 
 			<section id="contact" class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.75fr_1.25fr] lg:px-10 lg:py-28">
 				<div>
@@ -83,20 +217,20 @@ const practiceAreas = [
 					<p class="mt-5 max-w-sm text-base leading-7 text-[#18231e]">Share a few details for an initial enquiry. Your information is treated with professional confidentiality.</p>
 					<div class="mt-9 space-y-5 text-sm text-[#4e5b53]">
 						<a href={phoneHref} class="flex items-center gap-3 hover:text-[#163a2a]">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]">☎</span>
-							{phone}
+							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]" aria-hidden="true">☎</span>
+							{site.phone}
 						</a>
 						<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-[#163a2a]">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]">◉</span>
+							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]" aria-hidden="true">◉</span>
 							WhatsApp consultation
 						</a>
-						<a href={`mailto:${email}`} class="flex items-center gap-3 hover:text-[#163a2a]">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]">@</span>
-							{email}
+						<a href={mailHref} class="flex items-center gap-3 hover:text-[#163a2a]">
+							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]" aria-hidden="true">@</span>
+							{site.email}
 						</a>
 						<span class="flex items-center gap-3">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]">⌂</span>
-							Karachi, Sindh, Pakistan
+							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]" aria-hidden="true">⌂</span>
+							{site.city}, {site.region}, {site.country}
 						</span>
 					</div>
 				</div>
@@ -108,7 +242,7 @@ const practiceAreas = [
 						</label>
 						<label class="text-sm font-semibold text-[#35453b]">
 							Phone Number (WhatsApp)
-							<input required name="phone" type="tel" placeholder={phone} class="mt-2 w-full rounded-xl border border-[#d5dbd2] bg-[#fbfcf9] px-4 py-3 text-sm font-normal outline-none focus:border-[#789400]" />
+							<input required name="phone" type="tel" placeholder={site.phone} class="mt-2 w-full rounded-xl border border-[#d5dbd2] bg-[#fbfcf9] px-4 py-3 text-sm font-normal outline-none focus:border-[#789400]" />
 						</label>
 						<label class="text-sm font-semibold text-[#35453b]">
 							Email
@@ -126,12 +260,7 @@ const practiceAreas = [
 							Service Required
 							<select required name="service" class="mt-2 w-full rounded-xl border border-[#d5dbd2] bg-[#fbfcf9] px-4 py-3 text-sm font-normal outline-none focus:border-[#789400]">
 								<option value="">Choose a service</option>
-								<option>Litigation [Civil/Criminal/Family]</option>
-								<option>Real Estate & SBCA</option>
-								<option>SECP Setup</option>
-								<option>WeBOC Import/Export</option>
-								<option>Tax Filing [FBR/LLC]</option>
-								<option>IPO Trademark</option>
+								{services.map((service) => <option>{service.label}</option>)}
 							</select>
 						</label>
 						<label class="text-sm font-semibold text-[#35453b] sm:col-span-2">
@@ -147,18 +276,26 @@ const practiceAreas = [
 					</p>
 				</form>
 			</section>
-			<section class="border-t border-[#dfe3d9] bg-[#fbfcf9] px-5 py-10 lg:px-10"><div class="mx-auto max-w-7xl"><p class="text-sm leading-6 text-[#18231e]">Jahanzaib Legal Practice is a Karachi-based legal practice serving clients in Karachi and across Pakistan. Website information is general information only, not legal advice, and does not create an advocate-client relationship. Results are not guaranteed.</p><a href="/privacy" class="mt-3 inline-flex text-sm font-bold text-[#547000]">Read our Privacy Policy</a></div></section>
+
+			<section class="border-t border-[#dfe3d9] bg-[#fbfcf9] px-5 py-10 lg:px-10">
+				<div class="mx-auto max-w-7xl">
+					<p class="text-sm leading-6 text-[#18231e]">
+						{site.name} is a {site.city}-based legal practice serving clients in {site.city} and across {site.country}. Website information is general information only, not legal advice, and does not create an advocate-client relationship. Results are not guaranteed.
+					</p>
+					<a href="/privacy" class="mt-3 inline-flex text-sm font-bold text-[#547000]">Read our Privacy Policy</a>
+				</div>
+			</section>
 		</main>
 
-		<footer class="border-t border-[#dfe3d9] bg-[#edf1e8]"><div class="mx-auto max-w-7xl px-5 py-12 lg:px-10"><div class="grid gap-10 lg:grid-cols-[1fr_1.3fr]"><div><a href="/" class="flex items-center gap-3 text-sm font-bold text-[#163a2a]"><span class="grid h-9 w-9 place-items-center rounded-full bg-[#163a2a] text-lg text-[#d5e767]">§</span>Jahanzaib Legal Services</a><p class="mt-4 max-w-sm text-sm leading-6 text-[#18231e]">Legal Practitioner & Corporate Consultant in Karachi, Sindh, Pakistan.</p><p class="mt-3 text-sm font-semibold text-[#4e5b53]">Address: Karachi, Sindh, Pakistan</p><p class="mt-2 text-sm text-[#18231e]"><a href={phoneHref} class="hover:text-[#163a2a]">{phone}</a> · <a href={`mailto:${email}`} class="hover:text-[#163a2a]">{email}</a></p></div><div class="grid gap-8 text-sm sm:grid-cols-3"><div><p class="font-bold text-[#163a2a]">Legal services</p><p class="mt-3 leading-6 text-[#18231e]">Civil, Criminal and Family Law Services in Karachi · Civil Lawyer Karachi · Criminal Defense Advocate Pakistan · Family Lawyer Karachi</p></div><div><p class="font-bold text-[#163a2a]">Corporate & tax</p><p class="mt-3 leading-6 text-[#18231e]">SECP Company Setup Karachi · WeBOC Registration Consultant · US LLC Tax Filing Pakistan · FBR Tax Services</p></div><div><p class="font-bold text-[#163a2a]">Property & IP</p><p class="mt-3 leading-6 text-[#18231e]">Property & SBCA Lawyer Karachi · Real Estate Law · IPO Pakistan Trademark · Legal support across Pakistan</p></div></div></div><div class="mt-10 border-t border-[#d5ddd3] pt-6 text-xs leading-6 text-[#18231e]"><p><strong class="text-[#4e5b53]">Legal Disclaimer:</strong> Website information is general information only and is not legal advice. Every matter is fact-specific. Contacting this office or submitting an enquiry does not create an advocate-client relationship until formally agreed in writing. Results are not guaranteed.</p><p class="mt-3">© 2026 Jahanzaib Legal Services. All rights reserved. Karachi, Sindh, Pakistan.</p></div></div></footer>
+		<SiteFooter />
 	</div>
 
-	<script define:vars={{ email }}>
+	<script define:vars={{ email: site.email }}>
 		const form = document.getElementById('contact-form');
 		if (form) {
 			form.addEventListener('submit', (event) => {
 				event.preventDefault();
-				
+
 				const formData = new FormData(form);
 				const fullName = formData.get('full-name');
 				const phone = formData.get('phone');
@@ -166,9 +303,10 @@ const practiceAreas = [
 				const city = formData.get('city');
 				const service = formData.get('service');
 				const caseDetails = formData.get('case-details');
-				
+
 				const subject = `Consultation Inquiry: ${service} - ${fullName}`;
-				const body = `New Consultation Inquiry:\n\n` +
+				const body =
+					`New Consultation Inquiry:\n\n` +
 					`- Full Name: ${fullName}\n` +
 					`- Phone Number (WhatsApp): ${phone}\n` +
 					`- Email: ${emailVal}\n` +
@@ -176,12 +314,10 @@ const practiceAreas = [
 					`- Service Required: ${service}\n\n` +
 					`Brief Case Details:\n` +
 					`${caseDetails}`;
-				
+
 				const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 				window.location.href = mailtoUrl;
 			});
 		}
 	</script>
 </Layout>
-
-	

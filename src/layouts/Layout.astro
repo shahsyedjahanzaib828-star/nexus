@@ -1,122 +1,134 @@
 ---
 import '../styles/global.css';
+import { site } from '../data/site';
+import { services } from '../data/services';
 
-const title = 'Jahanzaib Legal Services | Civil, Criminal, Family and Corporate Law in Karachi';
-const description = 'Jahanzaib Legal Practice provides civil, criminal, family and corporate legal services in Karachi, including litigation, SECP registration, tax compliance, property law and trademarks.';
-const siteUrl = 'https://nexus-alpha-ten-66.vercel.app';
+const title = 'Lawyer in Karachi | Civil, Criminal, Family & Corporate Law';
+const description = `${site.city} legal practice for civil, criminal and family litigation, SECP company registration, FBR tax filing, property matters and trademark protection.`;
+const siteUrl = site.url;
 const serviceCities = ['Karachi', 'Hyderabad', 'Sukkur', 'Lahore', 'Islamabad', 'Rawalpindi', 'Faisalabad', 'Multan', 'Gujranwala', 'Sialkot', 'Bahawalpur', 'Peshawar', 'Quetta', 'Abbottabad', 'Muzaffarabad', 'Gilgit'];
 
+// LegalService is a subtype of LocalBusiness, so a single node carries the local
+// signals instead of splitting them across competing entities.
 const legalServiceSchema = {
 	'@type': 'LegalService',
 	'@id': `${siteUrl}/#legal-service`,
-	'name': 'Jahanzaib Legal Services',
-	'alternateName': 'Jahanzaib Legal Practice | Legal Practitioner & Corporate Consultant',
+	'name': site.name,
+	'alternateName': `${site.name} | ${site.tagline}`,
 	'description': description,
 	'url': `${siteUrl}/`,
-	'telephone': '+923343108863',
-	'email': 'shahsyedjahanzaib828@gmail.com',
+	'telephone': '+92' + site.phone.slice(1),
+	'email': site.email,
 	'currenciesAccepted': 'PKR',
 	'paymentAccepted': 'Cash, Bank Transfer',
 	'areaServed': [
 		...serviceCities.map((name) => ({ '@type': 'City', name })),
-		{ '@type': 'State', name: 'Sindh' },
-		{ '@type': 'Country', name: 'Pakistan' }
+		{ '@type': 'State', name: site.region },
+		{ '@type': 'Country', name: site.country }
 	],
 	'address': {
 		'@type': 'PostalAddress',
-		'addressLocality': 'Karachi',
-		'addressRegion': 'Sindh',
+		'addressLocality': site.city,
+		'addressRegion': site.region,
 		'addressCountry': 'PK'
 	},
-	'serviceType': ['SECP Company Registration', 'FBR Tax Compliance', 'IPO Trademark', 'WeBOC Registration', 'Civil Litigation', 'Corporate Litigation'],
+	'geo': { '@type': 'GeoCoordinates', latitude: 24.8607, longitude: 67.0011 },
+	'serviceType': services.map((service) => service.label),
 	'priceRange': '$$',
-	'knowsAbout': ['Civil Litigation', 'Criminal Defense', 'Family Law', 'Corporate Law', 'Tax Filing', 'Real Estate Law', 'Trademark Registration']
+	'knowsAbout': ['Civil Litigation', 'Criminal Defense', 'Family Law', 'Corporate Law', 'Tax Filing', 'Real Estate Law', 'Trademark Registration'],
+	'hasOfferCatalog': {
+		'@type': 'OfferCatalog',
+		'name': 'Legal and corporate services',
+		'itemListElement': services.map((service) => ({
+			'@type': 'Offer',
+			itemOffered: { '@type': 'Service', name: service.heading, url: `${siteUrl}/services/${service.slug}` }
+		}))
+	}
 };
 
 const websiteSchema = {
 	'@type': 'WebSite',
 	'@id': `${siteUrl}/#website`,
 	'url': `${siteUrl}/`,
-	'name': 'Jahanzaib Legal Practice',
-	'publisher': { '@id': `${siteUrl}/#legal-service` },
-	'potentialAction': {
-		'@type': 'SearchAction',
-		'target': `${siteUrl}/blog?q={search_term_string}`,
-		'query-input': 'required name=search_term_string'
-	}
-};
-
-const localBusinessSchema = {
-	'@type': 'LocalBusiness',
-	'@id': `${siteUrl}/#local-business`,
-	'name': 'Jahanzaib Legal Services',
-	'url': `${siteUrl}/`,
-	'telephone': '+923343108863',
-	'email': 'shahsyedjahanzaib828@gmail.com',
-	'address': legalServiceSchema.address,
-	'areaServed': legalServiceSchema.areaServed,
-	'hasOfferCatalog': {
-		'@type': 'OfferCatalog',
-		'name': 'Legal and corporate services',
-		'itemListElement': legalServiceSchema.serviceType.map((service) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: service } }))
-	}
+	'name': site.name,
+	'inLanguage': 'en-PK',
+	'publisher': { '@id': `${siteUrl}/#legal-service` }
 };
 
 const professionalProfileSchema = {
 	'@type': 'Person',
 	'@id': `${siteUrl}/#professional`,
 	'name': 'Jahanzaib',
-	'jobTitle': 'Legal Practitioner & Corporate Consultant',
-	'url': `${siteUrl}/`,
+	'jobTitle': site.tagline,
+	'url': `${siteUrl}/about`,
 	'worksFor': { '@id': `${siteUrl}/#legal-service` },
-	'areaServed': { '@type': 'Country', name: 'Pakistan' }
+	'areaServed': { '@type': 'Country', name: site.country }
 };
 
-const breadcrumbSchema = {
-	'@type': 'BreadcrumbList',
-	'itemListElement': [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` }]
-};
+const {
+	title: pageTitle = title,
+	description: pageDescription = description,
+	canonical,
+	schema = {},
+	type = 'website',
+	ogImage = '/og/home.png',
+	ogImageAlt = `${site.name} in ${site.city}`,
+	breadcrumbs
+} = Astro.props;
 
-const { title: pageTitle = title, description: pageDescription = description, canonical, schema = {}, type = 'website', ogImage = '/og/home.svg', ogImageAlt = 'Jahanzaib legal services in Karachi' } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage, siteUrl).href;
 const pageSchema = (Array.isArray(schema?.['@graph']) ? schema['@graph'] : [schema]).map(({ '@context': _context, ...entry }) => entry);
+
+const crumbTrail = breadcrumbs ?? [{ name: 'Home', href: '/' }];
+const breadcrumbSchema = {
+	'@type': 'BreadcrumbList',
+	'@id': `${canonicalUrl}#breadcrumb`,
+	'itemListElement': crumbTrail.map((crumb: { name: string; href: string }, index: number) => ({
+		'@type': 'ListItem',
+		position: index + 1,
+		name: crumb.name,
+		item: new URL(crumb.href, siteUrl).href
+	}))
+};
+
 const schemaGraph = {
 	'@context': 'https://schema.org',
-	'@graph': [legalServiceSchema, localBusinessSchema, professionalProfileSchema, websiteSchema, { ...breadcrumbSchema, itemListElement: [{ ...breadcrumbSchema.itemListElement[0] }, ...(canonicalUrl !== `${siteUrl}/` ? [{ '@type': 'ListItem', position: 2, name: pageTitle, item: canonicalUrl }] : [])] }, ...pageSchema.filter((entry) => Object.keys(entry).length > 0)]
+	'@graph': [
+		legalServiceSchema,
+		professionalProfileSchema,
+		websiteSchema,
+		breadcrumbSchema,
+		...pageSchema.filter((entry) => Object.keys(entry).length > 0)
+	]
 };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-PK">
 	<head>
-		<meta name="google-site-verification" content="eXruG7GBHJZ1TEA6gMB9KzhHXPKocTf_JW8fPKEybIw" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="google-site-verification" content="eXruG7GBHJZ1TEA6gMB9KzhHXPKocTf_JW8fPKEybIw" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={pageDescription} />
-		<meta name="robots" content="index, follow, max-image-preview:large" />
-		<meta name="keywords" content="Civil, Criminal and Family Law Services in Karachi, Civil Lawyer Karachi, Criminal Defense Advocate Pakistan, Family Lawyer Karachi, WeBOC Registration Consultant, SECP Company Setup Karachi, US LLC Tax Filing Pakistan, Property & SBCA Lawyer Karachi" />
-		<meta name="author" content="Jahanzaib Legal Services" />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="author" content={site.name} />
 		<link rel="canonical" href={canonicalUrl} />
-		<link rel="alternate" hreflang="en-PK" href={canonicalUrl} />
-		<link rel="alternate" hreflang="ur-PK" href={canonicalUrl} />
-		<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
-		<meta property="og:site_name" content="Jahanzaib Legal Services" />
+		<meta property="og:site_name" content={site.name} />
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:description" content={pageDescription} />
 		<meta property="og:type" content={type} />
 		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:image" content={ogImageUrl} />
 		<meta property="og:image:secure_url" content={ogImageUrl} />
-		<meta property="og:image:type" content="image/svg+xml" />
+		<meta property="og:image:type" content="image/png" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content={ogImageAlt} />
 		<meta property="og:locale" content="en_PK" />
-		<meta property="og:locale:alternate" content="ur_PK" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={pageDescription} />

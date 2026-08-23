@@ -1,0 +1,49 @@
+---
+import { site, whatsappHref } from '../data/site';
+import { services } from '../data/services';
+
+const { current } = Astro.props as { current?: 'home' | 'services' | 'blog' | 'about' };
+
+const links = [
+	{ href: '/services', label: 'Practice Areas', key: 'services' },
+	{ href: '/about', label: 'About', key: 'about' },
+	{ href: '/blog', label: 'Blog', key: 'blog' }
+];
+const linkClass = (key: string) => (current === key ? 'text-[#547000]' : 'hover:text-[#163a2a]');
+---
+
+<header class="border-b border-[#dfe3d9] bg-[#f6f7f2]">
+	<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 lg:px-10">
+		<a href="/" aria-label={`${site.name} home`} class="flex items-center gap-3">
+			<span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#163a2a] text-xl text-[#d5e767]">§</span>
+			<span class="text-sm font-bold leading-tight">{site.name}
+				<span class="block text-[10px] font-medium uppercase tracking-[0.15em] text-[#18231e]">{site.tagline}</span>
+			</span>
+		</a>
+
+		<nav class="hidden items-center gap-7 text-sm font-semibold text-[#516058] lg:flex" aria-label="Main navigation">
+			{current !== 'home' && <a href="/" class="hover:text-[#163a2a]">Home</a>}
+			{links.map((link) => <a href={link.href} class={linkClass(link.key)}>{link.label}</a>)}
+			<a href="/#contact" class="hover:text-[#163a2a]">Contact</a>
+		</nav>
+
+		<details class="relative lg:hidden">
+			<summary class="list-none rounded-full border border-[#b8c3b6] px-4 py-2.5 text-sm font-bold text-[#163a2a]">
+				<span aria-hidden="true">☰</span><span class="sr-only">Open navigation menu</span>
+			</summary>
+			<nav class="absolute right-0 top-full z-20 mt-2 grid min-w-64 gap-1 rounded-2xl border border-[#dfe3d9] bg-white p-2 text-sm font-semibold text-[#516058] shadow-xl" aria-label="Mobile navigation">
+				<a href="/" class="rounded-xl px-4 py-3 hover:bg-[#edf1e8] hover:text-[#163a2a]">Home</a>
+				{services.map((service) => (
+					<a href={`/services/${service.slug}`} class="rounded-xl px-4 py-3 hover:bg-[#edf1e8] hover:text-[#163a2a]">{service.label}</a>
+				))}
+				<a href="/about" class="rounded-xl px-4 py-3 hover:bg-[#edf1e8] hover:text-[#163a2a]">About</a>
+				<a href="/blog" class="rounded-xl px-4 py-3 hover:bg-[#edf1e8] hover:text-[#163a2a]">Blog</a>
+				<a href="/#contact" class="rounded-xl px-4 py-3 hover:bg-[#edf1e8] hover:text-[#163a2a]">Contact</a>
+			</nav>
+		</details>
+
+		<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="whitespace-nowrap rounded-full bg-[#163a2a] px-4 py-2.5 text-sm font-bold text-white hover:-translate-y-0.5">
+			WhatsApp <span aria-hidden="true">↗</span>
+		</a>
+	</div>
+</header>

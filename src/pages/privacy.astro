@@ -1,26 +1,61 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { site, mailHref } from '../data/site';
 
-const title = 'Privacy Policy | Jahanzaib Legal Services';
-const description = 'Privacy policy for visitors and enquiry submissions to Jahanzaib Legal Practice.';
-const siteUrl = 'https://nexus-alpha-ten-66.vercel.app';
+const title = `Privacy Policy | ${site.name}`;
+const description = `Privacy policy explaining how ${site.name} handles enquiries and information submitted through this website.`;
+const canonical = `${site.url}/privacy`;
+
+const breadcrumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Privacy Policy', href: '/privacy' }
+];
 ---
 
-<Layout title={title} description={description} canonical={`${siteUrl}/privacy`}>
-	<main id="main-content" class="min-h-screen bg-[#f6f7f2] px-5 py-16 text-[#18231e] lg:px-10 lg:py-24">
-		<article class="mx-auto max-w-3xl">
-			<a href="/" class="text-sm font-bold text-[#547000]">← Back to home</a>
-			<p class="mt-10 text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Privacy and information handling</p>
-			<h1 class="mt-4 text-4xl font-semibold leading-tight text-[#163a2a] sm:text-5xl">Privacy Policy</h1>
-			<p class="mt-6 text-base leading-7 text-[#18231e]">This policy explains how Jahanzaib Legal Practice handles information submitted through this website. It is general website information and does not create an advocate-client relationship.</p>
-			<div class="mt-12 space-y-10 text-base leading-7 text-[#4e5b53]">
-				<section><h2 class="text-2xl font-semibold text-[#163a2a]">Information you provide</h2><p class="mt-3">If you use the enquiry form or contact the practice, you may provide your name, phone number, email address, city, service interest, and case summary. Please do not send highly sensitive documents or confidential facts until a consultation and engagement process has been agreed.</p></section>
-				<section><h2 class="text-2xl font-semibold text-[#163a2a]">How information is used</h2><p class="mt-3">Information is used to respond to enquiries, assess requested services, arrange communication, maintain basic business records, and comply with legal or professional obligations. It is not sold for advertising.</p></section>
-				<section><h2 class="text-2xl font-semibold text-[#163a2a]">Email and third-party services</h2><p class="mt-3">The enquiry form uses your email application to send a message. WhatsApp links open a third-party service governed by its own privacy terms. Website hosting and delivery may also involve service providers that process technical request data.</p></section>
-				<section><h2 class="text-2xl font-semibold text-[#163a2a]">Retention and security</h2><p class="mt-3">Information is retained only as reasonably necessary for the purpose for which it was provided, legal obligations, dispute prevention, or professional record keeping. No online transmission can be guaranteed completely secure.</p></section>
-				<section><h2 class="text-2xl font-semibold text-[#163a2a]">Your questions</h2><p class="mt-3">For privacy questions or to request clarification about an enquiry, contact <a class="font-semibold text-[#547000]" href="mailto:shahsyedjahanzaib828@gmail.com">shahsyedjahanzaib828@gmail.com</a>.</p></section>
-			</div>
-			<p class="mt-12 border-t border-[#dfe3d9] pt-6 text-sm leading-6 text-[#18231e]">Last updated: 20 August 2026. This policy may be updated when the website, services, or applicable requirements change.</p>
-		</article>
-	</main>
+<Layout title={title} description={description} canonical={canonical} breadcrumbs={breadcrumbs}>
+	<div class="min-h-screen bg-[#f6f7f2] text-[#18231e]">
+		<SiteHeader />
+
+		<main id="main-content" class="px-5 py-16 lg:px-10 lg:py-24">
+			<article class="mx-auto max-w-3xl">
+				<nav aria-label="Breadcrumb">
+					<ol class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#487157]">
+						<li><a href="/" class="hover:text-[#163a2a]">Home</a></li>
+						<li aria-hidden="true">/</li>
+						<li class="text-[#68736b]">Privacy Policy</li>
+					</ol>
+				</nav>
+				<p class="mt-10 text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Privacy and information handling</p>
+				<h1 class="mt-4 text-4xl font-semibold leading-tight text-[#163a2a] sm:text-5xl">Privacy Policy</h1>
+				<p class="mt-6 text-base leading-7 text-[#18231e]">This policy explains how {site.name} handles information submitted through this website. It is general website information and does not create an advocate-client relationship.</p>
+				<div class="mt-12 space-y-10 text-base leading-7 text-[#4e5b53]">
+					<section>
+						<h2 class="text-2xl font-semibold text-[#163a2a]">Information you provide</h2>
+						<p class="mt-3">If you use the enquiry form or contact the practice, you may provide your name, phone number, email address, city, service interest, and case summary. Please do not send highly sensitive documents or confidential facts until a consultation and engagement process has been agreed.</p>
+					</section>
+					<section>
+						<h2 class="text-2xl font-semibold text-[#163a2a]">How information is used</h2>
+						<p class="mt-3">Information is used to respond to enquiries, assess requested services, arrange communication, maintain basic business records, and comply with legal or professional obligations. It is not sold for advertising.</p>
+					</section>
+					<section>
+						<h2 class="text-2xl font-semibold text-[#163a2a]">Email and third-party services</h2>
+						<p class="mt-3">The enquiry form uses your email application to send a message. WhatsApp links open a third-party service governed by its own privacy terms. Website hosting and delivery may also involve service providers that process technical request data.</p>
+					</section>
+					<section>
+						<h2 class="text-2xl font-semibold text-[#163a2a]">Retention and security</h2>
+						<p class="mt-3">Information is retained only as reasonably necessary for the purpose for which it was provided, legal obligations, dispute prevention, or professional record keeping. No online transmission can be guaranteed completely secure.</p>
+					</section>
+					<section>
+						<h2 class="text-2xl font-semibold text-[#163a2a]">Your questions</h2>
+						<p class="mt-3">For privacy questions or to request clarification about an enquiry, contact <a class="font-semibold text-[#547000]" href={mailHref}>{site.email}</a>.</p>
+					</section>
+				</div>
+				<p class="mt-12 border-t border-[#dfe3d9] pt-6 text-sm leading-6 text-[#18231e]">Last updated: 20 August 2026. This policy may be updated when the website, services, or applicable requirements change.</p>
+			</article>
+		</main>
+
+		<SiteFooter />
+	</div>
 </Layout>
