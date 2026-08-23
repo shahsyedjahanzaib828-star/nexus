@@ -55,7 +55,7 @@ const schema = {
 ---
 
 <Layout schema={schema}>
-	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#f45a27] selection:text-[#252424]">
+	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#a83009] selection:text-white">
 		<SiteHeader current="home" />
 
 		<main id="main-content">
@@ -64,13 +64,13 @@ const schema = {
 					<div>
 						<p class="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-slate-900">{site.city} · {site.region} · {site.country}</p>
 						<h1 class="text-[2.4rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#0c0c0c] sm:text-6xl lg:text-[6.5rem]">
-							Legal counsel for <span class="text-[#f45a27]">real stakes.</span>
+							Legal counsel for <span class="text-[#a83009]">real stakes.</span>
 						</h1>
 						<p class="mt-8 max-w-2xl text-lg leading-8 text-slate-900">
 							{site.name} provides comprehensive legal, corporate, tax, and litigation counsel for individuals, families, founders, and businesses across {site.city} and {site.country}.
 						</p>
 						<div class="mt-9 flex flex-wrap gap-4">
-							<a href="#contact" class="rounded-full bg-[#f45a27] px-6 py-3.5 text-sm font-bold text-white">
+							<a href="#contact" class="rounded-full bg-[#a83009] px-6 py-3.5 text-sm font-bold text-white">
 								Discuss your matter ↗
 							</a>
 							<a href={phoneHref} class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">
@@ -116,23 +116,23 @@ const schema = {
 
 			<section class="border-b border-[#e9e6e2] bg-white">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Find the support that fits</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Find the support that fits</p>
 					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Choose how you want to start.</h2>
 					<div class="mt-10 grid gap-4 md:grid-cols-3">
 						<article class="flex flex-col rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
-							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">01 · Consultation</p>
+							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">01 · Consultation</p>
 							<h3 class="mt-4 text-xl font-semibold text-[#0c0c0c]">Discuss a matter</h3>
 							<p class="mt-3 flex-1 text-sm leading-6 text-[#696764]">Share the facts, documents and deadline. An initial enquiry does not create an advocate-client relationship.</p>
 							<a href="#contact" class="mt-6 text-sm font-bold text-[#a83009]">Go to the enquiry form ↗</a>
 						</article>
 						<article class="flex flex-col rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
-							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">02 · Practice areas</p>
+							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">02 · Practice areas</p>
 							<h3 class="mt-4 text-xl font-semibold text-[#0c0c0c]">Read the service pages</h3>
 							<p class="mt-3 flex-1 text-sm leading-6 text-[#696764]">Litigation, property, company setup, tax, WeBOC and trademarks each have a dedicated page of what the work involves.</p>
 							<a href="/services" class="mt-6 text-sm font-bold text-[#a83009]">Browse practice areas ↗</a>
 						</article>
 						<article class="flex flex-col rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
-							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">03 · Legal insights</p>
+							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">03 · Legal insights</p>
 							<h3 class="mt-4 text-xl font-semibold text-[#0c0c0c]">Review a written guide</h3>
 							<p class="mt-3 flex-1 text-sm leading-6 text-[#696764]">Articles on bail, khula, FBR filing, SECP structure and property due diligence, written for {site.city} clients.</p>
 							<a href="/blog" class="mt-6 text-sm font-bold text-[#a83009]">Open the blog ↗</a>
@@ -143,7 +143,7 @@ const schema = {
 
 			<section id="practice-areas" class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
 				<div class="max-w-2xl">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Comprehensive legal portfolio</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Comprehensive legal portfolio</p>
 					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Legal support that meets the whole picture.</h2>
 					<p class="mt-5 text-base leading-7 text-[#252424]">Practical counsel grounded in the realities of {site.city}, {site.region}, and {site.country}.</p>
 				</div>
@@ -159,7 +159,7 @@ const schema = {
 							</h3>
 							<ul class="mt-6 space-y-3 border-t border-[#e9e6e2] pt-5">
 								{service.offerings.slice(0, 4).map((offering) => (
-									<li class="flex gap-2 text-sm leading-5 text-[#696764]"><span class="text-[#ec440c]">+</span><span>{offering}</span></li>
+									<li class="flex gap-2 text-sm leading-5 text-[#696764]"><span class="text-[#a83009]">+</span><span>{offering}</span></li>
 								))}
 							</ul>
 							<a href={`/services/${service.slug}`} class="mt-6 text-sm font-bold text-[#a83009] group-hover:text-[#0c0c0c]">
@@ -175,7 +175,7 @@ const schema = {
 
 			<section class="border-y border-[#e9e6e2] bg-white">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Before a filing is prepared</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Before a filing is prepared</p>
 					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Three reasons the record comes first.</h2>
 					<div class="mt-10 grid gap-4 md:grid-cols-3">
 						<article class="rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
@@ -220,7 +220,7 @@ const schema = {
 
 			<section class="border-b border-[#e9e6e2] bg-[#f5f2ee]">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">How a consultation is handled</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">How a consultation is handled</p>
 					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Direct access, a written assessment, and fees before engagement.</h2>
 					<div class="mt-10 grid gap-4 md:grid-cols-3">
 						<article class="rounded-3xl bg-white p-6">
@@ -237,7 +237,7 @@ const schema = {
 						</article>
 					</div>
 					<div class="mt-8 rounded-3xl border border-[#e9e6e2] bg-white p-6 sm:p-8">
-						<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">How this practice treats enquiries</p>
+						<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">How this practice treats enquiries</p>
 						<p class="mt-3 max-w-3xl text-sm leading-7 text-[#696764]">Information sent through this website is treated as confidential. It is used to respond to the enquiry. It does not become privileged legal advice, and it does not create an advocate-client relationship, until engagement is confirmed in writing. If a filing is prepared through this practice and is rejected because of an error in that filing, the correction is taken up with the relevant authority as part of the agreed work.</p>
 					</div>
 				</div>
@@ -245,7 +245,7 @@ const schema = {
 
 			<section class="border-b border-[#e9e6e2] bg-white">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Where clients are based</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Where clients are based</p>
 					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Karachi chambers, work across Pakistan.</h2>
 					<p class="mt-5 max-w-3xl text-sm leading-7 text-[#696764]">Court appearances are in {site.city} and {site.region}. Corporate, tax, trademark and advisory work is handled for clients in these cities and elsewhere in {site.country}.</p>
 					<ul class="mt-8 flex flex-wrap gap-2">
@@ -259,7 +259,7 @@ const schema = {
 			<section class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-24">
 				<div class="flex flex-wrap items-end justify-between gap-6">
 					<div class="max-w-2xl">
-						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Legal insights</p>
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Legal insights</p>
 						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Guidance on the questions clients ask most.</h2>
 					</div>
 					<a href="/blog" class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c] hover:bg-white">All articles ↗</a>
@@ -267,7 +267,7 @@ const schema = {
 				<div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 					{latestPosts.map((post) => (
 						<article class="group flex flex-col rounded-3xl border border-[#e9e6e2] bg-white p-6 hover:-translate-y-1 hover:shadow-lg">
-							<div class="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">
+							<div class="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">
 								<span>{post.label}</span>
 								<time datetime={post.date} class="font-medium tracking-normal text-[#252424]">{post.date}</time>
 							</div>
@@ -287,7 +287,7 @@ const schema = {
 			<section id="faq" class="border-y border-[#e9e6e2] bg-white">
 				<div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-24">
 					<div>
-						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Frequently asked questions</p>
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Frequently asked questions</p>
 						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Before you get in touch.</h2>
 						<p class="mt-5 max-w-sm text-base leading-7 text-[#696764]">
 							If your question is not covered here, ask it directly on a call or by WhatsApp.
@@ -298,7 +298,7 @@ const schema = {
 						{homeFaq.map(([question, answer]) => (
 							<details class="group rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-5">
 								<summary class="cursor-pointer list-none pr-6 text-base font-semibold text-[#0c0c0c] marker:hidden">
-									{question}<span class="float-right text-[#ec440c] group-open:rotate-45">+</span>
+									{question}<span class="float-right text-[#a83009] group-open:rotate-45">+</span>
 								</summary>
 								<p class="mt-4 text-sm leading-7 text-[#696764]">{answer}</p>
 							</details>
@@ -309,7 +309,7 @@ const schema = {
 
 			<section id="contact" class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.75fr_1.25fr] lg:px-10 lg:py-28">
 				<div>
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Start with a conversation</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Start with a conversation</p>
 					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Tell us where you need counsel.</h2>
 					<p class="mt-5 max-w-sm text-base leading-7 text-[#252424]">Share a few details for an initial enquiry. Your information is treated with professional confidentiality.</p>
 					<div class="mt-9 space-y-5 text-sm text-[#696764]">
@@ -335,19 +335,19 @@ const schema = {
 					<div class="grid gap-5 sm:grid-cols-2">
 						<label class="text-sm font-semibold text-[#4a4947]">
 							Full Name
-							<input required name="full-name" type="text" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]" />
+							<input required name="full-name" type="text" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]" />
 						</label>
 						<label class="text-sm font-semibold text-[#4a4947]">
 							Phone Number (WhatsApp)
-							<input required name="phone" type="tel" placeholder={site.phone} class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]" />
+							<input required name="phone" type="tel" placeholder={site.phone} class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]" />
 						</label>
 						<label class="text-sm font-semibold text-[#4a4947]">
 							Email
-							<input required name="email" type="email" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]" />
+							<input required name="email" type="email" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]" />
 						</label>
 						<label class="text-sm font-semibold text-[#4a4947]">
 							City
-							<select required name="city" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]">
+							<select required name="city" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]">
 								<option value="">Select city</option>
 								<option>Karachi</option>
 								<option>Other</option>
@@ -355,14 +355,14 @@ const schema = {
 						</label>
 						<label class="text-sm font-semibold text-[#4a4947] sm:col-span-2">
 							Service Required
-							<select required name="service" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]">
+							<select required name="service" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]">
 								<option value="">Choose a service</option>
 								{services.map((service) => <option>{service.label}</option>)}
 							</select>
 						</label>
 						<label class="text-sm font-semibold text-[#4a4947] sm:col-span-2">
 							Brief Case Details
-							<textarea required name="case-details" rows="4" class="mt-2 w-full resize-y rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]"></textarea>
+							<textarea required name="case-details" rows="4" class="mt-2 w-full resize-y rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"></textarea>
 						</label>
 					</div>
 					<button type="submit" class="mt-6 w-full rounded-full bg-[#0c0c0c] px-6 py-3.5 text-sm font-bold text-white">

@@ -14,6 +14,7 @@
 	--color-brand-400: #f67b52;
 	--color-brand-500: #f45a27;
 	--color-brand-600: #ec440c;
+	/* AA-safe on cream/white and as a white-text button fill. */
 	--color-brand-700: #a83009;
 	--color-brand-800: #651d05;
 	--color-brand-900: #220a02;
@@ -93,7 +94,7 @@ h2 {
 	z-index: 50;
 	transform: translateY(-200%);
 	border-radius: 999px;
-	background: #f45a27;
+	background: #a83009;
 	padding: 0 1rem;
 	font-weight: 700;
 	color: #ffffff;

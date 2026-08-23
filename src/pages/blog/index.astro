@@ -49,7 +49,7 @@ const breadcrumbs = [
 	schema={schema}
 	breadcrumbs={breadcrumbs}
 >
-	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#f45a27] selection:text-[#252424]">
+	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#a83009] selection:text-white">
 		<SiteHeader current="blog" />
 
 		<main id="main-content">
@@ -64,7 +64,7 @@ const breadcrumbs = [
 					</nav>
 					<p class="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Legal knowledge for {site.city} businesses</p>
 					<h1 class="mt-5 max-w-4xl text-[2.4rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#0c0c0c] sm:text-6xl lg:text-7xl">
-						Practical insight for <span class="text-[#ec440c]">serious decisions.</span>
+						Practical insight for <span class="text-[#a83009]">serious decisions.</span>
 					</h1>
 					<p class="mt-8 max-w-2xl text-lg leading-8 text-[#252424]">
 						Clear legal perspectives on litigation, FBR tax compliance, SECP company registration, IPO trademark Pakistan, and business risk across {site.city} and {site.country}.
@@ -76,7 +76,7 @@ const breadcrumbs = [
 				<div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 					{blogPosts.map((post, index) => (
 						<article class:list={["group flex flex-col rounded-3xl border bg-white p-6 hover:-translate-y-1 hover:shadow-lg", index === 0 ? "border-[#faac93] md:col-span-2 lg:col-span-2" : "border-[#e9e6e2]"]}>
-							<div class="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">
+							<div class="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">
 								<span>{post.label}</span>
 								<time datetime={post.date} class="font-medium tracking-normal text-[#252424]">{post.date}</time>
 							</div>
@@ -99,7 +99,7 @@ const breadcrumbs = [
 						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#f45a27]">Have a matter to discuss?</p>
 						<h2 class="mt-3 text-3xl font-semibold tracking-tight">A clear next step starts with a conversation.</h2>
 					</div>
-					<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="whitespace-nowrap rounded-full bg-[#f45a27] px-6 py-3.5 text-center text-sm font-bold text-white">Consult now ↗</a>
+					<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="whitespace-nowrap rounded-full bg-[#a83009] px-6 py-3.5 text-center text-sm font-bold text-white">Consult now ↗</a>
 				</div>
 			</section>
 		</main>
