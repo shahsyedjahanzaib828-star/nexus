@@ -109,7 +109,10 @@ const schemaGraph = {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-		<meta name="theme-color" content="#163a2a" />
+		<meta name="theme-color" content="#f45a27" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400..800;1,400..700&display=swap" rel="stylesheet" />
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-title" content={site.name} />
@@ -142,7 +145,7 @@ const schemaGraph = {
 		<title>{pageTitle}</title>
 		<script type="application/ld+json" set:html={JSON.stringify(schemaGraph)}></script>
 	</head>
-	<body class="overflow-x-hidden pb-20 lg:pb-0">
+	<body class="overflow-x-hidden bg-neutral-25 pb-20 font-sans text-neutral-800 lg:pb-0">
 		<a href="#main-content" class="skip-link">Skip to main content</a>
 		<slot />
 		<MobileDock />

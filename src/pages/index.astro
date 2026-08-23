@@ -55,28 +55,28 @@ const schema = {
 ---
 
 <Layout schema={schema}>
-	<div class="min-h-screen bg-[#f6f7f2] text-[#18231e] selection:bg-[#d5e767] selection:text-[#18231e]">
+	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#f45a27] selection:text-[#252424]">
 		<SiteHeader current="home" />
 
 		<main id="main-content">
-			<section class="border-b border-[#dfe3d9] bg-[#edf1e8]">
+			<section class="border-b border-[#e9e6e2] bg-[#f5f2ee]">
 				<div class="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-10 lg:py-24">
 					<div>
 						<p class="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-slate-900">{site.city} · {site.region} · {site.country}</p>
-						<h1 class="text-[2.4rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#163a2a] sm:text-6xl lg:text-[6.5rem]">
-							Legal counsel for <span class="text-[#547000]">real stakes.</span>
+						<h1 class="text-[2.4rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#0c0c0c] sm:text-6xl lg:text-[6.5rem]">
+							Legal counsel for <span class="text-[#f45a27]">real stakes.</span>
 						</h1>
 						<p class="mt-8 max-w-2xl text-lg leading-8 text-slate-900">
 							{site.name} provides comprehensive legal, corporate, tax, and litigation counsel for individuals, families, founders, and businesses across {site.city} and {site.country}.
 						</p>
 						<div class="mt-9 flex flex-wrap gap-4">
-							<a href="#contact" class="rounded-full bg-[#d5e767] px-6 py-3.5 text-sm font-bold text-[#163a2a]">
+							<a href="#contact" class="rounded-full bg-[#f45a27] px-6 py-3.5 text-sm font-bold text-white">
 								Discuss your matter ↗
 							</a>
-							<a href={phoneHref} class="rounded-full border border-[#b8c3b6] px-5 py-3.5 text-sm font-bold text-[#163a2a]">
+							<a href={phoneHref} class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">
 								Call Now: {site.phone}
 							</a>
-							<a href="#how-it-works" class="rounded-full px-5 py-3.5 text-sm font-bold text-[#547000]">
+							<a href="#how-it-works" class="rounded-full px-5 py-3.5 text-sm font-bold text-[#a83009]">
 								See how it works
 							</a>
 						</div>
@@ -86,56 +86,56 @@ const schema = {
 							<span class="text-slate-900">✓ {site.country}-wide support</span>
 						</div>
 					</div>
-					<div class="rounded-[2rem] bg-[#163a2a] p-7 text-white shadow-xl shadow-[#163a2a]/15 sm:p-9">
-						<p class="text-xs font-bold uppercase tracking-[0.18em] text-[#d5e767]">Practice at a glance</p>
+					<div class="rounded-[2rem] bg-[#0c0c0c] p-7 text-white shadow-xl shadow-[#0c0c0c]/15 sm:p-9">
+						<p class="text-xs font-bold uppercase tracking-[0.18em] text-[#f45a27]">Practice at a glance</p>
 						<h2 class="mt-3 text-3xl font-semibold leading-tight">One trusted point of contact.</h2>
 						<div class="grid grid-cols-2 gap-8 pt-8">
 							<div>
-								<p class="text-3xl font-semibold text-[#d5e767]">{services.length}</p>
-								<p class="text-xs text-[#bec9bf]">core practice areas</p>
+								<p class="text-3xl font-semibold text-[#f45a27]">{services.length}</p>
+								<p class="text-xs text-[#c4c2be]">core practice areas</p>
 							</div>
 							<div>
-								<p class="text-3xl font-semibold text-[#d5e767]">360°</p>
-								<p class="text-xs text-[#bec9bf]">legal &amp; corporate support</p>
+								<p class="text-3xl font-semibold text-[#f45a27]">360°</p>
+								<p class="text-xs text-[#c4c2be]">legal &amp; corporate support</p>
 							</div>
 							<div>
-								<p class="text-3xl font-semibold text-[#d5e767]">PK</p>
-								<p class="text-xs text-[#bec9bf]">{site.city}-based, nationwide</p>
+								<p class="text-3xl font-semibold text-[#f45a27]">PK</p>
+								<p class="text-xs text-[#c4c2be]">{site.city}-based, nationwide</p>
 							</div>
 							<div>
-								<p class="text-3xl font-semibold text-[#d5e767]">1:1</p>
-								<p class="text-xs text-[#bec9bf]">direct consultation</p>
+								<p class="text-3xl font-semibold text-[#f45a27]">1:1</p>
+								<p class="text-xs text-[#c4c2be]">direct consultation</p>
 							</div>
 						</div>
-						<p class="mt-8 rounded-2xl bg-white/10 p-4 text-sm leading-6 text-[#dce4d8]">
+						<p class="mt-8 rounded-2xl bg-white/10 p-4 text-sm leading-6 text-[#e9e6e2]">
 							Civil, criminal, and family litigation, SECP setup, WeBOC registration, FBR returns, foreign LLC tax, SBCA compliance, and IPO trademark protection.
 						</p>
 					</div>
 				</div>
 			</section>
 
-			<section class="border-b border-[#dfe3d9] bg-white">
+			<section class="border-b border-[#e9e6e2] bg-white">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Find the support that fits</p>
-					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#163a2a] sm:text-4xl">Choose how you want to start.</h2>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Find the support that fits</p>
+					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Choose how you want to start.</h2>
 					<div class="mt-10 grid gap-4 md:grid-cols-3">
-						<article class="flex flex-col rounded-3xl border border-[#dfe3d9] bg-[#fbfcf9] p-6">
-							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#789400]">01 · Consultation</p>
-							<h3 class="mt-4 text-xl font-semibold text-[#163a2a]">Discuss a matter</h3>
-							<p class="mt-3 flex-1 text-sm leading-6 text-[#4e5b53]">Share the facts, documents and deadline. An initial enquiry does not create an advocate-client relationship.</p>
-							<a href="#contact" class="mt-6 text-sm font-bold text-[#547000]">Go to the enquiry form ↗</a>
+						<article class="flex flex-col rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">01 · Consultation</p>
+							<h3 class="mt-4 text-xl font-semibold text-[#0c0c0c]">Discuss a matter</h3>
+							<p class="mt-3 flex-1 text-sm leading-6 text-[#696764]">Share the facts, documents and deadline. An initial enquiry does not create an advocate-client relationship.</p>
+							<a href="#contact" class="mt-6 text-sm font-bold text-[#a83009]">Go to the enquiry form ↗</a>
 						</article>
-						<article class="flex flex-col rounded-3xl border border-[#dfe3d9] bg-[#fbfcf9] p-6">
-							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#789400]">02 · Practice areas</p>
-							<h3 class="mt-4 text-xl font-semibold text-[#163a2a]">Read the service pages</h3>
-							<p class="mt-3 flex-1 text-sm leading-6 text-[#4e5b53]">Litigation, property, company setup, tax, WeBOC and trademarks each have a dedicated page of what the work involves.</p>
-							<a href="/services" class="mt-6 text-sm font-bold text-[#547000]">Browse practice areas ↗</a>
+						<article class="flex flex-col rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">02 · Practice areas</p>
+							<h3 class="mt-4 text-xl font-semibold text-[#0c0c0c]">Read the service pages</h3>
+							<p class="mt-3 flex-1 text-sm leading-6 text-[#696764]">Litigation, property, company setup, tax, WeBOC and trademarks each have a dedicated page of what the work involves.</p>
+							<a href="/services" class="mt-6 text-sm font-bold text-[#a83009]">Browse practice areas ↗</a>
 						</article>
-						<article class="flex flex-col rounded-3xl border border-[#dfe3d9] bg-[#fbfcf9] p-6">
-							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#789400]">03 · Legal insights</p>
-							<h3 class="mt-4 text-xl font-semibold text-[#163a2a]">Review a written guide</h3>
-							<p class="mt-3 flex-1 text-sm leading-6 text-[#4e5b53]">Articles on bail, khula, FBR filing, SECP structure and property due diligence, written for {site.city} clients.</p>
-							<a href="/blog" class="mt-6 text-sm font-bold text-[#547000]">Open the blog ↗</a>
+						<article class="flex flex-col rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">03 · Legal insights</p>
+							<h3 class="mt-4 text-xl font-semibold text-[#0c0c0c]">Review a written guide</h3>
+							<p class="mt-3 flex-1 text-sm leading-6 text-[#696764]">Articles on bail, khula, FBR filing, SECP structure and property due diligence, written for {site.city} clients.</p>
+							<a href="/blog" class="mt-6 text-sm font-bold text-[#a83009]">Open the blog ↗</a>
 						</article>
 					</div>
 				</div>
@@ -143,114 +143,114 @@ const schema = {
 
 			<section id="practice-areas" class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
 				<div class="max-w-2xl">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Comprehensive legal portfolio</p>
-					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#163a2a] sm:text-5xl">Legal support that meets the whole picture.</h2>
-					<p class="mt-5 text-base leading-7 text-[#18231e]">Practical counsel grounded in the realities of {site.city}, {site.region}, and {site.country}.</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Comprehensive legal portfolio</p>
+					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Legal support that meets the whole picture.</h2>
+					<p class="mt-5 text-base leading-7 text-[#252424]">Practical counsel grounded in the realities of {site.city}, {site.region}, and {site.country}.</p>
 				</div>
 				<div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 					{services.map((service, index) => (
-						<article class="group flex flex-col rounded-3xl border border-[#dfe3d9] bg-white p-6 hover:-translate-y-1 hover:border-[#a9ba57] hover:shadow-lg">
+						<article class="group flex flex-col rounded-3xl border border-[#e9e6e2] bg-white p-6 hover:-translate-y-1 hover:border-[#faac93] hover:shadow-lg">
 							<div class="flex items-start justify-between">
-								<span class="grid h-11 w-11 place-items-center rounded-2xl bg-[#e6f0d4] text-xl font-semibold text-[#547000]" aria-hidden="true">{service.icon}</span>
-								<span class="text-xs font-bold text-[#18231e]">0{index + 1}</span>
+								<span class="grid h-11 w-11 place-items-center rounded-2xl bg-[#fef5f2] text-xl font-semibold text-[#a83009]" aria-hidden="true">{service.icon}</span>
+								<span class="text-xs font-bold text-[#252424]">0{index + 1}</span>
 							</div>
-							<h3 class="mt-8 text-xl font-semibold leading-tight text-[#163a2a]">
-								<a href={`/services/${service.slug}`} class="hover:text-[#547000]">{service.heading}</a>
+							<h3 class="mt-8 text-xl font-semibold leading-tight text-[#0c0c0c]">
+								<a href={`/services/${service.slug}`} class="hover:text-[#a83009]">{service.heading}</a>
 							</h3>
-							<ul class="mt-6 space-y-3 border-t border-[#e5e8e1] pt-5">
+							<ul class="mt-6 space-y-3 border-t border-[#e9e6e2] pt-5">
 								{service.offerings.slice(0, 4).map((offering) => (
-									<li class="flex gap-2 text-sm leading-5 text-[#4e5b53]"><span class="text-[#789400]">+</span><span>{offering}</span></li>
+									<li class="flex gap-2 text-sm leading-5 text-[#696764]"><span class="text-[#ec440c]">+</span><span>{offering}</span></li>
 								))}
 							</ul>
-							<a href={`/services/${service.slug}`} class="mt-6 text-sm font-bold text-[#547000] group-hover:text-[#163a2a]">
+							<a href={`/services/${service.slug}`} class="mt-6 text-sm font-bold text-[#a83009] group-hover:text-[#0c0c0c]">
 								Learn more <span aria-hidden="true">↗</span>
 							</a>
 						</article>
 					))}
 				</div>
-				<a href="/services" class="mt-10 inline-flex rounded-full border border-[#b8c3b6] px-6 py-3.5 text-sm font-bold text-[#163a2a] hover:bg-white">
+				<a href="/services" class="mt-10 inline-flex rounded-full border border-[#c4c2be] px-6 py-3.5 text-sm font-bold text-[#0c0c0c] hover:bg-white">
 					View all practice areas ↗
 				</a>
 			</section>
 
-			<section class="border-y border-[#dfe3d9] bg-white">
+			<section class="border-y border-[#e9e6e2] bg-white">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Before a filing is prepared</p>
-					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#163a2a] sm:text-4xl">Three reasons the record comes first.</h2>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Before a filing is prepared</p>
+					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Three reasons the record comes first.</h2>
 					<div class="mt-10 grid gap-4 md:grid-cols-3">
-						<article class="rounded-3xl border border-[#dfe3d9] bg-[#fbfcf9] p-6">
-							<h3 class="text-lg font-semibold text-[#163a2a]">Limitation can close the door</h3>
-							<p class="mt-3 text-sm leading-6 text-[#4e5b53]">Many civil and tax matters have fixed periods. Establishing the date and the documents early is more useful than arguing a late claim.</p>
+						<article class="rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+							<h3 class="text-lg font-semibold text-[#0c0c0c]">Limitation can close the door</h3>
+							<p class="mt-3 text-sm leading-6 text-[#696764]">Many civil and tax matters have fixed periods. Establishing the date and the documents early is more useful than arguing a late claim.</p>
 						</article>
-						<article class="rounded-3xl border border-[#dfe3d9] bg-[#fbfcf9] p-6">
-							<h3 class="text-lg font-semibold text-[#163a2a]">The forum has to be the right one</h3>
-							<p class="mt-3 text-sm leading-6 text-[#4e5b53]">Family Court, civil suit, High Court writ, SECP portal and FBR notice each have their own process. Filing in the wrong place wastes time and can prejudice the position.</p>
+						<article class="rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+							<h3 class="text-lg font-semibold text-[#0c0c0c]">The forum has to be the right one</h3>
+							<p class="mt-3 text-sm leading-6 text-[#696764]">Family Court, civil suit, High Court writ, SECP portal and FBR notice each have their own process. Filing in the wrong place wastes time and can prejudice the position.</p>
 						</article>
-						<article class="rounded-3xl border border-[#dfe3d9] bg-[#fbfcf9] p-6">
-							<h3 class="text-lg font-semibold text-[#163a2a]">A weak paper trail is hard to repair</h3>
-							<p class="mt-3 text-sm leading-6 text-[#4e5b53]">Title, tax, company and correspondence records decide what can later be proved. The first consultation is used to map what exists and what is missing.</p>
+						<article class="rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+							<h3 class="text-lg font-semibold text-[#0c0c0c]">A weak paper trail is hard to repair</h3>
+							<p class="mt-3 text-sm leading-6 text-[#696764]">Title, tax, company and correspondence records decide what can later be proved. The first consultation is used to map what exists and what is missing.</p>
 						</article>
 					</div>
 				</div>
 			</section>
 
-			<section id="how-it-works" class="border-y border-[#dfe3d9] bg-[#163a2a] text-white">
+			<section id="how-it-works" class="border-y border-[#e9e6e2] bg-[#0c0c0c] text-white">
 				<div class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#d5e767]">A steady legal partner</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#f45a27]">A steady legal partner</p>
 					<h2 class="mt-5 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Clarity before complexity.</h2>
 					<div class="mt-12 grid gap-8 md:grid-cols-3">
 						<div>
-							<span class="text-sm font-bold text-[#d5e767]">01</span>
+							<span class="text-sm font-bold text-[#f45a27]">01</span>
 							<h3 class="mt-5 text-lg font-semibold">Share the situation</h3>
-							<p class="mt-3 text-sm leading-6 text-[#b9c7bb]">Tell us what happened, what matters, and what outcome you need.</p>
+							<p class="mt-3 text-sm leading-6 text-[#aba9a7]">Tell us what happened, what matters, and what outcome you need.</p>
 						</div>
 						<div>
-							<span class="text-sm font-bold text-[#d5e767]">02</span>
+							<span class="text-sm font-bold text-[#f45a27]">02</span>
 							<h3 class="mt-5 text-lg font-semibold">Get a clear route</h3>
-							<p class="mt-3 text-sm leading-6 text-[#b9c7bb]">We identify the practical legal path, timelines, and next documents.</p>
+							<p class="mt-3 text-sm leading-6 text-[#aba9a7]">We identify the practical legal path, timelines, and next documents.</p>
 						</div>
 						<div>
-							<span class="text-sm font-bold text-[#d5e767]">03</span>
+							<span class="text-sm font-bold text-[#f45a27]">03</span>
 							<h3 class="mt-5 text-lg font-semibold">Move with counsel</h3>
-							<p class="mt-3 text-sm leading-6 text-[#b9c7bb]">Get focused representation and support from first step to resolution.</p>
+							<p class="mt-3 text-sm leading-6 text-[#aba9a7]">Get focused representation and support from first step to resolution.</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="border-b border-[#dfe3d9] bg-[#edf1e8]">
+			<section class="border-b border-[#e9e6e2] bg-[#f5f2ee]">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">How a consultation is handled</p>
-					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#163a2a] sm:text-4xl">Direct access, a written assessment, and fees before engagement.</h2>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">How a consultation is handled</p>
+					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Direct access, a written assessment, and fees before engagement.</h2>
 					<div class="mt-10 grid gap-4 md:grid-cols-3">
 						<article class="rounded-3xl bg-white p-6">
-							<h3 class="text-lg font-semibold text-[#163a2a]">Easy to reach</h3>
-							<p class="mt-3 text-sm leading-6 text-[#4e5b53]">Call, WhatsApp or the enquiry form. You deal with the practitioner handling the matter, not a call centre queue.</p>
+							<h3 class="text-lg font-semibold text-[#0c0c0c]">Easy to reach</h3>
+							<p class="mt-3 text-sm leading-6 text-[#696764]">Call, WhatsApp or the enquiry form. You deal with the practitioner handling the matter, not a call centre queue.</p>
 						</article>
 						<article class="rounded-3xl bg-white p-6">
-							<h3 class="text-lg font-semibold text-[#163a2a]">A clear reading of the file</h3>
-							<p class="mt-3 text-sm leading-6 text-[#4e5b53]">The first discussion covers the facts, the documents, the forum and whether proceedings are advisable at all.</p>
+							<h3 class="text-lg font-semibold text-[#0c0c0c]">A clear reading of the file</h3>
+							<p class="mt-3 text-sm leading-6 text-[#696764]">The first discussion covers the facts, the documents, the forum and whether proceedings are advisable at all.</p>
 						</article>
 						<article class="rounded-3xl bg-white p-6">
-							<h3 class="text-lg font-semibold text-[#163a2a]">Scope agreed in writing</h3>
-							<p class="mt-3 text-sm leading-6 text-[#4e5b53]">Fees and the work to be done are discussed before an advocate-client relationship is created. Results are not promised.</p>
+							<h3 class="text-lg font-semibold text-[#0c0c0c]">Scope agreed in writing</h3>
+							<p class="mt-3 text-sm leading-6 text-[#696764]">Fees and the work to be done are discussed before an advocate-client relationship is created. Results are not promised.</p>
 						</article>
 					</div>
-					<div class="mt-8 rounded-3xl border border-[#d5ddd3] bg-white p-6 sm:p-8">
-						<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#789400]">How this practice treats enquiries</p>
-						<p class="mt-3 max-w-3xl text-sm leading-7 text-[#4e5b53]">Information sent through this website is treated as confidential. It is used to respond to the enquiry. It does not become privileged legal advice, and it does not create an advocate-client relationship, until engagement is confirmed in writing. If a filing is prepared through this practice and is rejected because of an error in that filing, the correction is taken up with the relevant authority as part of the agreed work.</p>
+					<div class="mt-8 rounded-3xl border border-[#e9e6e2] bg-white p-6 sm:p-8">
+						<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">How this practice treats enquiries</p>
+						<p class="mt-3 max-w-3xl text-sm leading-7 text-[#696764]">Information sent through this website is treated as confidential. It is used to respond to the enquiry. It does not become privileged legal advice, and it does not create an advocate-client relationship, until engagement is confirmed in writing. If a filing is prepared through this practice and is rejected because of an error in that filing, the correction is taken up with the relevant authority as part of the agreed work.</p>
 					</div>
 				</div>
 			</section>
 
-			<section class="border-b border-[#dfe3d9] bg-white">
+			<section class="border-b border-[#e9e6e2] bg-white">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Where clients are based</p>
-					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#163a2a] sm:text-4xl">Karachi chambers, work across Pakistan.</h2>
-					<p class="mt-5 max-w-3xl text-sm leading-7 text-[#4e5b53]">Court appearances are in {site.city} and {site.region}. Corporate, tax, trademark and advisory work is handled for clients in these cities and elsewhere in {site.country}.</p>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Where clients are based</p>
+					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Karachi chambers, work across Pakistan.</h2>
+					<p class="mt-5 max-w-3xl text-sm leading-7 text-[#696764]">Court appearances are in {site.city} and {site.region}. Corporate, tax, trademark and advisory work is handled for clients in these cities and elsewhere in {site.country}.</p>
 					<ul class="mt-8 flex flex-wrap gap-2">
 						{serviceCities.map((city) => (
-							<li class="rounded-full border border-[#dfe3d9] bg-[#fbfcf9] px-4 py-2 text-sm font-semibold text-[#163a2a]">{city}</li>
+							<li class="rounded-full border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-2 text-sm font-semibold text-[#0c0c0c]">{city}</li>
 						))}
 					</ul>
 				</div>
@@ -259,48 +259,48 @@ const schema = {
 			<section class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-24">
 				<div class="flex flex-wrap items-end justify-between gap-6">
 					<div class="max-w-2xl">
-						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Legal insights</p>
-						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#163a2a] sm:text-5xl">Guidance on the questions clients ask most.</h2>
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Legal insights</p>
+						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Guidance on the questions clients ask most.</h2>
 					</div>
-					<a href="/blog" class="rounded-full border border-[#b8c3b6] px-5 py-3.5 text-sm font-bold text-[#163a2a] hover:bg-white">All articles ↗</a>
+					<a href="/blog" class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c] hover:bg-white">All articles ↗</a>
 				</div>
 				<div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 					{latestPosts.map((post) => (
-						<article class="group flex flex-col rounded-3xl border border-[#dfe3d9] bg-white p-6 hover:-translate-y-1 hover:shadow-lg">
-							<div class="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#789400]">
+						<article class="group flex flex-col rounded-3xl border border-[#e9e6e2] bg-white p-6 hover:-translate-y-1 hover:shadow-lg">
+							<div class="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#ec440c]">
 								<span>{post.label}</span>
-								<time datetime={post.date} class="font-medium tracking-normal text-[#18231e]">{post.date}</time>
+								<time datetime={post.date} class="font-medium tracking-normal text-[#252424]">{post.date}</time>
 							</div>
-							<h3 class="mt-6 text-xl font-semibold leading-tight tracking-[-0.03em] text-[#163a2a]">
-								<a href={`/blog/${post.slug}`} class="hover:text-[#547000]">{post.title}</a>
+							<h3 class="mt-6 text-xl font-semibold leading-tight tracking-[-0.03em] text-[#0c0c0c]">
+								<a href={`/blog/${post.slug}`} class="hover:text-[#a83009]">{post.title}</a>
 							</h3>
-							<p class="mt-4 text-sm leading-6 text-[#4e5b53]">{post.description}</p>
-							<div class="mt-6 flex items-center justify-between border-t border-[#e5e8e1] pt-5 text-sm">
-								<span class="text-[#18231e]">{post.readingTime}</span>
-								<a href={`/blog/${post.slug}`} class="font-bold text-[#547000] group-hover:text-[#163a2a]">Read article <span aria-hidden="true">↗</span></a>
+							<p class="mt-4 text-sm leading-6 text-[#696764]">{post.description}</p>
+							<div class="mt-6 flex items-center justify-between border-t border-[#e9e6e2] pt-5 text-sm">
+								<span class="text-[#252424]">{post.readingTime}</span>
+								<a href={`/blog/${post.slug}`} class="font-bold text-[#a83009] group-hover:text-[#0c0c0c]">Read article <span aria-hidden="true">↗</span></a>
 							</div>
 						</article>
 					))}
 				</div>
 			</section>
 
-			<section id="faq" class="border-y border-[#dfe3d9] bg-white">
+			<section id="faq" class="border-y border-[#e9e6e2] bg-white">
 				<div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-24">
 					<div>
-						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Frequently asked questions</p>
-						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#163a2a] sm:text-5xl">Before you get in touch.</h2>
-						<p class="mt-5 max-w-sm text-base leading-7 text-[#4e5b53]">
+						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Frequently asked questions</p>
+						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Before you get in touch.</h2>
+						<p class="mt-5 max-w-sm text-base leading-7 text-[#696764]">
 							If your question is not covered here, ask it directly on a call or by WhatsApp.
 						</p>
-						<a href="/about" class="mt-7 inline-flex text-sm font-bold text-[#547000]">About the practice ↗</a>
+						<a href="/about" class="mt-7 inline-flex text-sm font-bold text-[#a83009]">About the practice ↗</a>
 					</div>
 					<div class="space-y-4">
 						{homeFaq.map(([question, answer]) => (
-							<details class="group rounded-2xl border border-[#dfe3d9] bg-[#fbfcf9] p-5">
-								<summary class="cursor-pointer list-none pr-6 text-base font-semibold text-[#163a2a] marker:hidden">
-									{question}<span class="float-right text-[#789400] group-open:rotate-45">+</span>
+							<details class="group rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-5">
+								<summary class="cursor-pointer list-none pr-6 text-base font-semibold text-[#0c0c0c] marker:hidden">
+									{question}<span class="float-right text-[#ec440c] group-open:rotate-45">+</span>
 								</summary>
-								<p class="mt-4 text-sm leading-7 text-[#4e5b53]">{answer}</p>
+								<p class="mt-4 text-sm leading-7 text-[#696764]">{answer}</p>
 							</details>
 						))}
 					</div>
@@ -309,77 +309,77 @@ const schema = {
 
 			<section id="contact" class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.75fr_1.25fr] lg:px-10 lg:py-28">
 				<div>
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#789400]">Start with a conversation</p>
-					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#163a2a] sm:text-5xl">Tell us where you need counsel.</h2>
-					<p class="mt-5 max-w-sm text-base leading-7 text-[#18231e]">Share a few details for an initial enquiry. Your information is treated with professional confidentiality.</p>
-					<div class="mt-9 space-y-5 text-sm text-[#4e5b53]">
-						<a href={phoneHref} class="flex items-center gap-3 hover:text-[#163a2a]">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]" aria-hidden="true">☎</span>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#ec440c]">Start with a conversation</p>
+					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Tell us where you need counsel.</h2>
+					<p class="mt-5 max-w-sm text-base leading-7 text-[#252424]">Share a few details for an initial enquiry. Your information is treated with professional confidentiality.</p>
+					<div class="mt-9 space-y-5 text-sm text-[#696764]">
+						<a href={phoneHref} class="flex items-center gap-3 hover:text-[#0c0c0c]">
+							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">☎</span>
 							{site.phone}
 						</a>
-						<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-[#163a2a]">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]" aria-hidden="true">◉</span>
+						<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-[#0c0c0c]">
+							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">◉</span>
 							WhatsApp consultation
 						</a>
-						<a href={mailHref} class="flex items-center gap-3 hover:text-[#163a2a]">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]" aria-hidden="true">@</span>
+						<a href={mailHref} class="flex items-center gap-3 hover:text-[#0c0c0c]">
+							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">@</span>
 							{site.email}
 						</a>
 						<span class="flex items-center gap-3">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0d4] text-[#547000]" aria-hidden="true">⌂</span>
+							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">⌂</span>
 							{site.city}, {site.region}, {site.country}
 						</span>
 					</div>
 				</div>
-				<form id="contact-form" class="rounded-3xl border border-[#dfe3d9] bg-white p-6 shadow-sm sm:p-8">
+				<form id="contact-form" class="rounded-3xl border border-[#e9e6e2] bg-white p-6 shadow-sm sm:p-8">
 					<div class="grid gap-5 sm:grid-cols-2">
-						<label class="text-sm font-semibold text-[#35453b]">
+						<label class="text-sm font-semibold text-[#4a4947]">
 							Full Name
-							<input required name="full-name" type="text" class="mt-2 w-full rounded-xl border border-[#d5dbd2] bg-[#fbfcf9] px-4 py-3 text-sm font-normal outline-none focus:border-[#789400]" />
+							<input required name="full-name" type="text" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]" />
 						</label>
-						<label class="text-sm font-semibold text-[#35453b]">
+						<label class="text-sm font-semibold text-[#4a4947]">
 							Phone Number (WhatsApp)
-							<input required name="phone" type="tel" placeholder={site.phone} class="mt-2 w-full rounded-xl border border-[#d5dbd2] bg-[#fbfcf9] px-4 py-3 text-sm font-normal outline-none focus:border-[#789400]" />
+							<input required name="phone" type="tel" placeholder={site.phone} class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]" />
 						</label>
-						<label class="text-sm font-semibold text-[#35453b]">
+						<label class="text-sm font-semibold text-[#4a4947]">
 							Email
-							<input required name="email" type="email" class="mt-2 w-full rounded-xl border border-[#d5dbd2] bg-[#fbfcf9] px-4 py-3 text-sm font-normal outline-none focus:border-[#789400]" />
+							<input required name="email" type="email" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]" />
 						</label>
-						<label class="text-sm font-semibold text-[#35453b]">
+						<label class="text-sm font-semibold text-[#4a4947]">
 							City
-							<select required name="city" class="mt-2 w-full rounded-xl border border-[#d5dbd2] bg-[#fbfcf9] px-4 py-3 text-sm font-normal outline-none focus:border-[#789400]">
+							<select required name="city" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]">
 								<option value="">Select city</option>
 								<option>Karachi</option>
 								<option>Other</option>
 							</select>
 						</label>
-						<label class="text-sm font-semibold text-[#35453b] sm:col-span-2">
+						<label class="text-sm font-semibold text-[#4a4947] sm:col-span-2">
 							Service Required
-							<select required name="service" class="mt-2 w-full rounded-xl border border-[#d5dbd2] bg-[#fbfcf9] px-4 py-3 text-sm font-normal outline-none focus:border-[#789400]">
+							<select required name="service" class="mt-2 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]">
 								<option value="">Choose a service</option>
 								{services.map((service) => <option>{service.label}</option>)}
 							</select>
 						</label>
-						<label class="text-sm font-semibold text-[#35453b] sm:col-span-2">
+						<label class="text-sm font-semibold text-[#4a4947] sm:col-span-2">
 							Brief Case Details
-							<textarea required name="case-details" rows="4" class="mt-2 w-full resize-y rounded-xl border border-[#d5dbd2] bg-[#fbfcf9] px-4 py-3 text-sm font-normal outline-none focus:border-[#789400]"></textarea>
+							<textarea required name="case-details" rows="4" class="mt-2 w-full resize-y rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#ec440c]"></textarea>
 						</label>
 					</div>
-					<button type="submit" class="mt-6 w-full rounded-full bg-[#163a2a] px-6 py-3.5 text-sm font-bold text-white">
+					<button type="submit" class="mt-6 w-full rounded-full bg-[#0c0c0c] px-6 py-3.5 text-sm font-bold text-white">
 						Request a consultation ↗
 					</button>
-					<p class="mt-4 text-center text-xs leading-5 text-[#18231e]">
+					<p class="mt-4 text-center text-xs leading-5 text-[#252424]">
 						This initial enquiry does not create an advocate-client relationship.
 					</p>
 				</form>
 			</section>
 
-			<section class="border-t border-[#dfe3d9] bg-[#fbfcf9] px-5 py-10 lg:px-10">
+			<section class="border-t border-[#e9e6e2] bg-[#fbfaf8] px-5 py-10 lg:px-10">
 				<div class="mx-auto max-w-7xl">
-					<p class="text-sm leading-6 text-[#18231e]">
+					<p class="text-sm leading-6 text-[#252424]">
 						{site.name} is a {site.city}-based legal practice serving clients in {site.city} and across {site.country}. Website information is general information only, not legal advice, and does not create an advocate-client relationship. Results are not guaranteed.
 					</p>
-					<a href="/privacy" class="mt-3 inline-flex text-sm font-bold text-[#547000]">Read our Privacy Policy</a>
+					<a href="/privacy" class="mt-3 inline-flex text-sm font-bold text-[#a83009]">Read our Privacy Policy</a>
 				</div>
 			</section>
 		</main>

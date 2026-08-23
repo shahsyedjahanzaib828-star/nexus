@@ -45,17 +45,17 @@ export async function GET({ params }: { params: { slug?: string } }) {
 	const titleLines = wrap(page.title, 30, 3);
 	const titleStartY = titleLines.length === 3 ? 268 : titleLines.length === 2 ? 300 : 330;
 	const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-<rect width="1200" height="630" fill="#163a2a"/>
-<circle cx="1050" cy="-20" r="260" fill="none" stroke="#d5e767" stroke-opacity=".22" stroke-width="70"/>
-<circle cx="1020" cy="10" r="180" fill="none" stroke="#d5e767" stroke-opacity=".12" stroke-width="2"/>
-<rect x="72" y="68" width="66" height="66" rx="33" fill="#d5e767"/>
-<text x="105" y="113" text-anchor="middle" font-family="Georgia,serif" font-size="38" fill="#163a2a">§</text>
-<text x="72" y="196" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#d5e767">${escapeXml(page.label)}</text>
+<rect width="1200" height="630" fill="#0c0c0c"/>
+<circle cx="1050" cy="-20" r="260" fill="none" stroke="#f45a27" stroke-opacity=".22" stroke-width="70"/>
+<circle cx="1020" cy="10" r="180" fill="none" stroke="#f45a27" stroke-opacity=".12" stroke-width="2"/>
+<rect x="72" y="68" width="66" height="66" rx="33" fill="#f45a27"/>
+<text x="105" y="113" text-anchor="middle" font-family="Georgia,serif" font-size="38" fill="#0c0c0c">§</text>
+<text x="72" y="196" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#f45a27">${escapeXml(page.label)}</text>
 ${titleLines.map((line, index) => `<text x="72" y="${titleStartY + index * 66}" font-family="Georgia,serif" font-size="58" font-weight="700" fill="#ffffff">${escapeXml(line)}</text>`).join('\n')}
-<text x="72" y="472" font-family="Arial,sans-serif" font-size="24" fill="#c4d0c5">${escapeXml(page.subtitle)}</text>
+<text x="72" y="472" font-family="Arial,sans-serif" font-size="24" fill="#dcdad6">${escapeXml(page.subtitle)}</text>
 <line x1="72" y1="518" x2="1128" y2="518" stroke="#ffffff" stroke-opacity=".18"/>
 <text x="72" y="563" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#ffffff">Jahanzaib Legal Services</text>
-<text x="1128" y="563" text-anchor="end" font-family="Arial,sans-serif" font-size="20" fill="#d5e767">03343108863 · Karachi</text>
+<text x="1128" y="563" text-anchor="end" font-family="Arial,sans-serif" font-size="20" fill="#f45a27">03343108863 · Karachi</text>
 </svg>`;
 
 	const png = await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toBuffer();

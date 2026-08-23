@@ -1,5 +1,48 @@
 @import "tailwindcss";
 
+/*
+  Public palette inspired by LegalZoom's documented tokens.
+  Colors themselves are not copyrighted. Their CSS, Quincy CF font files,
+  and logo are not used.
+*/
+@theme {
+	--color-brand-25: #fef5f2;
+	--color-brand-50: #fdded4;
+	--color-brand-100: #fbc5b3;
+	--color-brand-200: #faac93;
+	--color-brand-300: #f89473;
+	--color-brand-400: #f67b52;
+	--color-brand-500: #f45a27;
+	--color-brand-600: #ec440c;
+	--color-brand-700: #a83009;
+	--color-brand-800: #651d05;
+	--color-brand-900: #220a02;
+	--color-neutral-0: #ffffff;
+	--color-neutral-25: #fbfaf8;
+	--color-neutral-50: #f5f2ee;
+	--color-neutral-100: #e9e6e2;
+	--color-neutral-200: #dcdad6;
+	--color-neutral-300: #c4c2be;
+	--color-neutral-400: #aba9a7;
+	--color-neutral-500: #878583;
+	--color-neutral-600: #696764;
+	--color-neutral-700: #4a4947;
+	--color-neutral-800: #252424;
+	--color-neutral-900: #0c0c0c;
+	--font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+	--font-serif: Georgia, "Times New Roman", serif;
+}
+
+html {
+	overflow-x: hidden;
+	font-family: var(--font-sans);
+}
+
+h1,
+h2 {
+	font-family: var(--font-serif);
+}
+
 /* Keep controls and links comfortable for keyboard and touch users. */
 a,
 button,
@@ -28,10 +71,10 @@ summary {
 	z-index: 50;
 	transform: translateY(-200%);
 	border-radius: 999px;
-	background: #d5e767;
+	background: #f45a27;
 	padding: 0 1rem;
 	font-weight: 700;
-	color: #163a2a;
+	color: #ffffff;
 	transition: transform 150ms ease;
 }
 
