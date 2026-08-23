@@ -1,11 +1,10 @@
 ---
-import { site, whatsappHref } from '../data/site';
+import { site, phoneHref, whatsappHref } from '../data/site';
 import { services } from '../data/services';
 
 const { current } = Astro.props as { current?: 'home' | 'services' | 'blog' | 'about' };
 
 const links = [
-	{ href: '/services', label: 'Practice Areas', key: 'services' },
 	{ href: '/about', label: 'About', key: 'about' },
 	{ href: '/blog', label: 'Blog', key: 'blog' }
 ];
@@ -13,6 +12,17 @@ const linkClass = (key: string) => (current === key ? 'text-[#547000]' : 'hover:
 ---
 
 <header class="border-b border-[#dfe3d9] bg-[#f6f7f2]">
+	<div class="hidden border-b border-[#dfe3d9] bg-[#163a2a] text-[#dce4d8] lg:block">
+		<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2 text-xs font-semibold lg:px-10">
+			<p>{site.city} · {site.region} · {site.country}</p>
+			<div class="flex items-center gap-5">
+				<a href={phoneHref} class="min-h-0 text-[#dce4d8] hover:text-white">{site.phone}</a>
+				<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="min-h-0 text-[#d5e767] hover:text-white">WhatsApp</a>
+				<a href="/#contact" class="min-h-0 text-[#dce4d8] hover:text-white">Enquire</a>
+			</div>
+		</div>
+	</div>
+
 	<div class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-5 lg:px-10 lg:py-5">
 		<a href="/" aria-label={`${site.name} home`} class="flex min-w-0 items-center gap-2 sm:gap-3">
 			<span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#163a2a] text-xl text-[#d5e767]">§</span>
@@ -24,6 +34,34 @@ const linkClass = (key: string) => (current === key ? 'text-[#547000]' : 'hover:
 
 		<nav class="hidden items-center gap-7 text-sm font-semibold text-[#516058] lg:flex" aria-label="Main navigation">
 			{current !== 'home' && <a href="/" class="hover:text-[#163a2a]">Home</a>}
+
+			<div class="group relative">
+				<a href="/services" class:list={['gap-1', linkClass('services')]} aria-haspopup="true">
+					Practice Areas <span aria-hidden="true" class="text-[10px]">▾</span>
+				</a>
+				<div class="invisible absolute left-1/2 top-full z-30 w-[38rem] -translate-x-1/2 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+					<div class="rounded-2xl border border-[#dfe3d9] bg-white p-4 shadow-xl">
+						<p class="px-2 pb-3 text-xs font-bold uppercase tracking-[0.16em] text-[#789400]">Choose a practice area</p>
+						<ul class="grid grid-cols-2 gap-1">
+							{services.map((service) => (
+								<li>
+									<a href={`/services/${service.slug}`} class="flex w-full items-start gap-3 rounded-xl px-3 py-3 text-[#4e5b53] hover:bg-[#edf1e8] hover:text-[#163a2a]">
+										<span class="mt-0.5 text-base text-[#547000]" aria-hidden="true">{service.icon}</span>
+										<span>
+											<span class="block text-sm font-bold text-[#163a2a]">{service.label}</span>
+											<span class="mt-1 block text-xs font-normal leading-4">{service.heading}</span>
+										</span>
+									</a>
+								</li>
+							))}
+						</ul>
+						<a href="/services" class="mt-2 w-full justify-center rounded-xl bg-[#edf1e8] px-3 py-3 text-sm font-bold text-[#163a2a]">
+							View all practice areas ↗
+						</a>
+					</div>
+				</div>
+			</div>
+
 			{links.map((link) => <a href={link.href} class={linkClass(link.key)}>{link.label}</a>)}
 			<a href="/#contact" class="hover:text-[#163a2a]">Contact</a>
 		</nav>
