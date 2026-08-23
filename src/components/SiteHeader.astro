@@ -16,8 +16,8 @@ const linkClass = (key: string) => (current === key ? 'text-[#547000]' : 'hover:
 	<div class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-5 lg:px-10 lg:py-5">
 		<a href="/" aria-label={`${site.name} home`} class="flex min-w-0 items-center gap-2 sm:gap-3">
 			<span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#163a2a] text-xl text-[#d5e767]">§</span>
-			<span class="min-w-0 text-[13px] font-bold leading-tight sm:text-sm">
-				<span class="block text-balance">{site.name}</span>
+			<span class="text-sm font-bold leading-tight">
+				<span class="block">{site.name}</span>
 				<span class="mt-0.5 hidden text-[10px] font-medium uppercase tracking-[0.15em] text-[#18231e] sm:block">{site.tagline}</span>
 			</span>
 		</a>
@@ -44,7 +44,7 @@ const linkClass = (key: string) => (current === key ? 'text-[#547000]' : 'hover:
 				</nav>
 			</details>
 
-			<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="whitespace-nowrap rounded-full bg-[#163a2a] px-3 py-2.5 text-sm font-bold text-white hover:-translate-y-0.5 sm:px-4">
+			<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="hidden whitespace-nowrap rounded-full bg-[#163a2a] px-4 py-2.5 text-sm font-bold text-white hover:-translate-y-0.5 sm:inline-flex">
 				WhatsApp <span aria-hidden="true">↗</span>
 			</a>
 		</div>
