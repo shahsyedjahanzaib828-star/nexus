@@ -23,12 +23,12 @@ const linkClass = (key: string) => (current === key ? 'text-[#a83009]' : 'hover:
 		</div>
 	</div>
 
-	<div class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-5 lg:px-10 lg:py-5">
-		<a href="/" aria-label={`${site.name} home`} class="flex min-w-0 items-center gap-2 sm:gap-3">
-			<span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#0c0c0c] text-xl text-[#f45a27]">§</span>
-			<span class="text-sm font-bold leading-tight">
-				<span class="block">{site.name}</span>
-				<span class="mt-0.5 hidden text-[10px] font-medium uppercase tracking-[0.15em] text-[#252424] sm:block">{site.tagline}</span>
+	<div class="mx-auto flex min-w-0 max-w-7xl flex-wrap items-center justify-between gap-x-2 gap-y-2 px-3 py-3 sm:px-5 sm:py-4 lg:px-10 lg:py-5">
+		<a href="/" aria-label={`${site.name} home`} class="flex min-w-0 flex-1 items-center gap-2 sm:flex-none sm:gap-3">
+			<span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#0c0c0c] text-lg text-[#f45a27] sm:h-10 sm:w-10 sm:text-xl">§</span>
+			<span class="min-w-0 text-sm font-bold leading-tight">
+				<span class="block truncate">{site.name}</span>
+				<span class="mt-0.5 hidden truncate text-[10px] font-medium uppercase tracking-[0.15em] text-[#252424] sm:block">{site.tagline}</span>
 			</span>
 		</a>
 
@@ -66,23 +66,25 @@ const linkClass = (key: string) => (current === key ? 'text-[#a83009]' : 'hover:
 			<a href="/#contact" class="hover:text-[#0c0c0c]">Contact</a>
 		</nav>
 
-		<div class="flex shrink-0 items-center gap-2">
-			<details class="relative lg:hidden">
-				<summary class="list-none rounded-full border border-[#c4c2be] px-3 py-2.5 text-sm font-bold text-[#0c0c0c] sm:px-4">
+		<div class="flex shrink-0 items-center gap-1.5 sm:gap-2">
+			<details class="lg:hidden">
+				<summary class="list-none rounded-full border border-[#c4c2be] px-2.5 py-2 text-sm font-bold text-[#0c0c0c] sm:px-4 sm:py-2.5">
 					<span aria-hidden="true">☰</span><span class="sr-only">Open navigation menu</span>
 				</summary>
-				<nav class="absolute right-0 top-full z-30 mt-2 grid w-[min(18rem,calc(100vw-2rem))] gap-1 rounded-2xl border border-[#e9e6e2] bg-white p-2 text-sm font-semibold text-[#696764] shadow-xl" aria-label="Mobile navigation">
-					<a href="/" class="rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Home</a>
-					{services.map((service) => (
-						<a href={`/services/${service.slug}`} class="rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">{service.label}</a>
-					))}
-					<a href="/about" class="rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">About</a>
-					<a href="/blog" class="rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Blog</a>
-					<a href="/#contact" class="rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Contact</a>
+				<nav class="absolute left-0 right-0 top-full z-50 w-full max-w-full px-3 sm:px-5" aria-label="Mobile navigation">
+					<div class="mx-auto grid max-h-[min(70dvh,36rem)] w-full max-w-7xl gap-1 overflow-x-hidden overflow-y-auto rounded-2xl border border-[#e9e6e2] bg-white p-2 text-sm font-semibold text-[#696764] shadow-xl">
+						<a href="/" class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Home</a>
+						{services.map((service) => (
+							<a href={`/services/${service.slug}`} class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">{service.label}</a>
+						))}
+						<a href="/about" class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">About</a>
+						<a href="/blog" class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Blog</a>
+						<a href="/#contact" class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Contact</a>
+					</div>
 				</nav>
 			</details>
 
-			<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="hidden whitespace-nowrap rounded-full bg-[#0c0c0c] px-4 py-2.5 text-sm font-bold text-white hover:-translate-y-0.5 sm:inline-flex">
+			<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="hidden whitespace-nowrap rounded-full bg-[#0c0c0c] px-3 py-2 text-xs font-bold text-white hover:-translate-y-0.5 sm:inline-flex sm:px-4 sm:py-2.5 sm:text-sm">
 				WhatsApp <span aria-hidden="true">↗</span>
 			</a>
 		</div>

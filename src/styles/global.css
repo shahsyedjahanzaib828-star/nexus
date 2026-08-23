@@ -33,8 +33,13 @@
 	--font-serif: Georgia, "Times New Roman", serif;
 }
 
-html {
+html,
+body {
+	max-width: 100%;
 	overflow-x: hidden;
+}
+
+html {
 	font-family: var(--font-sans);
 }
 
@@ -43,25 +48,32 @@ h2 {
 	font-family: var(--font-serif);
 }
 
-/* Keep controls and links comfortable for keyboard and touch users. */
-a,
-button,
-summary,
-input,
-select,
-textarea {
-	min-height: 48px;
-}
+/*
+  Keep these in @layer base so Tailwind utilities such as `hidden`
+  and `min-h-0` can override them. Unlayered `display: inline-flex`
+  was beating `.hidden` and forcing the header WhatsApp button onto
+  small screens, which shoved the mobile menu off the left edge.
+*/
+@layer base {
+	a,
+	button,
+	summary,
+	input,
+	select,
+	textarea {
+		min-height: 48px;
+	}
 
-a,
-button,
-summary {
-	display: inline-flex;
-	align-items: center;
-}
+	a,
+	button,
+	summary {
+		display: inline-flex;
+		align-items: center;
+	}
 
-summary {
-	cursor: pointer;
+	summary {
+		cursor: pointer;
+	}
 }
 
 .skip-link {
