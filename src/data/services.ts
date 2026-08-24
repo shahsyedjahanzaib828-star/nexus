@@ -28,7 +28,7 @@ export const services = [
 				heading: 'Criminal defence and bail matters',
 				paragraphs: [
 					'In criminal matters the earliest stage is often the most consequential. The contents of the FIR, the sections applied, the availability of pre-arrest bail, custody status, and the record created during investigation all shape what can be argued later.',
-					'Representation covers pre-arrest and post-arrest bail applications, quashment where legally available, trial representation, and advice on responding to investigation. No outcome can be promised in a criminal case; what can be provided is a considered reading of the record, the applicable provisions, and the procedural options.'
+					'Representation covers pre-arrest and post-arrest bail applications, quashment where legally available, trial representation, and advice on responding to investigation. No outcome can be promised in a criminal case; what can be provided is a considered reading of the record, the applicable provisions, and the procedural options. Supporting reading on first steps after an FIR is available in the related guides below; this page remains the commercial litigation hub for instructing work.'
 				],
 				points: [
 					'The FIR and the sections applied determine which bail route is available.',
@@ -41,7 +41,7 @@ export const services = [
 				heading: 'Family law: khula, divorce, custody and maintenance',
 				paragraphs: [
 					'Family matters are heard in the Family Courts and are governed by the Muslim Family Laws Ordinance, the Family Courts Act and related law. A khula suit, divorce proceeding, custody application, maintenance claim or guardianship petition each has its own documentary and evidentiary requirements.',
-					'Family litigation is handled with attention to the practical questions clients actually face: where the case must be filed, what the nikahnama and its recorded delegations establish, how maintenance is computed and enforced, and how custody and visitation are approached where a minor is involved.'
+					'Family litigation is handled with attention to the practical questions clients actually face: where the case must be filed, what the nikahnama and its recorded delegations establish, how maintenance is computed and enforced, and how custody and visitation are approached where a minor is involved. Informational guides on first steps sit under Legal Insights; this service page is the place to instruct family Court work.'
 				]
 			},
 			{

@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { site, phoneHref, whatsappHref } from '../data/site';
+
+const title = `Page not found | ${site.name}`;
+const description = `The page you requested was not found. Browse legal services, insights, or contact ${site.name} in ${site.city}.`;
+---
+
+<Layout
+	title={title}
+	description={description}
+	ogImage="/og/home.png"
+	ogImageAlt={`${site.name} — page not found`}
+	robots="noindex, follow"
+	noCanonical={true}
+>
+	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#a83009] selection:text-white">
+		<SiteHeader />
+
+		<main id="main-content">
+			<section class="border-b border-[#e9e6e2] bg-[#f5f2ee]">
+				<div class="mx-auto max-w-3xl px-5 py-20 lg:px-10 lg:py-28">
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">404 · Page not found</p>
+					<h1 class="mt-5 text-4xl font-semibold leading-tight tracking-[-0.045em] text-[#0c0c0c] sm:text-5xl">
+						This page is not available.
+					</h1>
+					<p class="mt-6 text-base leading-7 text-[#4a4947]">
+						The link may be outdated, or the address may have changed. Use one of the paths below to continue, or contact the practice directly.
+					</p>
+					<div class="mt-10 flex flex-wrap gap-3">
+						<a href="/" class="rounded-full bg-[#0c0c0c] px-6 py-3.5 text-sm font-bold text-white">Home</a>
+						<a href="/services" class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">Practice areas</a>
+						<a href="/blog" class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">Legal insights</a>
+						<a href="/#contact" class="rounded-full px-5 py-3.5 text-sm font-bold text-[#a83009]">Contact</a>
+					</div>
+					<div class="mt-12 space-y-3 text-sm text-[#696764]">
+						<a href={phoneHref} class="block hover:text-[#0c0c0c]">Call {site.phone}</a>
+						<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="block hover:text-[#0c0c0c]">WhatsApp consultation</a>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<SiteFooter />
+	</div>
+</Layout>

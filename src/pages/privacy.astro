@@ -2,11 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import { site, mailHref } from '../data/site';
+import { site, absoluteUrl, mailHref } from '../data/site';
 
 const title = `Privacy Policy | ${site.name}`;
 const description = `Privacy policy explaining how ${site.name} handles enquiries and information submitted through this website.`;
-const canonical = `${site.url}/privacy`;
+const canonical = absoluteUrl('/privacy');
 
 const breadcrumbs = [
 	{ name: 'Home', href: '/' },

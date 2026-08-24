@@ -4,14 +4,14 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { services, type Service } from '../../data/services';
 import { blogPosts } from '../../data/blog';
-import { site, phoneHref, whatsappHref } from '../../data/site';
+import { site, absoluteUrl, phoneHref, whatsappHref } from '../../data/site';
 
 export function getStaticPaths() {
 	return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
 }
 
 const { service } = Astro.props as { service: Service };
-const canonical = `${site.url}/services/${service.slug}`;
+const canonical = absoluteUrl(`/services/${service.slug}`);
 const relatedPosts = blogPosts.filter((post) => (service.related as readonly string[]).includes(post.slug));
 const otherServices = services.filter((entry) => entry.slug !== service.slug);
 

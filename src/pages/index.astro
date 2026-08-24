@@ -4,7 +4,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { services } from '../data/services';
 import { blogPosts } from '../data/blog';
-import { site, serviceCities, phoneHref, whatsappHref, mailHref } from '../data/site';
+import { site, absoluteUrl, phoneHref, whatsappHref, mailHref } from '../data/site';
 
 const latestPosts = blogPosts.slice(0, 6);
 
@@ -54,7 +54,13 @@ const schema = {
 };
 ---
 
-<Layout schema={schema}>
+<Layout
+	schema={schema}
+	canonical={absoluteUrl('/')}
+	includePracticeEntity={true}
+	ogImage="/og/home.png"
+	ogImageAlt={`${site.name} — lawyer in ${site.city}`}
+>
 	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#a83009] selection:text-white">
 		<SiteHeader current="home" />
 
@@ -64,7 +70,7 @@ const schema = {
 					<div>
 						<p class="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-slate-900">{site.city} · {site.region} · {site.country}</p>
 						<h1 class="text-[2.4rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#0c0c0c] sm:text-6xl lg:text-[6.5rem]">
-							Legal counsel for <span class="text-[#a83009]">real stakes.</span>
+							Legal counsel in {site.city} for <span class="text-[#a83009]">real stakes.</span>
 						</h1>
 						<p class="mt-8 max-w-2xl text-lg leading-8 text-slate-900">
 							{site.name} provides comprehensive legal, corporate, tax, and litigation counsel for individuals, families, founders, and businesses across {site.city} and {site.country}.
@@ -245,14 +251,11 @@ const schema = {
 
 			<section class="border-b border-[#e9e6e2] bg-white">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Where clients are based</p>
-					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Karachi chambers, work across Pakistan.</h2>
-					<p class="mt-5 max-w-3xl text-sm leading-7 text-[#696764]">Court appearances are in {site.city} and {site.region}. Corporate, tax, trademark and advisory work is handled for clients in these cities and elsewhere in {site.country}.</p>
-					<ul class="mt-8 flex flex-wrap gap-2">
-						{serviceCities.map((city) => (
-							<li class="rounded-full border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-2 text-sm font-semibold text-[#0c0c0c]">{city}</li>
-						))}
-					</ul>
+					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Service area</p>
+					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Based in {site.city}, advising across {site.country}.</h2>
+					<p class="mt-5 max-w-3xl text-sm leading-7 text-[#696764]">
+						Court appearances are in {site.city} and {site.region}. Corporate, tax, trademark and advisory work is handled for clients elsewhere in {site.country} where the matter and forum allow. This website does not list branch offices in other cities.
+					</p>
 				</div>
 			</section>
 

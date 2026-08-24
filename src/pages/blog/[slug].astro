@@ -4,18 +4,30 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { blogPosts, type BlogPost } from '../../data/blog';
 import { services } from '../../data/services';
-import { site, phoneHref, whatsappHref } from '../../data/site';
+import { site, absoluteUrl, phoneHref, whatsappHref } from '../../data/site';
 
 export function getStaticPaths() {
 	return blogPosts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 
 const { post } = Astro.props as { post: BlogPost };
-const canonical = `${site.url}/blog/${post.slug}`;
+const canonical = absoluteUrl(`/blog/${post.slug}`);
 
 // Services that reference this article, so each post links back to the practice area it supports.
 const relatedServices = services.filter((service) => (service.related as readonly string[]).includes(post.slug));
 const otherPosts = blogPosts.filter((entry) => entry.slug !== post.slug).slice(0, 3);
+
+/** Escape HTML, then turn markdown-style [label](/path) into internal links. */
+function linkify(text: string): string {
+	const escaped = text
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;');
+	return escaped.replace(
+		/\[([^\]]+)\]\((\/[a-z0-9\-\/]+)\)/gi,
+		'<a href="$2" class="font-semibold text-[#a83009] underline-offset-2 hover:underline">$1</a>'
+	);
+}
 
 const articleSchema = {
 	'@type': 'BlogPosting',
@@ -30,7 +42,7 @@ const articleSchema = {
 	'author': { '@id': `${site.url}/#professional` },
 	'publisher': { '@id': `${site.url}/#legal-service` },
 	'mainEntityOfPage': canonical,
-	'image': `${site.url}/og/${post.slug}.png`,
+	'image': absoluteUrl(`/og/${post.slug}.png`),
 	'about': [`Legal services in ${site.city}`, `${site.country} business law`, post.label]
 };
 const faqSchema = {
@@ -55,6 +67,7 @@ const breadcrumbs = [
 	schema={schema}
 	type="article"
 	breadcrumbs={breadcrumbs}
+	publishedTime={`${post.date}T00:00:00.000Z`}
 >
 	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#a83009] selection:text-white">
 		<SiteHeader current="blog" />
@@ -113,7 +126,9 @@ const breadcrumbs = [
 							{post.sections.map((section, index) => (
 								<section id={`section-${index + 1}`} class="scroll-mt-8 border-b border-[#e9e6e2] pb-10 pt-2 first:pt-0 last:border-0">
 									<h2 class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">{section.heading}</h2>
-									{section.paragraphs.map((paragraph) => <p class="mt-5 text-base leading-8 text-[#4a4947]">{paragraph}</p>)}
+									{section.paragraphs.map((paragraph) => (
+										<p class="mt-5 text-base leading-8 text-[#4a4947]" set:html={linkify(paragraph)} />
+									))}
 									{section.points && (
 										<div class="mt-6 rounded-2xl bg-[#f5f2ee] p-5">
 											<h3 class="text-sm font-bold uppercase tracking-[0.14em] text-[#a83009]">Risk points to discuss</h3>

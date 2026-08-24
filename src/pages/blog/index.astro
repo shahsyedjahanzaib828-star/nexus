@@ -3,12 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { blogPosts } from '../../data/blog';
-import { site, whatsappHref } from '../../data/site';
+import { site, absoluteUrl, whatsappHref } from '../../data/site';
 
 const title = 'Legal Blog | Karachi Lawyer on Tax, Company & Property Law';
 const description =
 	'Legal insights on FBR tax compliance, SECP company registration, IPO trademark Pakistan, property due diligence, bail and family law in Karachi.';
-const canonical = `${site.url}/blog`;
+const canonical = absoluteUrl('/blog');
 
 const schema = {
 	'@context': 'https://schema.org',
@@ -28,7 +28,7 @@ const schema = {
 				'@type': 'ListItem',
 				position: index + 1,
 				name: post.title,
-				url: `${site.url}/blog/${post.slug}`
+				url: absoluteUrl(`/blog/${post.slug}`)
 			}))
 		}
 	]
@@ -64,10 +64,10 @@ const breadcrumbs = [
 					</nav>
 					<p class="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Legal knowledge for {site.city} businesses</p>
 					<h1 class="mt-5 max-w-4xl text-[2.4rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#0c0c0c] sm:text-6xl lg:text-7xl">
-						Practical insight for <span class="text-[#a83009]">serious decisions.</span>
+						Legal insights for <span class="text-[#a83009]">serious decisions.</span>
 					</h1>
 					<p class="mt-8 max-w-2xl text-lg leading-8 text-[#252424]">
-						Clear legal perspectives on litigation, FBR tax compliance, SECP company registration, IPO trademark Pakistan, and business risk across {site.city} and {site.country}.
+						Guides on litigation, FBR tax compliance, SECP company registration, IPO trademarks, and property due diligence for readers in {site.city} and across {site.country}.
 					</p>
 				</div>
 			</section>
