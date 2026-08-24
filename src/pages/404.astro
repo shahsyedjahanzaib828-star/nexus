@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import { site, absoluteUrl, phoneHref, whatsappHref } from '../data/site';
+import { site, phoneHref, whatsappHref } from '../data/site';
 
 const title = `Page not found | ${site.name}`;
 const description = `The page you requested was not found. Browse legal services, insights, or contact ${site.name} in ${site.city}.`;
@@ -14,6 +14,7 @@ const description = `The page you requested was not found. Browse legal services
 	ogImage="/og/home.png"
 	ogImageAlt={`${site.name} — page not found`}
 	robots="noindex, follow"
+	noCanonical={true}
 >
 	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#a83009] selection:text-white">
 		<SiteHeader />

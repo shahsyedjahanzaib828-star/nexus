@@ -17,8 +17,8 @@ export default defineConfig({
       filter: (page) => !page.includes('/og/') && !page.includes('google58b312901cae68d0'),
       serialize(item) {
         const pathname = new URL(item.url).pathname.replace(/\/+$/, '') || '/';
-        // Keep sitemap locs aligned with trailingSlash: 'never'
-        item.url = pathname === '/' ? `${siteUrl}/` : `${siteUrl}${pathname}`;
+        // Keep sitemap locs aligned with trailingSlash: 'never' (no trailing slash, including root)
+        item.url = pathname === '/' ? siteUrl : `${siteUrl}${pathname}`;
 
         if (pathname === '/') {
           return { ...item, changefreq: 'weekly', priority: 1.0, lastmod: undefined };

@@ -33,9 +33,9 @@ export const phoneHref = `tel:+92${site.phone.slice(1)}`;
 export const whatsappHref = `https://wa.me/92${site.phone.slice(1)}`;
 export const mailHref = `mailto:${site.email}`;
 
-/** Absolute URL with no trailing slash (except the site root). */
+/** Absolute URL with no trailing slash (including the site root). */
 export function absoluteUrl(path = '/'): string {
-	if (!path || path === '/') return `${site.url}/`;
+	if (!path || path === '/') return site.url;
 	const normalized = path.startsWith('/') ? path : `/${path}`;
 	return `${site.url}${normalized.replace(/\/+$/, '')}`;
 }
