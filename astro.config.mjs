@@ -1,25 +1,54 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-
 import tailwindcss from '@tailwindcss/vite';
+import { blogPosts } from './src/data/blog.ts';
+
+const siteUrl = (process.env.PUBLIC_SITE_URL || 'https://nexus-alpha-ten-66.vercel.app').replace(/\/+$/, '');
+
+const blogDates = Object.fromEntries(blogPosts.map((post) => [post.slug, post.date]));
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nexus-alpha-ten-66.vercel.app',
+  site: siteUrl,
+  trailingSlash: 'never',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/og/'),
-      changefreq: 'weekly',
-      lastmod: new Date(),
+      filter: (page) => !page.includes('/og/') && !page.includes('google58b312901cae68d0'),
       serialize(item) {
-        const path = new URL(item.url).pathname;
-        if (path === '/') return { ...item, priority: 1.0, changefreq: 'weekly' };
-        if (path.startsWith('/services')) return { ...item, priority: 0.9, changefreq: 'monthly' };
-        if (path === '/about/') return { ...item, priority: 0.7, changefreq: 'yearly' };
-        if (path.startsWith('/blog/') && path !== '/blog/') return { ...item, priority: 0.7, changefreq: 'monthly' };
-        if (path === '/privacy/') return { ...item, priority: 0.2, changefreq: 'yearly' };
-        return item;
+        const pathname = new URL(item.url).pathname.replace(/\/+$/, '') || '/';
+        // Keep sitemap locs aligned with trailingSlash: 'never'
+        item.url = pathname === '/' ? `${siteUrl}/` : `${siteUrl}${pathname}`;
+
+        if (pathname === '/') {
+          return { ...item, changefreq: 'weekly', priority: 1.0, lastmod: undefined };
+        }
+        if (pathname === '/services') {
+          return { ...item, changefreq: 'monthly', priority: 0.9, lastmod: undefined };
+        }
+        if (pathname.startsWith('/services/')) {
+          return { ...item, changefreq: 'monthly', priority: 0.9, lastmod: undefined };
+        }
+        if (pathname === '/blog') {
+          return { ...item, changefreq: 'weekly', priority: 0.8, lastmod: undefined };
+        }
+        if (pathname.startsWith('/blog/')) {
+          const slug = pathname.slice('/blog/'.length);
+          const date = blogDates[slug];
+          return {
+            ...item,
+            changefreq: 'monthly',
+            priority: 0.7,
+            lastmod: date ? new Date(`${date}T00:00:00.000Z`) : undefined
+          };
+        }
+        if (pathname === '/about') {
+          return { ...item, changefreq: 'yearly', priority: 0.7, lastmod: undefined };
+        }
+        if (pathname === '/privacy') {
+          return { ...item, changefreq: 'yearly', priority: 0.2, lastmod: undefined };
+        }
+        return { ...item, lastmod: undefined };
       }
     })
   ],

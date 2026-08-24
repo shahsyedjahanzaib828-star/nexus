@@ -3,12 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { services } from '../../data/services';
-import { site, phoneHref, whatsappHref } from '../../data/site';
+import { site, absoluteUrl, phoneHref, whatsappHref } from '../../data/site';
 
 const title = 'Legal Services in Karachi | Litigation, Corporate & Tax';
 const description =
 	'Legal services in Karachi: civil, criminal and family litigation, property and SBCA matters, SECP registration, FBR tax filing, WeBOC and trademarks.';
-const canonical = `${site.url}/services`;
+const canonical = absoluteUrl('/services');
 
 const schema = {
 	'@context': 'https://schema.org',
@@ -27,7 +27,7 @@ const schema = {
 				'@type': 'ListItem',
 				position: index + 1,
 				name: service.heading,
-				url: `${site.url}/services/${service.slug}`
+				url: absoluteUrl(`/services/${service.slug}`)
 			}))
 		}
 	]
@@ -56,7 +56,7 @@ const breadcrumbs = [
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-24">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">{site.city} · {site.region} · {site.country}</p>
 					<h1 class="mt-5 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-[#0c0c0c] sm:text-6xl">
-						Legal services for <span class="text-[#a83009]">individuals and businesses.</span>
+						Legal services in {site.city} for <span class="text-[#a83009]">individuals and businesses.</span>
 					</h1>
 					<p class="mt-8 max-w-3xl text-lg leading-8 text-[#4a4947]">
 						Six practice areas covering litigation, property, corporate structuring, tax compliance, international trade and intellectual property. Each area is handled with the same approach: establish the documents and the legal position first, then act.
