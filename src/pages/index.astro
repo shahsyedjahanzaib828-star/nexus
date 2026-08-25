@@ -6,7 +6,7 @@ import { services } from '../data/services';
 import { blogPosts } from '../data/blog';
 import { site, absoluteUrl, phoneHref, whatsappHref, mailHref } from '../data/site';
 
-const latestPosts = blogPosts.slice(0, 6);
+const latestPosts = blogPosts.slice(0, 3);
 // Surface FBR second on the homepage grid — August search interest is strongest on tax/FBR.
 const homepageServices = (() => {
 	const fbr = services.find((service) => service.slug === 'fbr-tax-filing-services-karachi');
@@ -76,30 +76,30 @@ const schema = {
 				<div class="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-10 lg:py-24">
 					<div>
 						<p class="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-slate-900">{site.city} · {site.region} · {site.country}</p>
-						<h1 class="text-[2.4rem] font-semibold leading-[0.98] tracking-[-0.055em] text-[#0c0c0c] sm:text-6xl lg:text-[6.5rem]">
+						<h1 class="text-[2.25rem] font-semibold leading-[1.02] tracking-[-0.055em] text-[#0c0c0c] sm:text-6xl lg:text-[6.5rem]">
 							Legal counsel in {site.city} for <span class="text-[#a83009]">real stakes.</span>
 						</h1>
-						<p class="mt-8 max-w-2xl text-lg leading-8 text-slate-900">
-							{site.name} provides comprehensive legal, corporate, tax, and litigation counsel for individuals, families, founders, and businesses across {site.city} and {site.country}.
+						<p class="mt-6 max-w-xl text-base leading-7 text-slate-900 sm:mt-8 sm:max-w-2xl sm:text-lg sm:leading-8 [font-family:system-ui,sans-serif]">
+							{site.name} — litigation, FBR return filing, company setup and property counsel in {site.city}.
 						</p>
-						<div class="mt-9 flex flex-wrap gap-4">
-							<a href="#contact" class="rounded-full bg-[#a83009] px-6 py-3.5 text-sm font-bold text-white">
+						<div class="mt-8 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
+							<a href="#contact" class="touch-target min-h-12 rounded-full bg-[#a83009] px-6 py-3.5 text-sm font-bold text-white">
 								Discuss your matter ↗
 							</a>
-							<a href={phoneHref} class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">
+							<a href={phoneHref} class="touch-target min-h-12 rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">
 								Call Now: {site.phone}
 							</a>
-							<a href="/services/fbr-tax-filing-services-karachi" class="rounded-full px-5 py-3.5 text-sm font-bold text-[#a83009]">
+							<a href="/services/fbr-tax-filing-services-karachi" class="touch-target min-h-12 rounded-full px-5 py-3.5 text-sm font-bold text-[#a83009]">
 								FBR return filing
 							</a>
 						</div>
-						<div class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-xs font-semibold text-slate-900">
+						<div class="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs font-semibold text-slate-900 sm:mt-12">
 							<span class="text-slate-900">✓ {site.city}-based counsel</span>
 							<span class="text-slate-900">✓ Confidential consultation</span>
 							<span class="text-slate-900">✓ {site.country}-wide support</span>
 						</div>
 					</div>
-					<div class="rounded-[2rem] bg-[#0c0c0c] p-7 text-white shadow-xl shadow-[#0c0c0c]/15 sm:p-9">
+					<div class="hidden rounded-[2rem] bg-[#0c0c0c] p-7 text-white shadow-xl shadow-[#0c0c0c]/15 sm:p-9 md:block">
 						<p class="text-xs font-bold uppercase tracking-[0.18em] text-[#f45a27]">Practice at a glance</p>
 						<h2 class="mt-3 text-3xl font-semibold leading-tight">One trusted point of contact.</h2>
 						<div class="grid grid-cols-2 gap-8 pt-8">
@@ -174,7 +174,7 @@ const schema = {
 				</div>
 			</section>
 
-			<section id="practice-areas" class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
+			<section id="practice-areas" class="cv-auto mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
 				<div class="max-w-2xl">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Comprehensive legal portfolio</p>
 					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Legal support that meets the whole picture.</h2>
@@ -206,7 +206,7 @@ const schema = {
 				</a>
 			</section>
 
-			<section class="border-y border-[#e9e6e2] bg-white">
+			<section class="cv-auto border-y border-[#e9e6e2] bg-white">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Before a filing is prepared</p>
 					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Three reasons the record comes first.</h2>
@@ -227,7 +227,7 @@ const schema = {
 				</div>
 			</section>
 
-			<section id="how-it-works" class="border-y border-[#e9e6e2] bg-[#0c0c0c] text-white">
+			<section id="how-it-works" class="cv-auto border-y border-[#e9e6e2] bg-[#0c0c0c] text-white">
 				<div class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#f45a27]">A steady legal partner</p>
 					<h2 class="mt-5 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Clarity before complexity.</h2>
@@ -251,7 +251,7 @@ const schema = {
 				</div>
 			</section>
 
-			<section class="border-b border-[#e9e6e2] bg-[#f5f2ee]">
+			<section class="cv-auto border-b border-[#e9e6e2] bg-[#f5f2ee]">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">How a consultation is handled</p>
 					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Direct access, a written assessment, and fees before engagement.</h2>
@@ -276,7 +276,7 @@ const schema = {
 				</div>
 			</section>
 
-			<section class="border-b border-[#e9e6e2] bg-white">
+			<section class="cv-auto border-b border-[#e9e6e2] bg-white">
 				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Service area</p>
 					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Based in {site.city}, advising across {site.country}.</h2>
@@ -286,7 +286,7 @@ const schema = {
 				</div>
 			</section>
 
-			<section class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-24">
+			<section class="cv-auto mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-24">
 				<div class="flex flex-wrap items-end justify-between gap-6">
 					<div class="max-w-2xl">
 						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Legal insights</p>
@@ -314,7 +314,7 @@ const schema = {
 				</div>
 			</section>
 
-			<section id="faq" class="border-y border-[#e9e6e2] bg-white">
+			<section id="faq" class="cv-auto border-y border-[#e9e6e2] bg-white">
 				<div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-24">
 					<div>
 						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Frequently asked questions</p>
@@ -337,7 +337,7 @@ const schema = {
 				</div>
 			</section>
 
-			<section id="contact" class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.75fr_1.25fr] lg:px-10 lg:py-28">
+			<section id="contact" class="cv-auto mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.75fr_1.25fr] lg:px-10 lg:py-28">
 				<div>
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Start with a conversation</p>
 					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Tell us where you need counsel.</h2>
