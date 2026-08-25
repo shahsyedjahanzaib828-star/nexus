@@ -81,6 +81,13 @@ h2 {
 		display: inline-flex;
 		align-items: center;
 		min-height: 48px;
+		box-sizing: border-box;
+	}
+
+	/* FAQ / disclosure controls need a full-width tap strip on mobile. */
+	summary.touch-target {
+		display: flex;
+		width: 100%;
 	}
 
 	summary {

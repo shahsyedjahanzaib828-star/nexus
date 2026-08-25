@@ -168,11 +168,12 @@ const breadcrumbs = [
 							<h2 class="mt-4 text-3xl font-semibold tracking-[-0.035em] text-[#0c0c0c]">{service.label} questions clients ask</h2>
 							<div class="mt-7 space-y-4">
 								{service.faq.map(([question, answer]) => (
-									<details class="group rounded-2xl border border-[#e9e6e2] bg-white p-5">
-										<summary class="cursor-pointer list-none pr-6 text-base font-semibold text-[#0c0c0c] marker:hidden">
-											{question}<span class="float-right text-[#a83009] group-open:rotate-45">+</span>
+									<details class="group rounded-2xl border border-[#e9e6e2] bg-white p-2 sm:p-3">
+										<summary class="touch-target flex min-h-12 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-3 text-left text-base font-semibold text-[#0c0c0c] marker:hidden">
+											<span class="pr-2">{question}</span>
+											<span class="shrink-0 text-[#a83009] group-open:rotate-45" aria-hidden="true">+</span>
 										</summary>
-										<p class="mt-4 text-sm leading-7 text-[#696764]">{answer}</p>
+										<p class="px-3 pb-3 text-sm leading-7 text-[#696764]">{answer}</p>
 									</details>
 								))}
 							</div>

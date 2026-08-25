@@ -326,13 +326,14 @@ const schema = {
 						</p>
 						<a href="/about" class="touch-target mt-7 min-h-12 text-sm font-bold text-[#a83009]">About the practice ↗</a>
 					</div>
-					<div class="space-y-4">
+					<div class="space-y-3">
 						{homeFaq.map(([question, answer]) => (
-							<details class="group rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-5">
-								<summary class="cursor-pointer list-none pr-6 text-base font-semibold text-[#0c0c0c] marker:hidden">
-									{question}<span class="float-right text-[#a83009] group-open:rotate-45">+</span>
+							<details class="group rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-2 sm:p-3">
+								<summary class="touch-target flex min-h-12 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-3 text-left text-base font-semibold text-[#0c0c0c] marker:hidden">
+									<span class="pr-2">{question}</span>
+									<span class="shrink-0 text-[#a83009] group-open:rotate-45" aria-hidden="true">+</span>
 								</summary>
-								<p class="mt-4 text-sm leading-7 text-[#696764]">{answer}</p>
+								<p class="px-3 pb-3 text-sm leading-7 text-[#696764]">{answer}</p>
 							</details>
 						))}
 					</div>
@@ -344,21 +345,21 @@ const schema = {
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Start with a conversation</p>
 					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Tell us where you need counsel.</h2>
 					<p class="mt-5 max-w-sm text-base leading-7 text-[#252424]">Share a few details for an initial enquiry. Your information is treated with professional confidentiality.</p>
-					<div class="mt-9 space-y-5 text-sm text-[#696764]">
-						<a href={phoneHref} class="touch-target min-h-12 items-center gap-3 hover:text-[#0c0c0c]">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">☎</span>
+					<div class="mt-9 space-y-3 text-sm text-[#696764]">
+						<a href={phoneHref} class="touch-target flex min-h-12 w-full items-center gap-3 rounded-xl px-2 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">
+							<span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">☎</span>
 							{site.phone}
 						</a>
-						<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="touch-target min-h-12 items-center gap-3 hover:text-[#0c0c0c]">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">◉</span>
+						<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="touch-target flex min-h-12 w-full items-center gap-3 rounded-xl px-2 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">
+							<span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">◉</span>
 							WhatsApp consultation
 						</a>
-						<a href={mailHref} class="touch-target min-h-12 items-center gap-3 hover:text-[#0c0c0c]">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">@</span>
+						<a href={mailHref} class="touch-target flex min-h-12 w-full items-center gap-3 rounded-xl px-2 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">
+							<span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">@</span>
 							{site.email}
 						</a>
-						<span class="flex items-center gap-3">
-							<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">⌂</span>
+						<span class="flex min-h-12 items-center gap-3 px-2 py-3">
+							<span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">⌂</span>
 							{site.city}, {site.region}, {site.country}
 						</span>
 					</div>
