@@ -68,7 +68,7 @@ const linkClass = (key: string) => (current === key ? 'text-[#a83009]' : 'hover:
 
 		<div class="flex shrink-0 items-center gap-1.5 sm:gap-2">
 			<details class="lg:hidden">
-				<summary class="list-none rounded-full border border-[#c4c2be] px-2.5 py-2 text-sm font-bold text-[#0c0c0c] sm:px-4 sm:py-2.5">
+		<summary class="touch-target list-none rounded-full border border-[#c4c2be] px-2.5 py-2 text-sm font-bold text-[#0c0c0c] sm:px-4 sm:py-2.5">
 					<span aria-hidden="true">☰</span><span class="sr-only">Open navigation menu</span>
 				</summary>
 				<nav class="absolute left-0 right-0 top-full z-50 w-full max-w-full px-3 sm:px-5" aria-label="Mobile navigation">
@@ -84,7 +84,7 @@ const linkClass = (key: string) => (current === key ? 'text-[#a83009]' : 'hover:
 				</nav>
 			</details>
 
-			<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="hidden whitespace-nowrap rounded-full bg-[#0c0c0c] px-3 py-2 text-xs font-bold text-white hover:-translate-y-0.5 sm:inline-flex sm:px-4 sm:py-2.5 sm:text-sm">
+			<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="touch-target hidden min-h-0 whitespace-nowrap rounded-full bg-[#0c0c0c] px-3 py-2 text-xs font-bold text-white hover:-translate-y-0.5 sm:inline-flex sm:px-4 sm:py-2.5 sm:text-sm">
 				WhatsApp <span aria-hidden="true">↗</span>
 			</a>
 		</div>

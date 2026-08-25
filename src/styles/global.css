@@ -34,12 +34,14 @@
 	--font-serif: Georgia, "Times New Roman", serif;
 }
 
-/* Work Sans (OFL) is self-hosted so the page does not wait on Google Fonts CSS. */
+/* Work Sans (OFL) is self-hosted so the page does not wait on Google Fonts CSS.
+   font-display: optional avoids long element-render delay on LCP text when the
+   network is slow — the first paint can use the system stack immediately. */
 @font-face {
 	font-family: "Work Sans";
 	font-style: normal;
 	font-weight: 400 700;
-	font-display: swap;
+	font-display: optional;
 	src: url("/fonts/work-sans-latin-wght.woff2") format("woff2");
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
@@ -60,13 +62,11 @@ h2 {
 }
 
 /*
-  Keep these in @layer base so Tailwind utilities such as `hidden`
-  and `min-h-0` can override them. Unlayered `display: inline-flex`
-  was beating `.hidden` and forcing the header WhatsApp button onto
-  small screens, which shoved the mobile menu off the left edge.
+  Do NOT force every anchor to inline-flex + 48px min-height.
+  That inflated style/layout cost across the whole DOM and delayed LCP on mobile.
+  Touch targets are applied to real controls via .touch-target / button / summary.
 */
 @layer base {
-	a,
 	button,
 	summary,
 	input,
@@ -75,9 +75,9 @@ h2 {
 		min-height: 48px;
 	}
 
-	a,
 	button,
-	summary {
+	summary,
+	.touch-target {
 		display: inline-flex;
 		align-items: center;
 	}
@@ -85,6 +85,12 @@ h2 {
 	summary {
 		cursor: pointer;
 	}
+}
+
+/* Below-fold sections: skip layout work until near viewport (LCP-friendly). */
+.cv-auto {
+	content-visibility: auto;
+	contain-intrinsic-size: 1px 720px;
 }
 
 .skip-link {

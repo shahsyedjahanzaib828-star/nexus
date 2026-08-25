@@ -306,14 +306,15 @@ export const services = [
 		slug: 'fbr-tax-filing-services-karachi',
 		label: 'Tax & Compliance',
 		icon: '%',
-		heading: 'FBR Tax Filing, SRB & International Tax Compliance',
-		seoTitle: 'FBR Tax Filing in Karachi | SRB & US LLC Tax Returns',
+		heading: 'FBR Return Filing & Tax Compliance in Karachi',
+		seoTitle: 'FBR Return Filing in Karachi | Income Tax, SRB & Notices',
 		description:
-			'FBR and SRB tax compliance in Karachi: income tax returns, STRN sales tax registration, US and UK LLC filing, and tax audit representation.',
+			'FBR return filing in Karachi for individuals and businesses: income tax returns through IRIS, filer status, SRB sales tax, notice replies and audit support.',
 		intro:
-			'Tax exposure in Pakistan usually accumulates quietly through unfiled returns, unanswered notices and records that cannot support a declared position. Compliance work is most effective before a notice arrives.',
+			'FBR return filing is one of the searches and tasks Karachi taxpayers face every year. Exposure usually builds through unfiled returns, unanswered notices and records that cannot support a declared position. Compliance work is most effective before a notice arrives.',
 		offerings: [
 			'Individual and business FBR income tax return filing',
+			'IRIS return preparation, review and submission support',
 			'STRN sales tax registration and SRB service tax compliance',
 			'US and UK LLC tax filing and compliance for freelancers and businesses',
 			'Tax audit handling, notice replies and exemption certificates',
@@ -321,10 +322,10 @@ export const services = [
 		],
 		sections: [
 			{
-				heading: 'Income tax filing and filer status',
+				heading: 'FBR return filing and filer status',
 				paragraphs: [
-					'An income tax return is a declaration that must be capable of being supported. Income sources, bank activity, assets, expenses and withholding all need to reconcile, because a return that conflicts with third-party data is the most common trigger for further scrutiny.',
-					'Filer status also has practical consequences beyond the return itself, affecting withholding rates on a range of transactions. Where returns for earlier years are outstanding, the position for those years is assessed before the current return is filed.'
+					'FBR return filing through IRIS is a declaration that must be capable of being supported. Income sources, bank activity, assets, expenses and withholding all need to reconcile, because a return that conflicts with third-party data is the most common trigger for further scrutiny.',
+					'Filer status also has practical consequences beyond the return itself, affecting withholding rates on a range of transactions. Where returns for earlier years are outstanding, the position for those years is assessed before the current return is filed. The applicable filing deadline depends on the taxpayer type and the tax year, and should be confirmed against the current FBR calendar before submission.'
 				]
 			},
 			{
@@ -356,6 +357,10 @@ export const services = [
 			}
 		],
 		faq: [
+			[
+				'What is included in FBR return filing support in Karachi?',
+				'Support typically covers reviewing the available records, preparing or checking the income tax return and related statements, confirming registrations where needed, and submitting through IRIS once the position is clear. The exact scope is agreed before work begins.'
+			],
 			[
 				'What happens if an FBR return is filed late or not at all?',
 				'Late or non-filing can attract statutory consequences and affect filer status, withholding rates and audit exposure. The precise position depends on the taxpayer type, the tax year and any notice already issued.'
