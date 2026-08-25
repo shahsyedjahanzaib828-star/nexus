@@ -1,23 +1,68 @@
 export const blogPosts = [
 	{
 		slug: 'fbr-tax-filing-compliance-penalties-pakistan',
-		title: 'FBR Tax Filing Compliance: Penalties, Deadlines & Financial Risks in Pakistan',
-		seoTitle: 'FBR Tax Compliance Risks for Pakistani Taxpayers',
-		description: 'An overview of FBR tax compliance deadlines, penalties, audit exposure, and financial risks for individuals and businesses in Pakistan.',
+		title: 'FBR Return Filing in Pakistan: Deadlines, Penalties & Compliance Risks',
+		seoTitle: 'FBR Return Filing Deadlines and Compliance Risks in Pakistan',
+		description:
+			'A practical overview of FBR return filing in Pakistan: deadlines, penalties, IRIS declarations, audit exposure, and risks for individuals and Karachi businesses.',
 		date: '2026-08-12',
 		label: 'Tax & Compliance',
 		readingTime: '8 min read',
-		intro: 'Tax filing is not only an annual administrative task. In Pakistan, incomplete records, late returns, incorrect declarations, and ignored notices can create a chain of financial and legal exposure for individuals, directors, and businesses.',
+		intro:
+			'FBR return filing is not only an annual administrative task. In Pakistan, incomplete records, late returns, incorrect declarations, and ignored notices can create a chain of financial and legal exposure for individuals, directors, and businesses.',
 		sections: [
-			{ heading: 'Why FBR compliance needs legal attention', paragraphs: ['FBR compliance connects income declarations, business records, withholding statements, sales tax obligations, bank activity, and notices. A mismatch may become more serious when it is repeated or left unanswered. Legal review helps distinguish a correctable record issue from a dispute that requires a formal response.', 'For a Karachi business, the risk can also involve commercial contracts, directors responsibilities, payroll records, and evidence held across multiple offices. A rushed filing may create a record that is difficult to explain later.'] },
-			{ heading: 'The main financial and legal risks', paragraphs: ['Late or incomplete compliance can expose a taxpayer to statutory penalties, default surcharges, audit selection, recovery proceedings, restrictions on tax documentation, and difficulty supporting transactions. The practical impact may include blocked commercial activity, delayed banking or licensing work, and loss of confidence from counterparties.', 'The highest-risk situations often involve unreported income, unsupported expenses, inaccurate sales tax treatment, unexplained credits, or a notice that is allowed to pass without a considered reply. The right response depends on the facts and the relevant tax period, not on a generic online checklist.'], points: ['Incomplete records can weaken a taxpayer response during an audit.', 'A notice should be reviewed for its legal basis, deadline, and requested evidence.', 'Directors and business owners should understand how company records connect to personal declarations.', 'A compliant correction is usually safer than repeating an unsupported position.'] },
-			{ heading: 'Deadlines, notices, and audit strategy', paragraphs: ['Deadlines should be tracked as part of a compliance calendar, with responsibility assigned before a return or statement is due. When FBR correspondence arrives, the first priority is preserving the envelope, notice, return history, ledgers, invoices, and supporting documents. A response should address the actual allegation and avoid unnecessary admissions.', 'Professional advice is particularly important where a notice concerns concealed income, a rejected claim, sales tax input, a bank reconciliation, or a proposed recovery. A lawyer and tax professional can coordinate the legal, factual, and documentary position.'] },
-			{ heading: 'How a Karachi legal review reduces exposure', paragraphs: ['A focused review maps the taxpayer profile, business activity, registrations, previous filings, open notices, and record gaps. It then prioritises urgent deadlines and determines whether the issue calls for clarification, correction, representation, or litigation strategy. This is risk management, not a promise of a particular tax result.', 'If you need ongoing return filing or notice handling rather than a one-off read of this guide, see the [FBR tax filing services](/services/fbr-tax-filing-services-karachi) page for how that work is scoped.'] }
+			{
+				heading: 'Why FBR return filing needs careful attention',
+				paragraphs: [
+					'FBR return filing connects income declarations, business records, withholding statements, sales tax obligations, bank activity, and notices. A mismatch may become more serious when it is repeated or left unanswered. Legal review helps distinguish a correctable record issue from a dispute that requires a formal response.',
+					'For a Karachi business, the risk can also involve commercial contracts, directors responsibilities, payroll records, and evidence held across multiple offices. A rushed IRIS filing may create a record that is difficult to explain later.'
+				]
+			},
+			{
+				heading: 'The main financial and legal risks',
+				paragraphs: [
+					'Late or incomplete FBR return filing can expose a taxpayer to statutory penalties, default surcharges, audit selection, recovery proceedings, restrictions on tax documentation, and difficulty supporting transactions. The practical impact may include blocked commercial activity, delayed banking or licensing work, and loss of confidence from counterparties.',
+					'The highest-risk situations often involve unreported income, unsupported expenses, inaccurate sales tax treatment, unexplained credits, or a notice that is allowed to pass without a considered reply. The right response depends on the facts and the relevant tax period, not on a generic online checklist.'
+				],
+				points: [
+					'Incomplete records can weaken a taxpayer response during an audit.',
+					'A notice should be reviewed for its legal basis, deadline, and requested evidence.',
+					'Directors and business owners should understand how company records connect to personal declarations.',
+					'A compliant correction is usually safer than repeating an unsupported position.'
+				]
+			},
+			{
+				heading: 'Deadlines, notices, and audit strategy',
+				paragraphs: [
+					'Return-filing deadlines should be tracked as part of a compliance calendar, with responsibility assigned before a return or statement is due. Confirm the current FBR deadline for your taxpayer type and tax year rather than relying on an outdated date from an old article or social post.',
+					'When FBR correspondence arrives, the first priority is preserving the envelope, notice, return history, ledgers, invoices, and supporting documents. A response should address the actual allegation and avoid unnecessary admissions. Professional advice is particularly important where a notice concerns concealed income, a rejected claim, sales tax input, a bank reconciliation, or a proposed recovery.'
+				]
+			},
+			{
+				heading: 'How a Karachi legal review reduces exposure',
+				paragraphs: [
+					'A focused review maps the taxpayer profile, business activity, registrations, previous filings, open notices, and record gaps. It then prioritises urgent deadlines and determines whether the issue calls for clarification, correction, representation, or litigation strategy. This is risk management, not a promise of a particular tax result.',
+					'If you need ongoing FBR return filing or notice handling rather than a one-off read of this guide, see the [FBR tax filing services](/services/fbr-tax-filing-services-karachi) page for how that work is scoped.'
+				]
+			}
 		],
 		faq: [
-			['What happens if an FBR return is filed late?', 'Late filing can trigger statutory consequences and may affect tax documentation or audit risk. The exact position depends on the taxpayer type, tax period, and applicable notice or provision.'],
-			['Should I ignore an FBR notice if my records are incomplete?', 'No. Ignoring a notice can remove opportunities to present evidence or correct the record. Obtain professional advice promptly and preserve all relevant documents.'],
-			['Can a Karachi lawyer help with an FBR audit?', 'A Karachi lawyer can review notices, coordinate the response, prepare legal submissions, and represent the client where appropriate, alongside qualified tax support.']
+			[
+				'What is FBR return filing?',
+				'It is the process of declaring income and related particulars to the Federal Board of Revenue, usually through IRIS, for the relevant tax year. The exact forms and annexures depend on the taxpayer type and facts.'
+			],
+			[
+				'What happens if an FBR return is filed late?',
+				'Late filing can trigger statutory consequences and may affect tax documentation or audit risk. The exact position depends on the taxpayer type, tax period, and applicable notice or provision.'
+			],
+			[
+				'Should I ignore an FBR notice if my records are incomplete?',
+				'No. Ignoring a notice can remove opportunities to present evidence or correct the record. Obtain professional advice promptly and preserve all relevant documents.'
+			],
+			[
+				'Can a Karachi lawyer help with an FBR audit?',
+				'A Karachi lawyer can review notices, coordinate the response, prepare legal submissions, and represent the client where appropriate, alongside qualified tax support.'
+			]
 		]
 	},
 	{
@@ -148,8 +193,9 @@ export const blogPosts = [
 	{
 		slug: 'khula-divorce-custody-maintenance-first-steps-pakistan',
 		title: 'Khula, Divorce, Custody and Maintenance in Pakistan: First Legal Steps',
-		seoTitle: 'First Steps in Khula, Custody and Maintenance Matters',
-		description: 'Understand the first legal steps for khula, divorce, child custody, and maintenance matters in Pakistan, with practical guidance for Karachi family disputes.',
+		seoTitle: 'Khula Procedure in Pakistan: First Legal Steps',
+		description:
+			'Understand the khula procedure in Pakistan and the first legal steps for divorce, child custody, and maintenance, with practical guidance for Karachi family disputes.',
 		date: '2026-08-20',
 		label: 'Family Law',
 		readingTime: '8 min read',
