@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { site, absoluteUrl, entityIds, phoneHref, mailHref } from '../data/site';
+
+const title = `Terms of Use | ${site.name}`;
+const description = `Terms of use for the ${site.name} website, including informational purpose, no advocate-client relationship from website contact, and related disclaimers.`;
+const canonical = absoluteUrl('/terms');
+const effectiveDate = '28 August 2026';
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebPage',
+			'@id': `${canonical}#webpage`,
+			'name': title,
+			'description': description,
+			'url': canonical,
+			'isPartOf': { '@id': entityIds.website },
+			'about': { '@id': entityIds.organization },
+			'inLanguage': 'en-PK'
+		}
+	]
+};
+
+const breadcrumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Terms of Use', href: '/terms' }
+];
+---
+
+<Layout
+	title={title}
+	description={description}
+	canonical={canonical}
+	ogImage="/og/terms.png"
+	ogImageAlt={`Terms of Use — ${site.name}`}
+	schema={schema}
+	breadcrumbs={breadcrumbs}
+>
+	<div class="min-h-screen bg-[#fbfaf8] text-[#252424]">
+		<SiteHeader />
+
+		<main id="main-content" class="px-5 py-16 lg:px-10 lg:py-24">
+			<article class="mx-auto max-w-3xl">
+				<nav aria-label="Breadcrumb">
+					<ol class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#a83009]">
+						<li><a href="/" class="hover:text-[#0c0c0c]">Home</a></li>
+						<li aria-hidden="true">/</li>
+						<li class="text-[#878583]">Terms of Use</li>
+					</ol>
+				</nav>
+
+				<p class="mt-10 text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Website terms</p>
+				<h1 class="mt-4 text-4xl font-semibold leading-tight text-[#0c0c0c] sm:text-5xl">Terms of Use</h1>
+				<p class="mt-6 text-base leading-7 text-[#252424]">
+					These terms explain how you may use the public website of {site.name}. They are general website information for visitors in {site.country} and elsewhere. They are not a substitute for tailored legal advice.
+				</p>
+
+				<div class="mt-12 space-y-10 text-base leading-7 text-[#696764]">
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">1. Acceptance of these terms</h2>
+						<p class="mt-3">
+							By accessing or using this website, you agree to read these Terms of Use together with the
+							{' '}<a class="font-semibold text-[#a83009]" href="/privacy">Privacy Policy</a>. If you do not agree, please do not use the website.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">2. Informational purpose only</h2>
+						<p class="mt-3">
+							Pages, articles, service descriptions, and other materials on this website are general information about {site.name} and areas of legal and corporate work. They are not legal advice for your specific facts. Laws, procedures, and practice requirements change, and website content may not reflect every development.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">3. No advocate-client relationship from website use</h2>
+						<p class="mt-3">
+							Visiting this website, reading content, calling, messaging on WhatsApp, emailing, or submitting an enquiry form does not by itself create an advocate-client relationship with {site.name} or any practitioner named on the site. Engagement, if any, is confirmed in writing after the practice has agreed to take on a matter.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">4. No guarantee of outcome</h2>
+						<p class="mt-3">
+							Nothing on this website guarantees a court result, registration, licence, tax outcome, settlement, or other result. Outcomes depend on the facts, evidence, applicable law, and decisions of courts or authorities.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">5. Your responsibility for information you supply</h2>
+						<p class="mt-3">
+							If you contact the practice through this website, you are responsible for the accuracy of the information you provide. Do not send highly sensitive documents or confidential material until a consultation and engagement process has been agreed. The enquiry form opens your own email application and does not store submissions on this website’s servers.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">6. Third-party links and services</h2>
+						<p class="mt-3">
+							This website may link to WhatsApp, email clients, government portals, or other third-party services. Those services are governed by their own terms and privacy practices. {site.name} is not responsible for third-party content or availability.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">7. Intellectual property</h2>
+						<p class="mt-3">
+							Unless otherwise stated, website text, layout, branding, and generated images are provided for personal informational use. You may not copy, republish, or commercially exploit substantial parts of the site without prior written permission, except as allowed by applicable law (for example, fair dealing or similar exceptions).
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">8. Website availability</h2>
+						<p class="mt-3">
+							The website is provided on an “as available” basis. Access may be interrupted for maintenance, hosting issues, or reasons beyond the practice’s control. No warranty is given that the site will be uninterrupted, error-free, or free of harmful components.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">9. Limitation and disclaimer</h2>
+						<p class="mt-3">
+							To the fullest extent permitted by applicable law, {site.name} is not liable for loss or damage arising from reliance on general website information, inability to access the site, or use of third-party links. This does not exclude liability that cannot lawfully be excluded.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">10. Privacy</h2>
+						<p class="mt-3">
+							How enquiry and contact information is handled is described in the
+							{' '}<a class="font-semibold text-[#a83009]" href="/privacy">Privacy Policy</a>.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">11. Changes</h2>
+						<p class="mt-3">
+							These terms may be updated when the website, services, or applicable requirements change. The effective date below will be revised when material changes are published.
+						</p>
+					</section>
+
+					<section>
+						<h2 class="text-2xl font-semibold text-[#0c0c0c]">12. Contact</h2>
+						<p class="mt-3">
+							Questions about these terms may be directed to {site.name} in {site.city}, {site.region}, {site.country}:
+						</p>
+						<ul class="mt-4 list-disc space-y-2 pl-5">
+							<li>Phone: <a class="font-semibold text-[#a83009]" href={phoneHref}>{site.phone}</a></li>
+							<li>Email: <a class="font-semibold text-[#a83009]" href={mailHref}>{site.email}</a></li>
+							<li>Contact page: <a class="font-semibold text-[#a83009]" href="/contact">Request a consultation</a></li>
+						</ul>
+					</section>
+				</div>
+
+				<p class="mt-12 border-t border-[#e9e6e2] pt-6 text-sm leading-6 text-[#252424]">
+					Effective / last updated: {effectiveDate}.
+					{' '}
+					<a class="font-semibold text-[#a83009]" href="/privacy">Privacy Policy</a>
+					{' · '}
+					<a class="font-semibold text-[#a83009]" href="/contact">Contact</a>
+					{' · '}
+					<a class="font-semibold text-[#a83009]" href="/about">About the practice</a>
+				</p>
+			</article>
+		</main>
+
+		<SiteFooter />
+	</div>
+</Layout>

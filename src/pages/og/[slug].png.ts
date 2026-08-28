@@ -7,6 +7,8 @@ const pages = new Map([
 	['blog', { label: 'LEGAL INSIGHTS FROM KARACHI', title: 'Jahanzaib Legal Insights', subtitle: 'Practical guidance on tax, company law, trademarks & compliance.' }],
 	['about', { label: 'ABOUT THE PRACTICE', title: 'About Jahanzaib Legal Services', subtitle: 'Karachi-based legal practitioner & corporate consultant.' }],
 	['services', { label: 'PRACTICE AREAS', title: 'Legal Services in Karachi', subtitle: 'Litigation, property, corporate, tax, trade & trademark counsel.' }],
+	['contact', { label: 'CONTACT', title: 'Contact Jahanzaib Legal Services', subtitle: 'Phone, WhatsApp, email and enquiry form · Karachi, Pakistan.' }],
+	['terms', { label: 'TERMS OF USE', title: 'Terms of Use', subtitle: 'Website terms for Jahanzaib Legal Services · Karachi, Pakistan.' }],
 	...services.map((service) => [service.slug, { label: service.label.toUpperCase(), title: service.heading, subtitle: 'Jahanzaib Legal Services · Karachi, Pakistan.' }] as const),
 	...blogPosts.map((post) => [post.slug, { label: post.label.toUpperCase(), title: post.title, subtitle: 'Legal insight from Jahanzaib Legal Services · Karachi.' }] as const)
 ]);

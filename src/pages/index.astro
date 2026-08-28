@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import ContactEnquiryForm from '../components/ContactEnquiryForm.astro';
 import { services } from '../data/services';
 import { blogPosts } from '../data/blog';
 import { site, absoluteUrl, phoneHref, whatsappHref, mailHref } from '../data/site';
@@ -22,7 +23,7 @@ const homeFaq: [string, string][] = [
 	],
 	[
 		'How do I start a consultation?',
-		'Call or send a WhatsApp message on ' + site.phone + ', or submit the enquiry form on this page with a brief summary of the matter. An initial enquiry does not create an advocate-client relationship.'
+		'Call or send a WhatsApp message on ' + site.phone + ', or submit the enquiry form on the Contact page (or the form on this homepage) with a brief summary of the matter. An initial enquiry does not create an advocate-client relationship.'
 	],
 	[
 		'Does the practice handle matters outside Karachi?',
@@ -83,7 +84,7 @@ const schema = {
 							{site.name} is a {site.city}-based practice for litigation, FBR return filing, company setup, property matters, WeBOC registration and trademark protection.
 						</p>
 						<div class="mt-8 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
-							<a href="#contact" class="touch-target min-h-12 rounded-full bg-[#a83009] px-6 py-3.5 text-sm font-bold text-white">
+							<a href="/contact" class="touch-target min-h-12 rounded-full bg-[#a83009] px-6 py-3.5 text-sm font-bold text-white">
 								Discuss your matter ↗
 							</a>
 							<a href={phoneHref} class="touch-target min-h-12 rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">
@@ -347,8 +348,12 @@ const schema = {
 			<section id="contact" class="cv-auto mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.75fr_1.25fr] lg:px-10 lg:py-28">
 				<div>
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Start with a conversation</p>
-					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Tell us where you need counsel.</h2>
+					<h2 id="home-enquiry-heading" class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Tell us where you need counsel.</h2>
 					<p class="mt-5 max-w-sm text-base leading-7 text-[#252424]">Share a few details for an initial enquiry. Your information is treated with professional confidentiality.</p>
+					<p class="mt-3 text-sm text-[#696764]">
+						Prefer a dedicated page?
+						{' '}<a href="/contact" class="font-bold text-[#a83009] hover:text-[#0c0c0c]">Go to Contact</a>
+					</p>
 					<div class="mt-9 space-y-3 text-sm text-[#696764]">
 						<a href={phoneHref} class="touch-target flex min-h-12 w-full items-center gap-3 rounded-xl px-2 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">
 							<span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">☎</span>
@@ -368,47 +373,7 @@ const schema = {
 						</span>
 					</div>
 				</div>
-				<form id="contact-form" class="rounded-3xl border border-[#e9e6e2] bg-white p-6 shadow-sm sm:p-8">
-					<div class="grid gap-5 sm:grid-cols-2">
-						<label class="text-sm font-semibold text-[#4a4947]">
-							Full Name
-							<input required name="full-name" type="text" class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]" />
-						</label>
-						<label class="text-sm font-semibold text-[#4a4947]">
-							Phone Number (WhatsApp)
-							<input required name="phone" type="tel" placeholder={site.phone} class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]" />
-						</label>
-						<label class="text-sm font-semibold text-[#4a4947]">
-							Email
-							<input required name="email" type="email" class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]" />
-						</label>
-						<label class="text-sm font-semibold text-[#4a4947]">
-							City
-							<select required name="city" class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3.5 text-sm font-normal outline-none focus:border-[#a83009]">
-								<option value="">Select city</option>
-								<option>Karachi</option>
-								<option>Other</option>
-							</select>
-						</label>
-						<label class="text-sm font-semibold text-[#4a4947] sm:col-span-2">
-							Service Required
-							<select required name="service" class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3.5 text-sm font-normal outline-none focus:border-[#a83009]">
-								<option value="">Choose a service</option>
-								{services.map((service) => <option>{service.label}</option>)}
-							</select>
-						</label>
-						<label class="text-sm font-semibold text-[#4a4947] sm:col-span-2">
-							Brief Case Details
-							<textarea required name="case-details" rows="4" class="mt-2 min-h-28 w-full resize-y rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"></textarea>
-						</label>
-					</div>
-					<button type="submit" class="mt-6 w-full rounded-full bg-[#0c0c0c] px-6 py-3.5 text-sm font-bold text-white">
-						Request a consultation ↗
-					</button>
-					<p class="mt-4 text-center text-xs leading-5 text-[#252424]">
-						This initial enquiry does not create an advocate-client relationship.
-					</p>
-				</form>
+				<ContactEnquiryForm formId="home-contact-form" headingId="home-enquiry-heading" />
 			</section>
 
 			<section class="border-t border-[#e9e6e2] bg-[#fbfaf8] px-5 py-10 lg:px-10">
@@ -417,8 +382,10 @@ const schema = {
 						{site.name} is a {site.city}-based legal practice serving clients in {site.city} and across {site.country}. Website information is general information only, not legal advice. Calling, messaging, or submitting an enquiry does not create an advocate-client relationship until engagement is agreed in writing. Results are not guaranteed.
 					</p>
 					<div class="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold">
+						<a href="/contact" class="touch-target min-h-12 text-[#a83009]">Contact</a>
 						<a href="/about" class="touch-target min-h-12 text-[#a83009]">About the practice</a>
 						<a href="/privacy" class="touch-target min-h-12 text-[#a83009]">Privacy Policy</a>
+						<a href="/terms" class="touch-target min-h-12 text-[#a83009]">Terms of Use</a>
 						<a href="/services" class="touch-target min-h-12 text-[#a83009]">Practice areas</a>
 					</div>
 				</div>
@@ -427,35 +394,4 @@ const schema = {
 
 		<SiteFooter />
 	</div>
-
-	<script define:vars={{ email: site.email }}>
-		const form = document.getElementById('contact-form');
-		if (form) {
-			form.addEventListener('submit', (event) => {
-				event.preventDefault();
-
-				const formData = new FormData(form);
-				const fullName = formData.get('full-name');
-				const phone = formData.get('phone');
-				const emailVal = formData.get('email');
-				const city = formData.get('city');
-				const service = formData.get('service');
-				const caseDetails = formData.get('case-details');
-
-				const subject = `Consultation Inquiry: ${service} - ${fullName}`;
-				const body =
-					`New Consultation Inquiry:\n\n` +
-					`- Full Name: ${fullName}\n` +
-					`- Phone Number (WhatsApp): ${phone}\n` +
-					`- Email: ${emailVal}\n` +
-					`- City: ${city}\n` +
-					`- Service Required: ${service}\n\n` +
-					`Brief Case Details:\n` +
-					`${caseDetails}`;
-
-				const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-				window.location.href = mailtoUrl;
-			});
-		}
-	</script>
 </Layout>

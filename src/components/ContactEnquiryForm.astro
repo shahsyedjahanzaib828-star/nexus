@@ -1,0 +1,172 @@
+---
+/**
+ * Mailto-based enquiry form.
+ *
+ * Current behaviour: opens the visitor's email client with a pre-filled message.
+ * No server-side storage, database, or third-party form API is used.
+ *
+ * Future backend: replace the submit handler with a fetch() to a server endpoint
+ * without changing the field names below. Do not place API keys in this component.
+ */
+import { services } from '../data/services';
+import { site } from '../data/site';
+
+const { formId = 'contact-form', headingId } = Astro.props as {
+	formId?: string;
+	headingId?: string;
+};
+---
+
+<form
+	id={formId}
+	class="relative rounded-3xl border border-[#e9e6e2] bg-white p-6 shadow-sm sm:p-8"
+	novalidate
+	aria-describedby={headingId ? `${headingId} ${formId}-note ${formId}-status` : `${formId}-note ${formId}-status`}
+>
+	<div class="grid gap-5 sm:grid-cols-2">
+		<label class="text-sm font-semibold text-[#4a4947]" for={`${formId}-full-name`}>
+			Full Name
+			<input
+				id={`${formId}-full-name`}
+				required
+				name="full-name"
+				type="text"
+				autocomplete="name"
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
+			/>
+		</label>
+		<label class="text-sm font-semibold text-[#4a4947]" for={`${formId}-phone`}>
+			Phone Number (WhatsApp)
+			<input
+				id={`${formId}-phone`}
+				required
+				name="phone"
+				type="tel"
+				autocomplete="tel"
+				placeholder={site.phone}
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
+			/>
+		</label>
+		<label class="text-sm font-semibold text-[#4a4947]" for={`${formId}-email`}>
+			Email
+			<input
+				id={`${formId}-email`}
+				required
+				name="email"
+				type="email"
+				autocomplete="email"
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
+			/>
+		</label>
+		<label class="text-sm font-semibold text-[#4a4947]" for={`${formId}-city`}>
+			City
+			<select
+				id={`${formId}-city`}
+				required
+				name="city"
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3.5 text-sm font-normal outline-none focus:border-[#a83009]"
+			>
+				<option value="">Select city</option>
+				<option>Karachi</option>
+				<option>Other</option>
+			</select>
+		</label>
+		<label class="text-sm font-semibold text-[#4a4947] sm:col-span-2" for={`${formId}-service`}>
+			Service Required
+			<select
+				id={`${formId}-service`}
+				required
+				name="service"
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3.5 text-sm font-normal outline-none focus:border-[#a83009]"
+			>
+				<option value="">Choose a service</option>
+				{services.map((service) => <option value={service.label}>{service.label}</option>)}
+			</select>
+		</label>
+		<label class="text-sm font-semibold text-[#4a4947] sm:col-span-2" for={`${formId}-case-details`}>
+			Brief Case Details
+			<textarea
+				id={`${formId}-case-details`}
+				required
+				name="case-details"
+				rows="4"
+				class="mt-2 min-h-28 w-full resize-y rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
+			></textarea>
+		</label>
+
+		{/* Honeypot — leave empty. Hidden from people; simple bot filter only. */}
+		<div class="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+			<label for={`${formId}-company`}>Company</label>
+			<input id={`${formId}-company`} type="text" name="company" tabindex="-1" autocomplete="off" />
+		</div>
+	</div>
+
+	<p id={`${formId}-note`} class="mt-5 text-xs leading-5 text-[#696764]">
+		Submitting opens your email application with a pre-filled message to {site.email}. This website does not store the form on a server. Do not include highly sensitive documents until engagement is agreed.
+		{' '}
+		<a href="/privacy" class="font-semibold text-[#a83009] hover:underline">Privacy Policy</a>
+		{' · '}
+		<a href="/terms" class="font-semibold text-[#a83009] hover:underline">Terms of Use</a>
+	</p>
+
+	<p id={`${formId}-status`} class="mt-3 min-h-5 text-sm font-semibold text-[#a83009]" role="status" aria-live="polite"></p>
+
+	<button type="submit" class="mt-4 w-full rounded-full bg-[#0c0c0c] px-6 py-3.5 text-sm font-bold text-white hover:bg-[#252424]">
+		Request a consultation ↗
+	</button>
+	<p class="mt-4 text-center text-xs leading-5 text-[#252424]">
+		This initial enquiry does not create an advocate-client relationship. Results are not guaranteed.
+	</p>
+</form>
+
+<script define:vars={{ formId, practiceEmail: site.email }}>
+	const form = document.getElementById(formId);
+	if (form instanceof HTMLFormElement) {
+		const status = document.getElementById(`${formId}-status`);
+
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			if (status) status.textContent = '';
+
+			const formData = new FormData(form);
+			if (String(formData.get('company') || '').trim()) {
+				if (status) status.textContent = 'Unable to send this enquiry. Please contact the practice by phone or WhatsApp.';
+				return;
+			}
+
+			if (!form.checkValidity()) {
+				form.reportValidity();
+				if (status) status.textContent = 'Please complete the required fields before continuing.';
+				return;
+			}
+
+			const fullName = String(formData.get('full-name') || '').trim();
+			const phone = String(formData.get('phone') || '').trim();
+			const emailVal = String(formData.get('email') || '').trim();
+			const city = String(formData.get('city') || '').trim();
+			const service = String(formData.get('service') || '').trim();
+			const caseDetails = String(formData.get('case-details') || '').trim();
+
+			const subject = `Consultation Inquiry: ${service} - ${fullName}`;
+			const body =
+				`New Consultation Inquiry:\n\n` +
+				`- Full Name: ${fullName}\n` +
+				`- Phone Number (WhatsApp): ${phone}\n` +
+				`- Email: ${emailVal}\n` +
+				`- City: ${city}\n` +
+				`- Service Required: ${service}\n\n` +
+				`Brief Case Details:\n` +
+				`${caseDetails}\n\n` +
+				`(Sent via the website enquiry form. This message does not create an advocate-client relationship.)`;
+
+			const mailtoUrl = `mailto:${practiceEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+			if (status) {
+				status.textContent =
+					'Opening your email application… If nothing opens, email the practice directly or use WhatsApp.';
+			}
+
+			window.location.href = mailtoUrl;
+		});
+	}
+</script>

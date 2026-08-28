@@ -45,7 +45,10 @@ export default defineConfig({
         if (pathname === '/about') {
           return { ...item, changefreq: 'yearly', priority: 0.7, lastmod: undefined };
         }
-        if (pathname === '/privacy') {
+        if (pathname === '/contact') {
+          return { ...item, changefreq: 'yearly', priority: 0.7, lastmod: undefined };
+        }
+        if (pathname === '/privacy' || pathname === '/terms') {
           return { ...item, changefreq: 'yearly', priority: 0.2, lastmod: undefined };
         }
         return { ...item, lastmod: undefined };
