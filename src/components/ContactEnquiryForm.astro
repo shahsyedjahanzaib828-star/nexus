@@ -21,6 +21,8 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 	id={formId}
 	class="relative rounded-3xl border border-[#e9e6e2] bg-white p-6 shadow-sm sm:p-8"
 	novalidate
+	data-enquiry="mailto"
+	data-practice-email={site.email}
 	aria-describedby={headingId ? `${headingId} ${formId}-note ${formId}-status` : `${formId}-note ${formId}-status`}
 >
 	<div class="grid gap-5 sm:grid-cols-2">
@@ -32,6 +34,7 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				name="full-name"
 				type="text"
 				autocomplete="name"
+				maxlength="120"
 				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
 			/>
 		</label>
@@ -42,7 +45,9 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				required
 				name="phone"
 				type="tel"
+				inputmode="tel"
 				autocomplete="tel"
+				maxlength="30"
 				placeholder={site.phone}
 				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
 			/>
@@ -55,6 +60,7 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				name="email"
 				type="email"
 				autocomplete="email"
+				maxlength="254"
 				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
 			/>
 		</label>
@@ -90,6 +96,7 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				required
 				name="case-details"
 				rows="4"
+				maxlength="2000"
 				class="mt-2 min-h-28 w-full resize-y rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
 			></textarea>
 		</label>
@@ -119,54 +126,4 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 	</p>
 </form>
 
-<script define:vars={{ formId, practiceEmail: site.email }}>
-	const form = document.getElementById(formId);
-	if (form instanceof HTMLFormElement) {
-		const status = document.getElementById(`${formId}-status`);
-
-		form.addEventListener('submit', (event) => {
-			event.preventDefault();
-			if (status) status.textContent = '';
-
-			const formData = new FormData(form);
-			if (String(formData.get('company') || '').trim()) {
-				if (status) status.textContent = 'Unable to send this enquiry. Please contact the practice by phone or WhatsApp.';
-				return;
-			}
-
-			if (!form.checkValidity()) {
-				form.reportValidity();
-				if (status) status.textContent = 'Please complete the required fields before continuing.';
-				return;
-			}
-
-			const fullName = String(formData.get('full-name') || '').trim();
-			const phone = String(formData.get('phone') || '').trim();
-			const emailVal = String(formData.get('email') || '').trim();
-			const city = String(formData.get('city') || '').trim();
-			const service = String(formData.get('service') || '').trim();
-			const caseDetails = String(formData.get('case-details') || '').trim();
-
-			const subject = `Consultation Inquiry: ${service} - ${fullName}`;
-			const body =
-				`New Consultation Inquiry:\n\n` +
-				`- Full Name: ${fullName}\n` +
-				`- Phone Number (WhatsApp): ${phone}\n` +
-				`- Email: ${emailVal}\n` +
-				`- City: ${city}\n` +
-				`- Service Required: ${service}\n\n` +
-				`Brief Case Details:\n` +
-				`${caseDetails}\n\n` +
-				`(Sent via the website enquiry form. This message does not create an advocate-client relationship.)`;
-
-			const mailtoUrl = `mailto:${practiceEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-			if (status) {
-				status.textContent =
-					'Opening your email application… If nothing opens, email the practice directly or use WhatsApp.';
-			}
-
-			window.location.href = mailtoUrl;
-		});
-	}
-</script>
+<script src="/enquiry-form.js" defer></script>
