@@ -280,6 +280,10 @@ export const blogPosts = [
 			{ heading: 'Red flags that deserve caution', paragraphs: ['Pressure to pay quickly, missing originals, inconsistent measurements, unexplained co-owners, an informal broker-only arrangement, unusual powers of attorney, or promises that approvals will be obtained later should trigger a pause. A low price does not remove the need for verification.', 'The buyer should preserve copies of advertisements, messages, receipts, plans, and all statements made during negotiation. These records can become important if the transaction is disputed.'] },
 			{ heading: 'A safer Karachi property transaction', paragraphs: ['A property lawyer can review the record, identify gaps, coordinate searches, draft protective terms, and explain whether the proposed payment and possession structure is sensible. Legal review cannot eliminate every market risk, but it can prevent avoidable surprises and improve the buyer’s evidence.', 'For title verification, deeds and SBCA-related work, see the [property lawyer services](/services/property-lawyer-karachi) page.'] }
 		],
+		related: [
+			'khula-divorce-custody-maintenance-first-steps-pakistan',
+			'sole-proprietorship-pakistan-legal-liabilities'
+		],
 		faq: [
 			['Should I pay an advance before property verification?', 'Obtain a document review before making a significant or non-refundable payment. If an advance is unavoidable, use written terms that address verification and refund consequences.'],
 			['Is a registry document alone enough to buy property safely?', 'Not always. Ownership authority, prior transactions, encumbrances, approvals, possession, and the property description should also be assessed.'],
@@ -302,6 +306,10 @@ export const blogPosts = [
 			{ heading: 'Child custody and maintenance focus on facts', paragraphs: ['Courts consider the welfare and circumstances of the child, not simply which parent makes the loudest claim. Stable care, schooling, health, safety, financial support, and the practical ability to maintain contact may all matter.', 'Maintenance questions should be supported by realistic information about needs, income, expenses, and existing support. A clear record is more useful than an unsupported demand or denial.'] },
 			{ heading: 'How a Karachi family lawyer can help', paragraphs: ['A family lawyer can explain the possible route, prepare or review documents, advise on urgent relief, and help keep connected claims organised. The objective is a lawful, evidence-based process that protects rights while reducing unnecessary escalation.', 'Family Court work is part of the broader [civil, criminal and family litigation](/services/litigation-lawyer-karachi) practice, which also covers related inheritance and High Court matters where they arise.'] }
 		],
+		related: [
+			'property-due-diligence-checklist-karachi-pakistan',
+			'pre-arrest-bail-and-post-arrest-bail-pakistan-guide'
+		],
 		faq: [
 			['What documents are useful for a khula or family-law consultation?', 'The nikahnama, identity documents, children’s records, financial evidence, relevant messages, medical or police records, and any existing notices or court papers are commonly useful.'],
 			['Can custody and maintenance be discussed in the same family dispute?', 'They may arise together, but each issue has its own facts and legal considerations. Obtain advice on the specific claims and relief required.'],
@@ -323,6 +331,7 @@ export const blogPosts = [
 			{ heading: 'Evidence and conduct can affect the strategy', paragraphs: ['Contradictions, unexplained delay, medical records, documentary disputes, prior proceedings, cooperation with investigation, and the possibility of witness influence may all affect the legal assessment. A strong strategy is based on the actual record rather than a one-line claim that the case is false.', 'The accused should tell counsel the complete facts, including uncomfortable details. Confidential legal advice is more useful when the lawyer is not working from an incomplete story.'] },
 			{ heading: 'Urgent help for Karachi criminal matters', paragraphs: ['A Karachi criminal lawyer can review the FIR, identify urgent deadlines, prepare bail grounds, coordinate documents, and advise on lawful conduct during investigation. Where the matter is outside Karachi, local court procedure and immediate representation should also be arranged.', 'Bail and criminal defence form part of the [litigation practice](/services/litigation-lawyer-karachi), which also covers related civil and family proceedings where the dispute spans more than one forum.'] }
 		],
+		related: ['khula-divorce-custody-maintenance-first-steps-pakistan'],
 		faq: [
 			['Does bail mean the criminal case is finished?', 'No. Bail generally concerns liberty during proceedings. The investigation and trial or other lawful process may continue.'],
 			['What should I bring to a bail consultation?', 'Bring the FIR or complaint details, notices, identity documents, relevant medical or employment records, prior case papers, and a clear timeline of events.'],
