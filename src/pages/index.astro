@@ -84,16 +84,16 @@ const schema = {
 
 		<main id="main-content">
 			<section class="border-b border-[#e9e6e2] bg-[#f5f2ee]">
-				<div class="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-10 lg:py-24">
+				<div class="mx-auto grid max-w-7xl gap-6 px-5 py-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8 lg:py-14">
 					<div>
-						<p class="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-slate-900">{site.name} · {site.city} · {site.region} · {site.country}</p>
-						<h1 class="text-[2.25rem] font-semibold leading-[1.02] tracking-[-0.055em] text-[#0c0c0c] sm:text-6xl lg:text-[6.5rem]">
+						<p class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-slate-900">{site.name} · {site.city} · {site.region} · {site.country}</p>
+						<h1 class="type-hero font-semibold text-[#0c0c0c]">
 							Legal counsel in {site.city} for <span class="text-[#a83009]">litigation, FBR and companies.</span>
 						</h1>
-						<p class="mt-6 max-w-xl text-base leading-7 text-slate-900 sm:mt-8 sm:max-w-2xl sm:text-lg sm:leading-8 [font-family:system-ui,sans-serif]">
+						<p class="mt-4 max-w-xl text-sm leading-6 text-slate-900 sm:mt-5 sm:max-w-2xl sm:text-base sm:leading-7 [font-family:system-ui,sans-serif]">
 							{site.name} is a {site.city}-based practice for litigation, FBR return filing, company setup, property matters, WeBOC registration and trademark protection.
 						</p>
-						<div class="mt-8 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
+						<div class="mt-6 flex flex-wrap gap-2.5 sm:gap-3">
 							<a href="/contact" class="touch-target min-h-12 rounded-full bg-[#a83009] px-6 py-3.5 text-sm font-bold text-white">
 								Discuss your matter ↗
 							</a>
@@ -104,13 +104,13 @@ const schema = {
 								About the practice
 							</a>
 						</div>
-						<div class="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs font-semibold text-slate-900 sm:mt-12">
+						<div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs font-semibold text-slate-900">
 							<span class="text-slate-900">✓ {site.city}-based counsel</span>
 							<span class="text-slate-900">✓ Confidential consultation</span>
 							<span class="text-slate-900">✓ {site.country}-wide support</span>
 						</div>
 					</div>
-					<div class="hidden rounded-[2rem] bg-[#0c0c0c] p-7 text-white shadow-xl shadow-[#0c0c0c]/15 sm:p-9 md:block">
+					<div class="hidden rounded-[2rem] bg-[#0c0c0c] p-5 text-white shadow-xl shadow-[#0c0c0c]/15 sm:p-9 md:block">
 						<p class="text-xs font-bold uppercase tracking-[0.18em] text-[#f45a27]">{site.name}</p>
 						<h2 class="mt-3 text-3xl font-semibold leading-tight">One trusted point of contact.</h2>
 						<p class="mt-4 text-sm leading-6 text-[#dcdad6]">
@@ -163,23 +163,23 @@ const schema = {
 			</section>
 
 			<section class="border-b border-[#e9e6e2] bg-white">
-				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
+				<div class="mx-auto max-w-7xl px-5 py-10 lg:px-10 lg:py-14">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Find the support that fits</p>
-					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Choose how you want to start.</h2>
+					<h2 class="mt-4 max-w-2xl type-section-title font-semibold text-[#0c0c0c] sm:text-3xl">Choose how you want to start.</h2>
 					<div class="mt-10 grid gap-4 md:grid-cols-3">
-						<article class="flex flex-col rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+						<article class="flex flex-col rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
 							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">01 · Consultation</p>
 							<h3 class="mt-4 text-xl font-semibold text-[#0c0c0c]">Discuss a matter</h3>
 							<p class="mt-3 flex-1 text-sm leading-6 text-[#696764]">Share the facts, documents and deadline. An initial enquiry does not create an advocate-client relationship.</p>
 							<a href="#contact" class="mt-6 text-sm font-bold text-[#a83009]">Go to the enquiry form ↗</a>
 						</article>
-						<article class="flex flex-col rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+						<article class="flex flex-col rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
 							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">02 · Practice areas</p>
 							<h3 class="mt-4 text-xl font-semibold text-[#0c0c0c]">Read the service pages</h3>
 							<p class="mt-3 flex-1 text-sm leading-6 text-[#696764]">Litigation, property, company setup, tax, WeBOC and trademarks each have a dedicated page of what the work involves.</p>
 							<a href="/services" class="mt-6 text-sm font-bold text-[#a83009]">Browse practice areas ↗</a>
 						</article>
-						<article class="flex flex-col rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+						<article class="flex flex-col rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
 							<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">03 · Legal insights</p>
 							<h3 class="mt-4 text-xl font-semibold text-[#0c0c0c]">Review a written guide</h3>
 							<p class="mt-3 flex-1 text-sm leading-6 text-[#696764]">Articles on bail, khula, FBR filing, SECP structure, WeBOC and PSW, and property due diligence, written for {site.city} clients.</p>
@@ -189,15 +189,15 @@ const schema = {
 				</div>
 			</section>
 
-			<section id="practice-areas" class="cv-auto mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
+			<section id="practice-areas" class="cv-auto mx-auto max-w-7xl px-5 py-12 lg:px-10 lg:py-16">
 				<div class="max-w-2xl">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Comprehensive legal portfolio</p>
-					<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Legal support that meets the whole picture.</h2>
+					<h2 class="mt-4 type-section-title-lg font-semibold text-[#0c0c0c] sm:text-3xl lg:text-4xl">Legal support that meets the whole picture.</h2>
 					<p class="mt-5 text-base leading-7 text-[#252424]">Practical counsel grounded in the realities of {site.city}, {site.region}, and {site.country}.</p>
 				</div>
 				<div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 					{homepageServices.map((service, index) => (
-						<article class="group flex flex-col rounded-3xl border border-[#e9e6e2] bg-white p-6 hover:-translate-y-1 hover:border-[#faac93] hover:shadow-lg">
+						<article class="group flex flex-col rounded-2xl border border-[#e9e6e2] bg-white p-6 hover:-translate-y-1 hover:border-[#faac93] hover:shadow-lg">
 							<div class="flex items-start justify-between">
 								<span class="grid h-11 w-11 place-items-center rounded-2xl bg-[#fef5f2] text-xl font-semibold text-[#a83009]" aria-hidden="true">{service.icon}</span>
 								<span class="text-xs font-bold text-[#252424]">0{index + 1}</span>
@@ -222,19 +222,19 @@ const schema = {
 			</section>
 
 			<section class="cv-auto border-y border-[#e9e6e2] bg-white">
-				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
+				<div class="mx-auto max-w-7xl px-5 py-10 lg:px-10 lg:py-14">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Before a filing is prepared</p>
-					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Three reasons the record comes first.</h2>
+					<h2 class="mt-4 max-w-2xl type-section-title font-semibold text-[#0c0c0c] sm:text-3xl">Three reasons the record comes first.</h2>
 					<div class="mt-10 grid gap-4 md:grid-cols-3">
-						<article class="rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+						<article class="rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
 							<h3 class="text-lg font-semibold text-[#0c0c0c]">Limitation can close the door</h3>
 							<p class="mt-3 text-sm leading-6 text-[#696764]">Many civil and tax matters have fixed periods. Establishing the date and the documents early is more useful than arguing a late claim.</p>
 						</article>
-						<article class="rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+						<article class="rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
 							<h3 class="text-lg font-semibold text-[#0c0c0c]">The forum has to be the right one</h3>
 							<p class="mt-3 text-sm leading-6 text-[#696764]">Family Court, civil suit, High Court writ, SECP portal and FBR notice each have their own process. Filing in the wrong place wastes time and can prejudice the position.</p>
 						</article>
-						<article class="rounded-3xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
+						<article class="rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-6">
 							<h3 class="text-lg font-semibold text-[#0c0c0c]">A weak paper trail is hard to repair</h3>
 							<p class="mt-3 text-sm leading-6 text-[#696764]">Title, tax, company and correspondence records decide what can later be proved. The first consultation is used to map what exists and what is missing.</p>
 						</article>
@@ -243,9 +243,9 @@ const schema = {
 			</section>
 
 			<section id="how-it-works" class="cv-auto border-y border-[#e9e6e2] bg-[#0c0c0c] text-white">
-				<div class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
+				<div class="mx-auto max-w-7xl px-5 py-12 lg:px-10 lg:py-16">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#f45a27]">A steady legal partner</p>
-					<h2 class="mt-5 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.04em] sm:text-5xl">Clarity before complexity.</h2>
+					<h2 class="mt-5 max-w-xl type-section-title-lg font-semibold sm:text-3xl lg:text-4xl">Clarity before complexity.</h2>
 					<div class="mt-12 grid gap-8 md:grid-cols-3">
 						<div>
 							<span class="text-sm font-bold text-[#f45a27]">01</span>
@@ -267,24 +267,24 @@ const schema = {
 			</section>
 
 			<section class="cv-auto border-b border-[#e9e6e2] bg-[#f5f2ee]">
-				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
+				<div class="mx-auto max-w-7xl px-5 py-10 lg:px-10 lg:py-14">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">How a consultation is handled</p>
-					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Direct access, a written assessment, and fees before engagement.</h2>
+					<h2 class="mt-4 max-w-2xl type-section-title font-semibold text-[#0c0c0c] sm:text-3xl">Direct access, a written assessment, and fees before engagement.</h2>
 					<div class="mt-10 grid gap-4 md:grid-cols-3">
-						<article class="rounded-3xl bg-white p-6">
+						<article class="rounded-2xl bg-white p-6">
 							<h3 class="text-lg font-semibold text-[#0c0c0c]">Easy to reach</h3>
 							<p class="mt-3 text-sm leading-6 text-[#696764]">Call, WhatsApp or the enquiry form. You deal with the practitioner handling the matter, not a call centre queue.</p>
 						</article>
-						<article class="rounded-3xl bg-white p-6">
+						<article class="rounded-2xl bg-white p-6">
 							<h3 class="text-lg font-semibold text-[#0c0c0c]">A clear reading of the file</h3>
 							<p class="mt-3 text-sm leading-6 text-[#696764]">The first discussion covers the facts, the documents, the forum and whether proceedings are advisable at all.</p>
 						</article>
-						<article class="rounded-3xl bg-white p-6">
+						<article class="rounded-2xl bg-white p-6">
 							<h3 class="text-lg font-semibold text-[#0c0c0c]">Scope agreed in writing</h3>
 							<p class="mt-3 text-sm leading-6 text-[#696764]">Fees and the work to be done are discussed before an advocate-client relationship is created. Results are not promised.</p>
 						</article>
 					</div>
-					<div class="mt-8 rounded-3xl border border-[#e9e6e2] bg-white p-6 sm:p-8">
+					<div class="mt-8 rounded-2xl border border-[#e9e6e2] bg-white p-6 sm:p-6">
 						<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">How this practice treats enquiries</p>
 						<p class="mt-3 max-w-3xl text-sm leading-7 text-[#696764]">Information sent through this website is treated as confidential. It is used to respond to the enquiry. It does not become privileged legal advice, and it does not create an advocate-client relationship, until engagement is confirmed in writing. If a filing is prepared through this practice and is rejected because of an error in that filing, the correction is taken up with the relevant authority as part of the agreed work.</p>
 					</div>
@@ -292,26 +292,26 @@ const schema = {
 			</section>
 
 			<section class="cv-auto border-b border-[#e9e6e2] bg-white">
-				<div class="mx-auto max-w-7xl px-5 py-16 lg:px-10 lg:py-20">
+				<div class="mx-auto max-w-7xl px-5 py-10 lg:px-10 lg:py-14">
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Service area</p>
-					<h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c] sm:text-4xl">Based in {site.city}, advising across {site.country}.</h2>
+					<h2 class="mt-4 max-w-2xl type-section-title font-semibold text-[#0c0c0c] sm:text-3xl">Based in {site.city}, advising across {site.country}.</h2>
 					<p class="mt-5 max-w-3xl text-sm leading-7 text-[#696764]">
 						Court appearances are in {site.city} and {site.region}. Corporate, tax, trademark and advisory work is handled for clients elsewhere in {site.country} where the matter and forum allow. This website does not list branch offices in other cities.
 					</p>
 				</div>
 			</section>
 
-			<section class="cv-auto mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-24">
+			<section class="cv-auto mx-auto max-w-7xl px-5 py-12 lg:px-10 lg:py-16">
 				<div class="flex flex-wrap items-end justify-between gap-6">
 					<div class="max-w-2xl">
 						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Legal insights</p>
-						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Guidance on the questions clients ask most.</h2>
+						<h2 class="mt-4 type-section-title-lg font-semibold text-[#0c0c0c] sm:text-3xl lg:text-4xl">Guidance on the questions clients ask most.</h2>
 					</div>
 					<a href="/blog" class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c] hover:bg-white">All articles ↗</a>
 				</div>
 				<div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 					{latestPosts.map((post) => (
-						<article class="group flex flex-col rounded-3xl border border-[#e9e6e2] bg-white p-6 hover:-translate-y-1 hover:shadow-lg">
+						<article class="group flex flex-col rounded-2xl border border-[#e9e6e2] bg-white p-6 hover:-translate-y-1 hover:shadow-lg">
 							<div class="flex items-center justify-between text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">
 								<span>{post.label}</span>
 								<time datetime={post.date} class="font-medium tracking-normal text-[#252424]">{post.date}</time>
@@ -332,10 +332,10 @@ const schema = {
 			</section>
 
 			<section id="faq" class="cv-auto border-y border-[#e9e6e2] bg-white">
-				<div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-24">
+				<div class="mx-auto grid max-w-7xl gap-6 px-5 py-10 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-14">
 					<div>
 						<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Frequently asked questions</p>
-						<h2 class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Before you get in touch.</h2>
+						<h2 class="mt-4 type-section-title-lg font-semibold text-[#0c0c0c] sm:text-3xl lg:text-4xl">Before you get in touch.</h2>
 						<p class="mt-5 max-w-sm text-base leading-7 text-[#696764]">
 							If your question is not covered here, ask it directly on a call or by WhatsApp.
 						</p>
@@ -355,10 +355,10 @@ const schema = {
 				</div>
 			</section>
 
-			<section id="contact" class="cv-auto mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[0.75fr_1.25fr] lg:px-10 lg:py-28">
+			<section id="contact" class="cv-auto mx-auto grid max-w-7xl gap-6 px-5 py-10 lg:grid-cols-[0.75fr_1.25fr] lg:px-8 lg:py-14">
 				<div>
 					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Start with a conversation</p>
-					<h2 id="home-enquiry-heading" class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl">Tell us where you need counsel.</h2>
+					<h2 id="home-enquiry-heading" class="mt-4 type-section-title-lg font-semibold text-[#0c0c0c] sm:text-3xl lg:text-4xl">Tell us where you need counsel.</h2>
 					<p class="mt-5 max-w-sm text-base leading-7 text-[#252424]">Share a few details for an initial enquiry. Your information is treated with professional confidentiality.</p>
 					<p class="mt-3 text-sm text-[#696764]">
 						Prefer a dedicated page?

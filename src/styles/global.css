@@ -101,7 +101,68 @@ h2 {
 /* Below-fold sections: skip layout work until near viewport (LCP-friendly). */
 .cv-auto {
 	content-visibility: auto;
-	contain-intrinsic-size: 1px 720px;
+	contain-intrinsic-size: 1px 560px;
+}
+
+/*
+  Compact layout rhythm — tighter vertical spacing for a professional,
+  information-dense law-firm feel without changing SEO copy or heading text.
+*/
+@layer components {
+	.pad-hero {
+		padding-block: 2.5rem;
+	}
+
+	.pad-section {
+		padding-block: 2.5rem;
+	}
+
+	.pad-section-tight {
+		padding-block: 2rem;
+	}
+
+	@media (min-width: 1024px) {
+		.pad-hero {
+			padding-block: 3.5rem;
+		}
+
+		.pad-section {
+			padding-block: 3rem;
+		}
+
+		.pad-section-tight {
+			padding-block: 2.5rem;
+		}
+	}
+
+	.type-hero {
+		font-size: clamp(1.875rem, 4.5vw, 3.25rem);
+		line-height: 1.08;
+		letter-spacing: -0.045em;
+	}
+
+	.type-page-title {
+		font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+		line-height: 1.08;
+		letter-spacing: -0.04em;
+	}
+
+	.type-section-title {
+		font-size: clamp(1.5rem, 2.5vw, 2rem);
+		line-height: 1.15;
+		letter-spacing: -0.03em;
+	}
+
+	.type-section-title-lg {
+		font-size: clamp(1.625rem, 3vw, 2.25rem);
+		line-height: 1.12;
+		letter-spacing: -0.035em;
+	}
+
+	.card-surface {
+		border-radius: 1rem;
+		padding: 1.25rem;
+	}
 }
 
 .skip-link {
