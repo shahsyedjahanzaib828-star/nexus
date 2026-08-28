@@ -1,6 +1,11 @@
 /**
  * Mailto enquiry helper. No network calls, no API keys.
  * Looks for form[data-enquiry="mailto"] and opens the visitor's email client.
+ *
+ * Native HTML5 validation remains enabled on the form (no novalidate). This
+ * script prevents default submission and uses checkValidity()/reportValidity()
+ * before building the mailto URL. If JavaScript is unavailable, visitors can
+ * use the direct email and phone links rendered in the form component.
  */
 (function () {
 	function bindEnquiryForm(form) {
