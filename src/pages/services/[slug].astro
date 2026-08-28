@@ -5,6 +5,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import { services, type Service } from '../../data/services';
 import { blogPosts } from '../../data/blog';
 import { site, absoluteUrl, entityIds, areaServedNodes, phoneHref, whatsappHref } from '../../data/site';
+import { linkify } from '../../lib/linkify';
 
 export function getStaticPaths() {
 	return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
@@ -76,7 +77,7 @@ const breadcrumbs = [
 							<span aria-hidden="true" class="text-base">{service.icon}</span>{service.label}
 						</span>
 						<h1 class="mt-6 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#0c0c0c] sm:text-6xl">{service.heading}</h1>
-						<p class="mt-8 max-w-3xl text-lg leading-8 text-[#4a4947]">{service.intro}</p>
+						<p class="mt-8 max-w-3xl text-lg leading-8 text-[#4a4947]" set:html={linkify(service.intro)} />
 						<div class="mt-9 flex flex-wrap gap-4">
 							<a href="/contact" class="rounded-full bg-[#0c0c0c] px-6 py-3.5 text-sm font-bold text-white">Discuss your matter ↗</a>
 							<a href={phoneHref} class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">Call {site.phone}</a>
@@ -146,7 +147,9 @@ const breadcrumbs = [
 						{service.sections.map((section, index) => (
 							<section id={`section-${index + 1}`} class="scroll-mt-8 border-b border-[#e9e6e2] pb-10 pt-10 last:border-0">
 								<h2 class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">{section.heading}</h2>
-								{section.paragraphs.map((paragraph) => <p class="mt-5 text-base leading-8 text-[#4a4947]">{paragraph}</p>)}
+								{section.paragraphs.map((paragraph) => (
+									<p class="mt-5 text-base leading-8 text-[#4a4947]" set:html={linkify(paragraph)} />
+								))}
 								{'points' in section && section.points && (
 									<div class="mt-6 rounded-2xl bg-[#f5f2ee] p-5">
 										<h3 class="text-sm font-bold uppercase tracking-[0.14em] text-[#a83009]">Practical points</h3>

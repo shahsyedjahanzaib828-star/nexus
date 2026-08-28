@@ -2,11 +2,11 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
-import { blogPosts } from './src/data/blog.ts';
+import { blogPosts, blogDateModified } from './src/data/blog.ts';
 
 const siteUrl = (process.env.PUBLIC_SITE_URL || 'https://nexus-alpha-ten-66.vercel.app').replace(/\/+$/, '');
 
-const blogDates = Object.fromEntries(blogPosts.map((post) => [post.slug, post.date]));
+const blogDates = Object.fromEntries(blogPosts.map((post) => [post.slug, blogDateModified(post)]));
 
 // https://astro.build/config
 export default defineConfig({

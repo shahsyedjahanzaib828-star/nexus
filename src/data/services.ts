@@ -18,6 +18,13 @@ export const services = [
 		],
 		sections: [
 			{
+				heading: 'How this hub is organised',
+				paragraphs: [
+					'This is the instruction page for contentious work. Civil, criminal and family matters are kept together because a single dispute can involve more than one forum. There are no separate thin city pages for each label.',
+					'Civil and commercial disputes are instructed from the civil section below. For first steps after an FIR, read the [pre-arrest and post-arrest bail guide](/blog/pre-arrest-bail-and-post-arrest-bail-pakistan-guide). For khula, custody and maintenance, read [first legal steps in family matters](/blog/khula-divorce-custody-maintenance-first-steps-pakistan). A separate civil-only article has not been published because it would repeat the civil section on this page.'
+				]
+			},
+			{
 				heading: 'Civil and commercial disputes',
 				paragraphs: [
 					'Civil matters in Karachi commonly arise from contracts, recovery of money, specific performance, tenancy, partnership disagreements, and declarations regarding title or rights. The strength of a civil suit usually depends on documents, limitation, the correct cause of action, and whether the right relief has been pleaded against the right defendant.',
@@ -28,7 +35,7 @@ export const services = [
 				heading: 'Criminal defence and bail matters',
 				paragraphs: [
 					'In criminal matters the earliest stage is often the most consequential. The contents of the FIR, the sections applied, the availability of pre-arrest bail, custody status, and the record created during investigation all shape what can be argued later.',
-					'Representation covers pre-arrest and post-arrest bail applications, quashment where legally available, trial representation, and advice on responding to investigation. No outcome can be promised in a criminal case; what can be provided is a considered reading of the record, the applicable provisions, and the procedural options. Supporting reading on first steps after an FIR is available in the related guides below; this page remains the commercial litigation hub for instructing work.'
+					'Representation covers pre-arrest and post-arrest bail applications, quashment where legally available, trial representation, and advice on responding to investigation. No outcome can be promised in a criminal case; what can be provided is a considered reading of the record, the applicable provisions, and the procedural options. First-step reading after an FIR is in the [pre-arrest and post-arrest bail guide](/blog/pre-arrest-bail-and-post-arrest-bail-pakistan-guide); this page remains the instruction hub for contentious work.'
 				],
 				points: [
 					'The FIR and the sections applied determine which bail route is available.',
@@ -41,7 +48,7 @@ export const services = [
 				heading: 'Family law: khula, divorce, custody and maintenance',
 				paragraphs: [
 					'Family matters are heard in the Family Courts and are governed by the Muslim Family Laws Ordinance, the Family Courts Act and related law. A khula suit, divorce proceeding, custody application, maintenance claim or guardianship petition each has its own documentary and evidentiary requirements.',
-					'Family litigation is handled with attention to the practical questions clients actually face: where the case must be filed, what the nikahnama and its recorded delegations establish, how maintenance is computed and enforced, and how custody and visitation are approached where a minor is involved. Informational guides on first steps sit under Legal Insights; this service page is the place to instruct family Court work.'
+					'Family litigation is handled with attention to the practical questions clients actually face: where the case must be filed, what the nikahnama and its recorded delegations establish, how maintenance is computed and enforced, and how custody and visitation are approached where a minor is involved. First-step reading is in [khula, custody and maintenance](/blog/khula-divorce-custody-maintenance-first-steps-pakistan); this service page is the place to instruct Family Court work.'
 				]
 			},
 			{
@@ -161,9 +168,9 @@ export const services = [
 		description:
 			'WeBOC and PSW registration support in Karachi: importer and exporter setup, KCCI membership, customs documentation, and international trade legal advice.',
 		intro:
-			'An import or export business cannot operate lawfully in Pakistan without correct registration and clean documentation. This practice handles WeBOC and Pakistan Single Window registration together with the underlying corporate and tax registrations they depend on.',
+			'An import or export business cannot operate lawfully in Pakistan without correct registration and clean documentation. This practice handles Pakistan Single Window (PSW) subscription support and related WeBOC/Customs access together with the underlying corporate and tax registrations they depend on.',
 		offerings: [
-			'WeBOC ID registration through Pakistan Single Window (PSW)',
+			'PSW subscription support and WeBOC/Customs role association',
 			'Importer and exporter licence setup and KCCI membership',
 			'NTN, STRN and business account prerequisites for trade',
 			'Customs duty advisory and documentation review',
@@ -173,8 +180,9 @@ export const services = [
 			{
 				heading: 'What WeBOC and PSW registration requires',
 				paragraphs: [
-					'WeBOC access, now processed through the Pakistan Single Window, is the gateway to filing goods declarations. Registration depends on prerequisites being in order first: a valid NTN, sales tax registration where applicable, a business bank account and certificate, verified premises, and correct particulars of the proprietor, partners or directors.',
-					'Applications are commonly delayed by mismatched particulars across FBR, SECP and bank records, unverified premises, or incomplete supporting documents. The sequence in which registrations are obtained matters, and correcting an inconsistency after submission takes longer than preventing it.'
+					'WeBOC remains Pakistan Customs’ management system for goods declarations. Pakistan Single Window is the national platform through which traders typically subscribe, complete KYC checks, and then associate a Customs role. PSW’s published FAQ states that a separate WeBOC User ID is not required after PSW subscription and Customs role association. Confirm current steps on [psw.gov.pk](https://www.psw.gov.pk/).',
+					'Subscription depends on prerequisites being in order first: a valid NTN or FTN as applicable, accessible FBR email, a mobile number registered against the individual’s CNIC, sales tax registration where applicable, and consistent particulars of the proprietor, partners or directors. Applications are commonly delayed by mismatched particulars across FBR, SECP and bank records, or by treating subscription as complete before Customs trader registration.',
+					'A longer educational explanation of the PSW/WeBOC relationship, common mistakes, and official sources is in the [WeBOC and Pakistan Single Window guide](/blog/weboc-psw-registration-pakistan-guide).'
 				],
 				points: [
 					'Business name, address and NTN particulars must match across every record.',
@@ -207,8 +215,12 @@ export const services = [
 		],
 		faq: [
 			[
-				'What is needed for WeBOC registration in Pakistan?',
-				'Requirements generally include a valid NTN, sales tax registration where applicable, a business bank account and certificate, verified business premises, and consistent particulars of the proprietor, partners or directors. The exact set depends on the applicant type.'
+				'Do I need a separate WeBOC User ID after PSW subscription?',
+				'PSW’s published FAQ states that a separate WeBOC User ID is not required. WeBOC functionality is used after role association with the Customs Management System. Follow the live instructions on psw.gov.pk for your applicant type.'
+			],
+			[
+				'What is needed for WeBOC or PSW registration in Pakistan?',
+				'Requirements generally include a valid NTN or FTN, accessible FBR email, a mobile number registered against the CNIC used, sales tax registration where applicable, and consistent particulars of the proprietor, partners or directors. Customs trader registration is a further step after subscription. The exact set depends on the applicant type and should be confirmed on the official PSW portal.'
 			],
 			[
 				'Can a sole proprietorship obtain WeBOC access?',
@@ -223,7 +235,7 @@ export const services = [
 				'The department may reassess and initiate proceedings. The response depends on the valuation method applied, the supporting documents, and the legal basis of the reassessment, and should be prepared within the applicable timeline.'
 			]
 		],
-		related: ['avoid-secp-fbr-penalties-business-compliance-karachi']
+		related: ['weboc-psw-registration-pakistan-guide']
 	},
 	{
 		slug: 'secp-company-registration-karachi',
@@ -259,7 +271,7 @@ export const services = [
 			{
 				heading: 'The SECP incorporation process',
 				paragraphs: [
-					'Incorporation involves name availability, preparation of the memorandum and articles reflecting the intended objects and shareholding, submission through the SECP portal, digital signatures and particulars of subscribers and directors, and issuance of the incorporation certificate. Tax registration and a company bank account follow.',
+					'Incorporation involves name availability, preparation of the memorandum and articles reflecting the intended objects and shareholding, submission through SECP electronic services, digital signatures and particulars of subscribers and directors, and issuance of the incorporation certificate. Start from the official [SECP website](https://www.secp.gov.pk/) and follow the Commission’s current e-services instructions rather than a third-party summary. Tax registration and a company bank account follow.',
 					'The documents filed at incorporation have a long life. Objects that do not match the actual business, shareholding that does not reflect the real arrangement, or authorised capital fixed without regard to future issuance all create work later. These are settled before filing rather than amended afterwards.'
 				]
 			},
@@ -324,7 +336,7 @@ export const services = [
 			{
 				heading: 'FBR return filing and filer status',
 				paragraphs: [
-					'FBR return filing through IRIS is a declaration that must be capable of being supported. Income sources, bank activity, assets, expenses and withholding all need to reconcile, because a return that conflicts with third-party data is the most common trigger for further scrutiny.',
+					'FBR return filing through IRIS is a declaration that must be capable of being supported. Income sources, bank activity, assets, expenses and withholding all need to reconcile, because a return that conflicts with third-party data is the most common trigger for further scrutiny. File through the official [IRIS portal](https://iris.fbr.gov.pk/) and confirm current notices or calendars on [fbr.gov.pk](https://www.fbr.gov.pk/).',
 					'Filer status also has practical consequences beyond the return itself, affecting withholding rates on a range of transactions. Where returns for earlier years are outstanding, the position for those years is assessed before the current return is filed. The applicable filing deadline depends on the taxpayer type and the tax year, and should be confirmed against the current FBR calendar before submission.'
 				]
 			},
@@ -389,7 +401,7 @@ export const services = [
 		description:
 			'Trademark registration in Pakistan through IPO: TM-55 search, brand and logo filing, copyright and patent guidance, oppositions and show cause responses.',
 		intro:
-			'A brand that is used but not registered is difficult to defend. Trademark work in this practice starts with a search, because the cost of discovering a conflicting mark after launch is far higher than the cost of checking before it.',
+			'A brand that is used but not registered is difficult to defend. The Intellectual Property Organization of Pakistan (IPO-Pakistan) administers the national trade mark system; current organisation information is on [ipo.gov.pk](https://www.ipo.gov.pk/) and applications can be started through [apply.ipo.gov.pk](https://apply.ipo.gov.pk/). Trademark work at Jahanzaib Legal Services in Karachi starts with a search, because the cost of discovering a conflicting mark after launch is far higher than the cost of checking before it.',
 		offerings: [
 			'Trademark registration and official TM search (TM-55)',
 			'Brand name, logo, copyright and patent protection guidance',
@@ -408,7 +420,7 @@ export const services = [
 			{
 				heading: 'The IPO Pakistan registration process',
 				paragraphs: [
-					'Registration involves filing the application with the Intellectual Property Organization of Pakistan with the mark, applicant particulars, class and specification, followed by examination, publication in the Trade Marks Journal, an opposition window, and registration where no sustained objection arises.',
+					'Registration involves filing the application with IPO-Pakistan with the mark, applicant particulars, class and specification, followed by examination, publication in the Trade Marks Journal, an opposition window, and registration where no sustained objection arises. Confirm current forms, fees and examination practice on the official IPO pages rather than treating any article as a substitute for the live portal.',
 					'Objections during examination and oppositions after publication are both normal features of the process rather than the end of the application. Each requires a substantive reply within a fixed period, supported by evidence of the applicant\u2019s use and rights where relevant.'
 				],
 				points: [
