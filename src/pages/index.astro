@@ -5,7 +5,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import ContactEnquiryForm from '../components/ContactEnquiryForm.astro';
 import { services } from '../data/services';
 import { blogPosts } from '../data/blog';
-import { site, absoluteUrl, phoneHref, whatsappHref, mailHref } from '../data/site';
+import { site, absoluteUrl, entityIds, phoneHref, whatsappHref, mailHref } from '../data/site';
 
 const latestPosts = blogPosts.slice(0, 3);
 // Surface FBR second on the homepage grid — August search interest is strongest on tax/FBR.
@@ -50,6 +50,16 @@ const homeFaq: [string, string][] = [
 const schema = {
 	'@context': 'https://schema.org',
 	'@graph': [
+		{
+			'@type': 'WebPage',
+			'@id': `${absoluteUrl('/')}#webpage`,
+			'name': 'Lawyer in Karachi | FBR Tax Filing, Litigation & Corporate Law',
+			'description': `${site.city} lawyer for FBR return filing, civil, criminal and family litigation, SECP company registration, property matters and trademark protection.`,
+			'url': absoluteUrl('/'),
+			'isPartOf': { '@id': entityIds.website },
+			'about': { '@id': entityIds.organization },
+			'inLanguage': 'en-PK'
+		},
 		{
 			'@type': 'FAQPage',
 			'mainEntity': homeFaq.map(([question, answer]) => ({

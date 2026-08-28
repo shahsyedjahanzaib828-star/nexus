@@ -9,6 +9,7 @@ const pages = new Map([
 	['services', { label: 'PRACTICE AREAS', title: 'Legal Services in Karachi', subtitle: 'Litigation, property, corporate, tax, trade & trademark counsel.' }],
 	['contact', { label: 'CONTACT', title: 'Contact Jahanzaib Legal Services', subtitle: 'Phone, WhatsApp, email and enquiry form · Karachi, Pakistan.' }],
 	['terms', { label: 'TERMS OF USE', title: 'Terms of Use', subtitle: 'Website terms for Jahanzaib Legal Services · Karachi, Pakistan.' }],
+	['privacy', { label: 'PRIVACY POLICY', title: 'Privacy Policy', subtitle: 'How Jahanzaib Legal Services handles website enquiries · Karachi, Pakistan.' }],
 	...services.map((service) => [service.slug, { label: service.label.toUpperCase(), title: service.heading, subtitle: 'Jahanzaib Legal Services · Karachi, Pakistan.' }] as const),
 	...blogPosts.map((post) => [post.slug, { label: post.label.toUpperCase(), title: post.title, subtitle: 'Legal insight from Jahanzaib Legal Services · Karachi.' }] as const)
 ]);

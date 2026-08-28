@@ -121,3 +121,21 @@ h2 {
 .skip-link:focus {
 	transform: translateY(0);
 }
+
+/*
+  Keyboard focus: visible ring for interactive controls.
+  Uses :focus-visible so mouse/touch clicks do not show a persistent outline.
+  Inputs that suppress outline still get a box-shadow ring.
+*/
+:focus-visible {
+	outline: 2px solid #a83009;
+	outline-offset: 2px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+	outline: 2px solid #a83009;
+	outline-offset: 2px;
+	box-shadow: 0 0 0 2px #fbfaf8, 0 0 0 4px #a83009;
+}

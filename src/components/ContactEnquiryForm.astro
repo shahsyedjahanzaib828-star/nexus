@@ -34,7 +34,7 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				type="text"
 				autocomplete="name"
 				maxlength="120"
-				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal focus-visible:border-[#a83009]"
 			/>
 		</label>
 		<label class="text-sm font-semibold text-[#4a4947]" for={`${formId}-phone`}>
@@ -48,7 +48,7 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				autocomplete="tel"
 				maxlength="30"
 				placeholder={site.phone}
-				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal focus-visible:border-[#a83009]"
 			/>
 		</label>
 		<label class="text-sm font-semibold text-[#4a4947]" for={`${formId}-email`}>
@@ -60,7 +60,7 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				type="email"
 				autocomplete="email"
 				maxlength="254"
-				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal focus-visible:border-[#a83009]"
 			/>
 		</label>
 		<label class="text-sm font-semibold text-[#4a4947]" for={`${formId}-city`}>
@@ -69,7 +69,7 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				id={`${formId}-city`}
 				required
 				name="city"
-				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3.5 text-sm font-normal outline-none focus:border-[#a83009]"
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3.5 text-sm font-normal focus-visible:border-[#a83009]"
 			>
 				<option value="">Select city</option>
 				<option>Karachi</option>
@@ -82,7 +82,7 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				id={`${formId}-service`}
 				required
 				name="service"
-				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3.5 text-sm font-normal outline-none focus:border-[#a83009]"
+				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3.5 text-sm font-normal focus-visible:border-[#a83009]"
 			>
 				<option value="">Choose a service</option>
 				{services.map((service) => <option value={service.label}>{service.label}</option>)}
@@ -96,7 +96,7 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 				name="case-details"
 				rows="4"
 				maxlength="2000"
-				class="mt-2 min-h-28 w-full resize-y rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal outline-none focus:border-[#a83009]"
+				class="mt-2 min-h-28 w-full resize-y rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3 text-sm font-normal focus-visible:border-[#a83009]"
 			></textarea>
 		</label>
 

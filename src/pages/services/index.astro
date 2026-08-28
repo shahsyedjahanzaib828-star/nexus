@@ -15,12 +15,12 @@ const schema = {
 	'@graph': [
 		{
 			'@type': 'CollectionPage',
+			'@id': `${canonical}#webpage`,
 			'name': title,
 			'description': description,
 			'url': canonical,
 			'isPartOf': { '@id': entityIds.website },
-			'about': { '@id': entityIds.organization },
-			'provider': { '@id': entityIds.organization }
+			'about': { '@id': entityIds.organization }
 		},
 		{
 			'@type': 'ItemList',
