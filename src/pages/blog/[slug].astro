@@ -4,7 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { blogPosts, type BlogPost } from '../../data/blog';
 import { services } from '../../data/services';
-import { site, absoluteUrl, phoneHref, whatsappHref } from '../../data/site';
+import { site, absoluteUrl, entityIds, practitioner, phoneHref, whatsappHref } from '../../data/site';
 
 export function getStaticPaths() {
 	return blogPosts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
@@ -29,6 +29,17 @@ function linkify(text: string): string {
 	);
 }
 
+const webpageSchema = {
+	'@type': 'WebPage',
+	'@id': `${canonical}#webpage`,
+	'url': canonical,
+	'name': post.title,
+	'description': post.description,
+	'isPartOf': { '@id': entityIds.website },
+	'about': { '@id': entityIds.organization },
+	'inLanguage': 'en-PK'
+};
+
 const articleSchema = {
 	'@type': 'BlogPosting',
 	'@id': `${canonical}#article`,
@@ -39,17 +50,22 @@ const articleSchema = {
 	'dateModified': post.date,
 	'inLanguage': 'en-PK',
 	'wordCount': post.sections.reduce((total, section) => total + section.paragraphs.join(' ').split(/\s+/).length, 0),
-	'author': { '@id': `${site.url}/#professional` },
-	'publisher': { '@id': `${site.url}/#legal-service` },
-	'mainEntityOfPage': canonical,
+	'author': { '@id': entityIds.person },
+	'publisher': { '@id': entityIds.organization },
+	'mainEntityOfPage': { '@id': `${canonical}#webpage` },
 	'image': absoluteUrl(`/og/${post.slug}.png`),
-	'about': [`Legal services in ${site.city}`, `${site.country} business law`, post.label]
+	'about': [
+		{ '@id': entityIds.organization },
+		`Legal services in ${site.city}`,
+		`${site.country} business law`,
+		post.label
+	]
 };
 const faqSchema = {
 	'@type': 'FAQPage',
 	'mainEntity': post.faq.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } }))
 };
-const schema = { '@context': 'https://schema.org', '@graph': [articleSchema, faqSchema] };
+const schema = { '@context': 'https://schema.org', '@graph': [webpageSchema, articleSchema, faqSchema] };
 
 const breadcrumbs = [
 	{ name: 'Home', href: '/' },
@@ -67,6 +83,7 @@ const breadcrumbs = [
 	schema={schema}
 	type="article"
 	breadcrumbs={breadcrumbs}
+	includePracticeEntity={true}
 	publishedTime={`${post.date}T00:00:00.000Z`}
 >
 	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#a83009] selection:text-white">
@@ -89,7 +106,7 @@ const breadcrumbs = [
 						<h1 class="mt-5 text-3xl font-semibold leading-[1.08] tracking-[-0.04em] text-[#0c0c0c] sm:text-5xl lg:text-7xl">{post.title}</h1>
 						<p class="mt-8 max-w-3xl text-xl leading-8 text-[#4a4947]">{post.intro}</p>
 						<div class="mt-8 flex flex-wrap items-center gap-4 text-sm text-[#696764]">
-							<span>By <a href="/about" class="font-bold text-[#0c0c0c] hover:text-[#a83009]">Jahanzaib</a></span>
+							<span>By <a href="/about" class="font-bold text-[#0c0c0c] hover:text-[#a83009]">{practitioner.name}</a>, {practitioner.jobTitle} at {site.name}</span>
 							<span aria-hidden="true">·</span>
 							<time datetime={post.date}>{post.date}</time>
 						</div>

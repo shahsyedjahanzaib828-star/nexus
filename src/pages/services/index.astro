@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { services } from '../../data/services';
-import { site, absoluteUrl, phoneHref, whatsappHref } from '../../data/site';
+import { site, absoluteUrl, entityIds, phoneHref, whatsappHref } from '../../data/site';
 
 const title = 'Legal Services in Karachi | Litigation, Corporate & Tax';
 const description =
@@ -18,7 +18,9 @@ const schema = {
 			'name': title,
 			'description': description,
 			'url': canonical,
-			'isPartOf': { '@id': `${site.url}/#website` }
+			'isPartOf': { '@id': entityIds.website },
+			'about': { '@id': entityIds.organization },
+			'provider': { '@id': entityIds.organization }
 		},
 		{
 			'@type': 'ItemList',

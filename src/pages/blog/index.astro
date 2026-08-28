@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { blogPosts } from '../../data/blog';
-import { site, absoluteUrl, whatsappHref } from '../../data/site';
+import { site, absoluteUrl, entityIds, whatsappHref } from '../../data/site';
 
 const title = 'Legal Blog | Karachi Lawyer on Tax, Company & Property Law';
 const description =
@@ -20,7 +20,8 @@ const schema = {
 			'description': description,
 			'url': canonical,
 			'inLanguage': 'en-PK',
-			'publisher': { '@id': `${site.url}/#legal-service` }
+			'publisher': { '@id': entityIds.organization },
+			'author': { '@id': entityIds.person }
 		},
 		{
 			'@type': 'ItemList',

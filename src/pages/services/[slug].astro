@@ -4,7 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import { services, type Service } from '../../data/services';
 import { blogPosts } from '../../data/blog';
-import { site, absoluteUrl, phoneHref, whatsappHref } from '../../data/site';
+import { site, absoluteUrl, entityIds, areaServedNodes, phoneHref, whatsappHref } from '../../data/site';
 
 export function getStaticPaths() {
 	return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
@@ -22,12 +22,8 @@ const serviceSchema = {
 	'description': service.description,
 	'url': canonical,
 	'serviceType': service.label,
-	'provider': { '@id': `${site.url}/#legal-service` },
-	'areaServed': [
-		{ '@type': 'City', name: site.city },
-		{ '@type': 'State', name: site.region },
-		{ '@type': 'Country', name: site.country }
-	],
+	'provider': { '@id': entityIds.organization },
+	'areaServed': areaServedNodes(),
 	'hasOfferCatalog': {
 		'@type': 'OfferCatalog',
 		'name': service.heading,
@@ -55,6 +51,7 @@ const breadcrumbs = [
 	ogImageAlt={`${service.heading} — ${site.name}`}
 	schema={schema}
 	breadcrumbs={breadcrumbs}
+	includePracticeEntity={true}
 >
 	<div class="min-h-screen bg-[#fbfaf8] text-[#252424] selection:bg-[#a83009] selection:text-white">
 		<SiteHeader current="services" />

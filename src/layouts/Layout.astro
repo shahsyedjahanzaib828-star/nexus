@@ -1,7 +1,16 @@
 ---
 import '../styles/global.css';
 import MobileDock from '../components/MobileDock.astro';
-import { site, absoluteUrl } from '../data/site';
+import {
+	site,
+	absoluteUrl,
+	entityIds,
+	practitioner,
+	organization,
+	locationAddress,
+	areaServedNodes,
+	withOptionalFields
+} from '../data/site';
 import { services } from '../data/services';
 
 const defaultTitle = 'Lawyer in Karachi | FBR Tax Filing, Litigation & Corporate Law';
@@ -17,7 +26,11 @@ const {
 	ogImage = '/og/home.png',
 	ogImageAlt = `${site.name} in ${site.city}`,
 	breadcrumbs,
-	includePracticeEntity = false,
+	/**
+	 * Core LegalService + Person + WebSite nodes use stable @ids.
+	 * Default true so article author/publisher and service provider refs resolve on-page.
+	 */
+	includePracticeEntity = true,
 	publishedTime,
 	robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
 	noCanonical = false
@@ -39,62 +52,70 @@ const breadcrumbSchema = {
 	}))
 };
 
-// LegalService + Person belong on home/about only — not on every URL.
-const legalServiceSchema = {
-	'@type': 'LegalService',
-	'@id': `${siteUrl}/#legal-service`,
-	'name': site.name,
-	'alternateName': `${site.name} | ${site.tagline}`,
-	'description': defaultDescription,
-	'url': absoluteUrl('/'),
-	'telephone': '+92' + site.phone.slice(1),
-	'email': site.email,
-	'areaServed': [
-		{ '@type': 'City', name: site.city },
-		{ '@type': 'State', name: site.region },
-		{ '@type': 'Country', name: site.country }
-	],
-	'address': {
-		'@type': 'PostalAddress',
-		'addressLocality': site.city,
-		'addressRegion': site.region,
-		'addressCountry': 'PK'
+// LegalService is the practice entity (@id …/#legal-service). City-level address only.
+const legalServiceSchema = withOptionalFields(
+	{
+		'@type': 'LegalService',
+		'@id': entityIds.organization,
+		'name': organization.name,
+		'alternateName': organization.alternateName,
+		'description': organization.description,
+		'url': absoluteUrl('/'),
+		'telephone': organization.telephone,
+		'email': organization.email,
+		'areaServed': areaServedNodes(),
+		'address': locationAddress(),
+		'serviceType': services.map((service) => service.label),
+		'knowsAbout': [...organization.knowsAbout],
+		'hasOfferCatalog': {
+			'@type': 'OfferCatalog',
+			'name': 'Legal and corporate services',
+			'itemListElement': services.map((service) => ({
+				'@type': 'Offer',
+				itemOffered: {
+					'@type': 'Service',
+					name: service.heading,
+					url: absoluteUrl(`/services/${service.slug}`)
+				}
+			}))
+		},
+		'employee': { '@id': entityIds.person }
 	},
-	'serviceType': services.map((service) => service.label),
-	'knowsAbout': ['Civil Litigation', 'Criminal Defense', 'Family Law', 'Corporate Law', 'Tax Filing', 'Real Estate Law', 'Trademark Registration'],
-	'hasOfferCatalog': {
-		'@type': 'OfferCatalog',
-		'name': 'Legal and corporate services',
-		'itemListElement': services.map((service) => ({
-			'@type': 'Offer',
-			itemOffered: { '@type': 'Service', name: service.heading, url: absoluteUrl(`/services/${service.slug}`) }
-		}))
+	{
+		sameAs: organization.sameAs
 	}
-};
+);
 
 const websiteSchema = {
 	'@type': 'WebSite',
-	'@id': `${siteUrl}/#website`,
+	'@id': entityIds.website,
 	'url': absoluteUrl('/'),
 	'name': site.name,
+	'description': organization.description,
 	'inLanguage': 'en-PK',
-	'publisher': { '@id': `${siteUrl}/#legal-service` }
+	'publisher': { '@id': entityIds.organization },
+	'about': { '@id': entityIds.organization }
 };
 
-// Only the given name verified in existing site content is used — do not invent a fuller legal name.
-const professionalProfileSchema = {
-	'@type': 'Person',
-	'@id': `${siteUrl}/#professional`,
-	'name': 'Jahanzaib',
-	'jobTitle': site.tagline,
-	'url': absoluteUrl('/about'),
-	'worksFor': { '@id': `${siteUrl}/#legal-service` },
-	'areaServed': [
-		{ '@type': 'City', name: site.city },
-		{ '@type': 'State', name: site.region },
-		{ '@type': 'Country', name: site.country }
-	]
-};
+// Person uses only the verified given name — do not invent a fuller legal name.
+const professionalProfileSchema = withOptionalFields(
+	{
+		'@type': 'Person',
+		'@id': entityIds.person,
+		'name': practitioner.name,
+		'givenName': practitioner.givenName,
+		'jobTitle': practitioner.jobTitle,
+		'description': practitioner.description,
+		'url': absoluteUrl(practitioner.path),
+		'worksFor': { '@id': entityIds.organization },
+		'areaServed': areaServedNodes(),
+		'knowsAbout': [...organization.knowsAbout]
+	},
+	{
+		image: practitioner.image ? absoluteUrl(practitioner.image) : '',
+		sameAs: practitioner.sameAs
+	}
+);
 
 const schemaGraph = {
 	'@context': 'https://schema.org',

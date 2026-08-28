@@ -3,7 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { services } from '../data/services';
-import { site, absoluteUrl, phoneHref, whatsappHref, mailHref } from '../data/site';
+import {
+	site,
+	absoluteUrl,
+	entityIds,
+	practitioner,
+	organization,
+	phoneHref,
+	whatsappHref,
+	mailHref
+} from '../data/site';
 
 const title = 'About the Practice | Karachi Legal Practitioner';
 const description =
@@ -15,11 +24,13 @@ const schema = {
 	'@graph': [
 		{
 			'@type': 'AboutPage',
+			'@id': `${canonical}#webpage`,
 			'name': title,
 			'description': description,
 			'url': canonical,
-			'isPartOf': { '@id': `${site.url}/#website` },
-			'mainEntity': { '@id': `${site.url}/#legal-service` }
+			'isPartOf': { '@id': entityIds.website },
+			'mainEntity': { '@id': entityIds.organization },
+			'about': [{ '@id': entityIds.organization }, { '@id': entityIds.person }]
 		}
 	]
 };
@@ -27,6 +38,21 @@ const schema = {
 const breadcrumbs = [
 	{ name: 'Home', href: '/' },
 	{ name: 'About', href: '/about' }
+];
+
+const audience = [
+	{
+		heading: 'Individuals and families',
+		body: 'People facing civil disputes, criminal complaints, family Court matters, inheritance questions, or property transactions who need clear options before they instruct.'
+	},
+	{
+		heading: 'Founders and business owners',
+		body: 'Sole proprietors and company directors who need incorporation, governance, FBR or SRB compliance, trade registration, or trademark protection without treating each filing as an isolated task.'
+	},
+	{
+		heading: 'Clients outside Karachi',
+		body: `Court appearances are centred on ${site.city} and ${site.region}. Advisory, corporate, tax and trademark work is handled for clients across ${site.country}, including those working with foreign counterparties.`
+	}
 ];
 
 const principles = [
@@ -74,47 +100,41 @@ const principles = [
 					</nav>
 					<p class="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">About the practice</p>
 					<h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#0c0c0c] sm:text-6xl">
-						A {site.city} practice built on clear legal groundwork.
+						{site.name}
 					</h1>
-					<p class="mt-8 max-w-3xl text-lg leading-8 text-[#4a4947]">
-						{site.name} is a {site.city}-based legal practice serving individuals, families, founders and businesses across {site.country}. The practice covers litigation alongside the corporate, tax, property and intellectual property work that businesses need on a continuing basis.
+					<p class="mt-4 text-lg font-semibold text-[#a83009]">{site.tagline}</p>
+					<p class="mt-6 max-w-3xl text-lg leading-8 text-[#4a4947]">
+						{organization.description}
 					</p>
 					<div class="mt-9 flex flex-wrap gap-4">
 						<a href="/#contact" class="rounded-full bg-[#0c0c0c] px-6 py-3.5 text-sm font-bold text-white">Discuss your matter ↗</a>
+						<a href="/services" class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">View practice areas</a>
 						<a href={phoneHref} class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">Call {site.phone}</a>
 					</div>
 				</div>
 			</section>
 
-			<section class="mx-auto max-w-5xl px-5 py-16 lg:px-10 lg:py-20">
+			<section class="mx-auto max-w-5xl px-5 py-16 lg:px-10 lg:py-20" aria-labelledby="practitioner-heading">
 				<div class="max-w-3xl">
-					<h2 class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">What this practice does</h2>
+					<h2 id="practitioner-heading" class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">Who practises here</h2>
 					<p class="mt-5 text-base leading-8 text-[#4a4947]">
-						Legal problems rarely arrive in a single category. A property dispute may involve a regulatory approval and a tax record. A shareholder disagreement may involve company filings, contracts and a threatened criminal complaint. The practice is structured to handle a matter across those boundaries rather than address one part of it in isolation.
+						<strong class="text-[#0c0c0c]">{practitioner.name}</strong> is the {practitioner.jobTitle.toLowerCase()} at {site.name}.
+						Clients speak directly with the practitioner handling the matter. This page publishes only information that has been confirmed for the website; credentials, enrollment numbers and awards are not listed unless independently verified for publication.
 					</p>
 					<p class="mt-5 text-base leading-8 text-[#4a4947]">
-						Work falls into two broad streams. The first is contentious: civil, criminal and family litigation, inheritance and partition suits, and constitutional petitions before the High Court of {site.region}. The second is advisory and compliance: company incorporation and governance, FBR and SRB tax compliance, property title and construction approvals, WeBOC and trade licensing, and trademark protection through IPO Pakistan.
+						{practitioner.description}
 					</p>
-					<p class="mt-5 text-base leading-8 text-[#4a4947]">
-						The common element is preparation. Most matters are decided by what was documented, filed or preserved before the dispute became formal, which is why the first step in any engagement is establishing the record rather than the argument.
-					</p>
-				</div>
-
-				<div class="mt-14 grid gap-4 sm:grid-cols-2">
-					{principles.map((principle) => (
-						<article class="rounded-3xl border border-[#e9e6e2] bg-white p-6">
-							<h3 class="text-lg font-semibold leading-tight text-[#0c0c0c]">{principle.heading}</h3>
-							<p class="mt-4 text-sm leading-7 text-[#696764]">{principle.body}</p>
-						</article>
-					))}
 				</div>
 			</section>
 
-			<section class="border-y border-[#e9e6e2] bg-white">
+			<section class="border-y border-[#e9e6e2] bg-white" aria-labelledby="services-heading">
 				<div class="mx-auto max-w-5xl px-5 py-16 lg:px-10 lg:py-20">
-					<h2 class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">Practice areas</h2>
+					<h2 id="services-heading" class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">What this practice does</h2>
 					<p class="mt-5 max-w-3xl text-base leading-8 text-[#4a4947]">
-						Each area below has a dedicated page setting out what the work involves, the practical issues that arise most often, and answers to the questions clients ask before instructing.
+						Legal problems rarely arrive in a single category. A property dispute may involve a regulatory approval and a tax record. A shareholder disagreement may involve company filings, contracts and a threatened criminal complaint. The practice is structured to handle a matter across those boundaries rather than address one part of it in isolation.
+					</p>
+					<p class="mt-5 max-w-3xl text-base leading-8 text-[#4a4947]">
+						Work falls into two broad streams. The first is contentious: civil, criminal and family litigation, inheritance and partition suits, and constitutional petitions before the High Court of {site.region}. The second is advisory and compliance: company incorporation and governance, FBR and SRB tax compliance, property title and construction approvals, WeBOC and trade licensing, and trademark protection through IPO Pakistan.
 					</p>
 					<ul class="mt-9 grid gap-3 sm:grid-cols-2">
 						{services.map((service) => (
@@ -129,15 +149,55 @@ const principles = [
 							</li>
 						))}
 					</ul>
+					<p class="mt-8 text-sm text-[#696764]">
+						<a href="/services" class="font-bold text-[#a83009] hover:text-[#0c0c0c]">Browse all practice areas ↗</a>
+						{' · '}
+						<a href="/blog" class="font-bold text-[#a83009] hover:text-[#0c0c0c]">Read legal insights ↗</a>
+					</p>
 				</div>
 			</section>
 
-			<section class="mx-auto max-w-5xl px-5 py-16 lg:px-10 lg:py-20">
+			<section class="mx-auto max-w-5xl px-5 py-16 lg:px-10 lg:py-20" aria-labelledby="audience-heading">
+				<h2 id="audience-heading" class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">Who these services are for</h2>
+				<p class="mt-5 max-w-3xl text-base leading-8 text-[#4a4947]">
+					The practice is built for people and businesses who need a clear reading of the record, the forum and the realistic options — not generic marketing promises.
+				</p>
+				<ul class="mt-10 grid gap-4 sm:grid-cols-3">
+					{audience.map((item) => (
+						<li class="rounded-3xl border border-[#e9e6e2] bg-white p-6">
+							<h3 class="text-lg font-semibold leading-tight text-[#0c0c0c]">{item.heading}</h3>
+							<p class="mt-4 text-sm leading-7 text-[#696764]">{item.body}</p>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section class="border-y border-[#e9e6e2] bg-[#f5f2ee]" aria-labelledby="approach-heading">
+				<div class="mx-auto max-w-5xl px-5 py-16 lg:px-10 lg:py-20">
+					<h2 id="approach-heading" class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">How the practice works</h2>
+					<p class="mt-5 max-w-3xl text-base leading-8 text-[#4a4947]">
+						The common element is preparation. Most matters are decided by what was documented, filed or preserved before the dispute became formal, which is why the first step in any engagement is establishing the record rather than the argument.
+					</p>
+					<div class="mt-10 grid gap-4 sm:grid-cols-2">
+						{principles.map((principle) => (
+							<article class="rounded-3xl border border-[#e9e6e2] bg-white p-6">
+								<h3 class="text-lg font-semibold leading-tight text-[#0c0c0c]">{principle.heading}</h3>
+								<p class="mt-4 text-sm leading-7 text-[#696764]">{principle.body}</p>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="mx-auto max-w-5xl px-5 py-16 lg:px-10 lg:py-20" aria-labelledby="location-heading">
 				<div class="grid gap-10 lg:grid-cols-[1fr_1fr]">
 					<div>
-						<h2 class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">Where the practice operates</h2>
+						<h2 id="location-heading" class="text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0c0c0c]">Where the practice operates</h2>
 						<p class="mt-5 text-base leading-8 text-[#4a4947]">
-							The practice is based in {site.city} and appears in the courts and before the authorities of {site.region}. Advisory, corporate, tax and trademark work is handled for clients across {site.country}, including those working with foreign clients or operating through overseas entities.
+							The practice is based in {site.city}, {site.region}, {site.country}, and appears in the courts and before the authorities of {site.region}. Advisory, corporate, tax and trademark work is handled for clients across {site.country}, including those working with foreign clients or operating through overseas entities.
+						</p>
+						<p class="mt-5 text-sm leading-7 text-[#696764]">
+							A street-level office address is not published on this website. Location is stated at city level only until a verified public address is available.
 						</p>
 						<div class="mt-8 space-y-4 text-sm text-[#696764]">
 							<a href={phoneHref} class="flex items-center gap-3 hover:text-[#0c0c0c]">
@@ -166,7 +226,20 @@ const principles = [
 						<p class="mt-7 rounded-2xl bg-white/10 p-4 text-xs leading-6 text-[#e9e6e2]">
 							An initial enquiry does not create an advocate-client relationship. Engagement is confirmed in writing before a matter is taken on.
 						</p>
+						<a href="/#contact" class="mt-6 inline-flex text-sm font-bold text-[#f45a27] hover:text-white">Go to the enquiry form ↗</a>
 					</div>
+				</div>
+			</section>
+
+			<section class="border-t border-[#e9e6e2] bg-white" aria-labelledby="disclaimer-heading">
+				<div class="mx-auto max-w-5xl px-5 py-14 lg:px-10">
+					<h2 id="disclaimer-heading" class="text-2xl font-semibold text-[#0c0c0c]">Legal disclaimer</h2>
+					<p class="mt-4 max-w-3xl text-sm leading-7 text-[#696764]">
+						Website information, including this About page and any linked articles, is general information only and is not legal advice. Every matter is fact-specific. Contacting {site.name}, calling, messaging on WhatsApp, or submitting an enquiry does not create an advocate-client relationship until engagement is formally agreed in writing. Results are not guaranteed.
+					</p>
+					<p class="mt-4 text-sm text-[#696764]">
+						<a href="/privacy" class="font-bold text-[#a83009] hover:text-[#0c0c0c]">Read the Privacy Policy ↗</a>
+					</p>
 				</div>
 			</section>
 		</main>
