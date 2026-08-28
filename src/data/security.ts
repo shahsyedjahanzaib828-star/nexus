@@ -7,10 +7,12 @@
  * frame-ancestors (browsers ignore it on <meta>); clickjacking protection in
  * production is the Vercel header plus X-Frame-Options: DENY.
  *
- * Why style-src includes 'unsafe-inline':
- * astro.config.mjs sets build.inlineStylesheets: 'always', so every page ships
- * one inlined <style> block (Tailwind + component CSS). There is no external
- * stylesheet to hash, and per-page style hashes would churn on every CSS tweak.
+ * Why style-src is 'self' only:
+ * astro.config.mjs sets build.inlineStylesheets: 'never', so Tailwind and
+ * global CSS ship as an external /_astro/*.css file. Layout and pages do not
+ * emit inline <style> blocks or style attributes. enquiry-form.js does not
+ * set element.style. Keep 'unsafe-inline' off unless a first-party inline
+ * style is reintroduced.
  *
  * Why script-src does NOT include 'unsafe-inline' or 'unsafe-eval':
  * JSON-LD is type=application/ld+json (not executed as JS). The only executable
@@ -22,7 +24,7 @@ const cspDirectives = [
 	"object-src 'none'",
 	"form-action 'self' mailto:",
 	"script-src 'self'",
-	"style-src 'self' 'unsafe-inline'",
+	"style-src 'self'",
 	"img-src 'self'",
 	"font-src 'self'",
 	"connect-src 'self'",
@@ -40,7 +42,7 @@ export const contentSecurityPolicyHeader = [
 	"frame-ancestors 'none'",
 	"form-action 'self' mailto:",
 	"script-src 'self'",
-	"style-src 'self' 'unsafe-inline'",
+	"style-src 'self'",
 	"img-src 'self'",
 	"font-src 'self'",
 	"connect-src 'self'",

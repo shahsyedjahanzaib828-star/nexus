@@ -55,8 +55,9 @@ export default defineConfig({
       }
     })
   ],
+  // Emit CSS as hashed /_astro/*.css files instead of inlining Tailwind into every HTML document.
   build: {
-    inlineStylesheets: 'always'
+    inlineStylesheets: 'never'
   },
   vite: {
     plugins: [tailwindcss()]
