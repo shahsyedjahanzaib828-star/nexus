@@ -36,11 +36,11 @@ const linkClass = (key: string) => (current === key ? 'text-[#a83009]' : 'hover:
 		<nav class="hidden items-center gap-7 text-sm font-semibold text-[#696764] lg:flex" aria-label="Main navigation">
 			{current !== 'home' && <a href="/" class="hover:text-[#0c0c0c]">Home</a>}
 
-			<div class="group relative">
-				<a href="/services" class:list={['gap-1', linkClass('services')]} aria-haspopup="true">
+			<details class="relative">
+				<summary class:list={['cursor-pointer list-none gap-1', linkClass('services')]}>
 					Practice Areas <span aria-hidden="true" class="text-[10px]">▾</span>
-				</a>
-				<div class="invisible absolute left-1/2 top-full z-30 w-[38rem] -translate-x-1/2 pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+				</summary>
+				<div class="absolute left-1/2 top-full z-30 w-[38rem] -translate-x-1/2 pt-3">
 					<div class="rounded-2xl border border-[#e9e6e2] bg-white p-4 shadow-xl">
 						<p class="px-2 pb-3 text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">Choose a practice area</p>
 						<ul class="grid grid-cols-2 gap-1">
@@ -61,7 +61,7 @@ const linkClass = (key: string) => (current === key ? 'text-[#a83009]' : 'hover:
 						</a>
 					</div>
 				</div>
-			</div>
+			</details>
 
 			{links.map((link) => <a href={link.href} class={linkClass(link.key)}>{link.label}</a>)}
 		</nav>

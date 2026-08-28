@@ -43,16 +43,19 @@ const ogImageUrl = new URL(ogImage, siteUrl).href;
 const pageSchema = (Array.isArray(schema?.['@graph']) ? schema['@graph'] : [schema]).map(({ '@context': _context, ...entry }) => entry);
 
 const crumbTrail = breadcrumbs ?? [{ name: 'Home', href: '/' }];
-const breadcrumbSchema = {
-	'@type': 'BreadcrumbList',
-	'@id': `${canonicalUrl}#breadcrumb`,
-	'itemListElement': crumbTrail.map((crumb: { name: string; href: string }, index: number) => ({
-		'@type': 'ListItem',
-		position: index + 1,
-		name: crumb.name,
-		item: absoluteUrl(crumb.href)
-	}))
-};
+const breadcrumbSchema =
+	crumbTrail.length > 0
+		? {
+				'@type': 'BreadcrumbList',
+				'@id': `${canonicalUrl}#breadcrumb`,
+				itemListElement: crumbTrail.map((crumb: { name: string; href: string }, index: number) => ({
+					'@type': 'ListItem',
+					position: index + 1,
+					name: crumb.name,
+					item: absoluteUrl(crumb.href)
+				}))
+			}
+		: null;
 
 // LegalService is the practice entity (@id …/#legal-service). City-level address only.
 const legalServiceSchema = withOptionalFields(
@@ -123,7 +126,7 @@ const schemaGraph = {
 	'@context': 'https://schema.org',
 	'@graph': [
 		...(includePracticeEntity ? [legalServiceSchema, professionalProfileSchema, websiteSchema] : []),
-		breadcrumbSchema,
+		...(breadcrumbSchema ? [breadcrumbSchema] : []),
 		...pageSchema.filter((entry) => Object.keys(entry).length > 0)
 	]
 };

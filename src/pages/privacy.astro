@@ -2,11 +2,27 @@
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import { site, absoluteUrl, mailHref } from '../data/site';
+import { site, absoluteUrl, entityIds, mailHref } from '../data/site';
 
 const title = `Privacy Policy | ${site.name}`;
 const description = `Privacy policy explaining how ${site.name} handles enquiries and information submitted through this website.`;
 const canonical = absoluteUrl('/privacy');
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebPage',
+			'@id': `${canonical}#webpage`,
+			'name': title,
+			'description': description,
+			'url': canonical,
+			'isPartOf': { '@id': entityIds.website },
+			'about': { '@id': entityIds.organization },
+			'inLanguage': 'en-PK'
+		}
+	]
+};
 
 const breadcrumbs = [
 	{ name: 'Home', href: '/' },
@@ -14,7 +30,15 @@ const breadcrumbs = [
 ];
 ---
 
-<Layout title={title} description={description} canonical={canonical} breadcrumbs={breadcrumbs}>
+<Layout
+	title={title}
+	description={description}
+	canonical={canonical}
+	ogImage="/og/privacy.png"
+	ogImageAlt={`Privacy Policy — ${site.name}`}
+	schema={schema}
+	breadcrumbs={breadcrumbs}
+>
 	<div class="min-h-screen bg-[#fbfaf8] text-[#252424]">
 		<SiteHeader />
 
@@ -24,7 +48,7 @@ const breadcrumbs = [
 					<ol class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#a83009]">
 						<li><a href="/" class="hover:text-[#0c0c0c]">Home</a></li>
 						<li aria-hidden="true">/</li>
-						<li class="text-[#878583]">Privacy Policy</li>
+						<li class="text-[#4a4947]">Privacy Policy</li>
 					</ol>
 				</nav>
 				<p class="mt-10 text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">Privacy and information handling</p>
