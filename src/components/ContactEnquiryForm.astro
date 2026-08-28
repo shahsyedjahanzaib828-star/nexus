@@ -64,16 +64,16 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 			/>
 		</label>
 		<label class="text-sm font-semibold text-[#4a4947]" for={`${formId}-city`}>
-			City
+			Karachi or elsewhere in Pakistan
 			<select
 				id={`${formId}-city`}
 				required
 				name="city"
 				class="mt-2 min-h-12 w-full rounded-xl border border-[#dcdad6] bg-[#fbfaf8] px-4 py-3.5 text-sm font-normal focus-visible:border-[#a83009]"
 			>
-				<option value="">Select city</option>
+				<option value="">Select location</option>
 				<option>Karachi</option>
-				<option>Other</option>
+				<option>Elsewhere in Pakistan</option>
 			</select>
 		</label>
 		<label class="text-sm font-semibold text-[#4a4947] sm:col-span-2" for={`${formId}-service`}>

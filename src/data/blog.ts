@@ -2,7 +2,7 @@ export const blogPosts = [
 	{
 		slug: 'weboc-psw-registration-pakistan-guide',
 		title: 'WeBOC and Pakistan Single Window: A Practical Guide for Importers and Exporters',
-		seoTitle: 'WeBOC and PSW Registration in Pakistan: What Traders Should Know',
+		seoTitle: 'WeBOC and PSW Registration in Pakistan for Traders',
 		description:
 			'What WeBOC and Pakistan Single Window are, how PSW subscription relates to Customs access, common document issues, and where to verify current official requirements.',
 		date: '2026-08-28',
@@ -90,7 +90,7 @@ export const blogPosts = [
 	{
 		slug: 'fbr-tax-filing-compliance-penalties-pakistan',
 		title: 'FBR Return Filing in Pakistan: Deadlines, Penalties & Compliance Risks',
-		seoTitle: 'FBR Return Filing Deadlines and Compliance Risks in Pakistan',
+		seoTitle: 'FBR Return Filing: Deadlines and Compliance Risks',
 		description:
 			'A practical overview of FBR return filing in Pakistan: deadlines, penalties, IRIS declarations, audit exposure, and risks for individuals and Karachi businesses.',
 		date: '2026-08-12',
@@ -158,7 +158,7 @@ export const blogPosts = [
 	{
 		slug: 'sole-proprietorship-vs-private-limited-company-karachi',
 		title: 'Choosing Your Business Structure: Sole Proprietorship vs. Private Limited Company in Karachi',
-		seoTitle: 'Sole Proprietorship vs Private Limited: What Changes for Founders',
+		seoTitle: 'Sole Proprietorship vs Private Limited for Founders',
 		description: 'Compare sole proprietorship and private limited company structures in Karachi. Learn how liability, tax, control, and compliance affect the choice.',
 		date: '2026-08-09',
 		updated: '2026-08-28',
