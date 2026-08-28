@@ -1,9 +1,11 @@
 /**
  * Security headers for HTML documents.
  *
- * Keep the Content-Security-Policy value in vercel.json in sync with
- * `contentSecurityPolicy` below. Vercel applies the HTTP header in production;
- * Layout also emits a matching meta CSP so local `astro preview` can be checked.
+ * Keep the HTTP Content-Security-Policy value in vercel.json in sync with
+ * `contentSecurityPolicyHeader` below. Layout emits `contentSecurityPolicyMeta`
+ * so local `astro preview` can be checked. Meta CSP cannot include
+ * frame-ancestors (browsers ignore it on <meta>); clickjacking protection in
+ * production is the Vercel header plus X-Frame-Options: DENY.
  *
  * Why style-src includes 'unsafe-inline':
  * astro.config.mjs sets build.inlineStylesheets: 'always', so every page ships
@@ -14,7 +16,24 @@
  * JSON-LD is type=application/ld+json (not executed as JS). The only executable
  * script is /enquiry-form.js, loaded from this origin.
  */
-export const contentSecurityPolicy = [
+const cspDirectives = [
+	"default-src 'self'",
+	"base-uri 'self'",
+	"object-src 'none'",
+	"form-action 'self' mailto:",
+	"script-src 'self'",
+	"style-src 'self' 'unsafe-inline'",
+	"img-src 'self'",
+	"font-src 'self'",
+	"connect-src 'self'",
+	'upgrade-insecure-requests'
+] as const;
+
+/** Meta-tag CSP (no frame-ancestors — invalid/ignored in <meta>). */
+export const contentSecurityPolicyMeta = cspDirectives.join('; ');
+
+/** HTTP header CSP used in vercel.json. */
+export const contentSecurityPolicyHeader = [
 	"default-src 'self'",
 	"base-uri 'self'",
 	"object-src 'none'",

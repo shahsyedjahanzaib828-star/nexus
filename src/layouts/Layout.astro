@@ -12,7 +12,7 @@ import {
 	withOptionalFields
 } from '../data/site';
 import { services } from '../data/services';
-import { contentSecurityPolicy } from '../data/security';
+import { contentSecurityPolicyMeta } from '../data/security';
 
 const defaultTitle = 'Lawyer in Karachi | FBR Tax Filing, Litigation & Corporate Law';
 const defaultDescription = `${site.city} lawyer for FBR return filing, civil, criminal and family litigation, SECP company registration, property matters and trademark protection.`;
@@ -133,7 +133,7 @@ const schemaGraph = {
 <html lang="en-PK" class="max-w-full overflow-x-hidden">
 	<head>
 		<meta charset="utf-8" />
-		<meta http-equiv="Content-Security-Policy" content={contentSecurityPolicy} />
+		<meta http-equiv="Content-Security-Policy" content={contentSecurityPolicyMeta} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 		<meta name="theme-color" content="#f45a27" />
 		<link rel="preload" href="/fonts/work-sans-latin-wght.woff2" as="font" type="font/woff2" crossorigin />
