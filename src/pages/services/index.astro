@@ -38,7 +38,7 @@ const schema = {
 
 const breadcrumbs = [
 	{ name: 'Home', href: '/' },
-	{ name: 'Practice Areas', href: '/services' }
+	{ name: 'Services', href: '/services' }
 ];
 ---
 
@@ -57,7 +57,14 @@ const breadcrumbs = [
 		<main id="main-content">
 			<section class="border-b border-[#e9e6e2] bg-[#f5f2ee]">
 				<div class="mx-auto max-w-7xl px-5 py-10 lg:px-10 lg:py-14">
-					<p class="text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">{site.city} · {site.region} · {site.country}</p>
+					<nav aria-label="Breadcrumb">
+						<ol class="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#a83009]">
+							<li><a href="/" class="hover:text-[#0c0c0c]">Home</a></li>
+							<li aria-hidden="true">/</li>
+							<li class="text-[#4a4947]">Services</li>
+						</ol>
+					</nav>
+					<p class="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#a83009]">{site.city} · {site.region} · {site.country}</p>
 					<h1 class="type-page-title mt-4 max-w-4xl font-semibold text-[#0c0c0c]">
 						Legal services in {site.city} for <span class="text-[#a83009]">individuals and businesses.</span>
 					</h1>
@@ -65,13 +72,13 @@ const breadcrumbs = [
 						Six practice areas covering litigation, property, corporate structuring, tax compliance, international trade and intellectual property. Each area is handled with the same approach: establish the documents and the legal position first, then act.
 					</p>
 					<div class="mt-9 flex flex-wrap gap-4">
-						<a href="/contact" class="rounded-full bg-[#0c0c0c] px-6 py-3.5 text-sm font-bold text-white">Discuss your matter ↗</a>
-						<a href={phoneHref} class="rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">Call {site.phone}</a>
+						<a href="/contact" class="touch-target rounded-full bg-[#0c0c0c] px-6 py-3.5 text-sm font-bold text-white">Discuss your matter ↗</a>
+						<a href={phoneHref} class="touch-target rounded-full border border-[#c4c2be] px-5 py-3.5 text-sm font-bold text-[#0c0c0c]">Call {site.phone}</a>
 					</div>
 				</div>
 			</section>
 
-			<section class="mx-auto max-w-7xl px-5 py-8 lg:px-8 lg:py-10">
+			<section id="practice-areas" class="mx-auto max-w-7xl scroll-mt-24 px-5 py-8 lg:px-8 lg:py-10">
 				<h2 class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">Practice areas</h2>
 				<div class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 					{practiceAreaServices.map((service) => (
@@ -91,7 +98,7 @@ const breadcrumbs = [
 					))}
 				</div>
 
-				<h2 class="mt-10 text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">Business services</h2>
+				<h2 id="business-services" class="mt-10 scroll-mt-24 text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">Business services</h2>
 				<div class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 					{businessServices.map((service) => (
 						<article class="group flex flex-col rounded-2xl border border-[#e9e6e2] bg-[#fbfaf8] p-5 hover:border-[#faac93]">

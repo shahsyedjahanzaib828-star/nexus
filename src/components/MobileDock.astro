@@ -2,12 +2,15 @@
 import { site, phoneHref, whatsappHref } from '../data/site';
 ---
 
-<nav class="fixed inset-x-0 bottom-0 z-40 border-t border-[#e9e6e2] bg-[#fbfaf8]/95 px-3 py-2 backdrop-blur lg:hidden" aria-label="Mobile contact">
+<nav
+	class="fixed inset-x-0 bottom-0 z-40 border-t border-[#e9e6e2] bg-[#fbfaf8]/95 px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur lg:hidden"
+	aria-label="Mobile contact"
+>
 	<div class="mx-auto grid max-w-lg grid-cols-3 gap-2">
 		<a
 			href={phoneHref}
 			aria-label={`Call ${site.phone}`}
-			class="touch-target min-h-12 min-w-0 justify-center rounded-full border border-[#c4c2be] bg-white px-2 py-2.5 text-center text-xs font-bold text-[#0c0c0c] sm:px-3 sm:text-sm"
+			class="touch-target flex min-h-12 min-w-0 items-center justify-center rounded-full border border-[#c4c2be] bg-white px-2 py-2.5 text-center text-xs font-bold text-[#0c0c0c] sm:px-3 sm:text-sm"
 		>
 			<span class="block truncate">Call</span>
 		</a>
@@ -16,14 +19,14 @@ import { site, phoneHref, whatsappHref } from '../data/site';
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label={`WhatsApp ${site.phone}`}
-			class="touch-target min-h-12 min-w-0 justify-center rounded-full bg-[#0c0c0c] px-2 py-2.5 text-center text-xs font-bold text-white sm:px-3 sm:text-sm"
+			class="touch-target flex min-h-12 min-w-0 items-center justify-center rounded-full bg-[#0c0c0c] px-2 py-2.5 text-center text-xs font-bold text-white sm:px-3 sm:text-sm"
 		>
 			WhatsApp <span aria-hidden="true">↗</span>
 		</a>
 		<a
 			href="/contact"
 			aria-label="Enquire — contact and enquiry form"
-			class="touch-target min-h-12 min-w-0 justify-center rounded-full bg-[#a83009] px-2 py-2.5 text-center text-xs font-bold text-white sm:px-3 sm:text-sm"
+			class="touch-target flex min-h-12 min-w-0 items-center justify-center rounded-full bg-[#a83009] px-2 py-2.5 text-center text-xs font-bold text-white sm:px-3 sm:text-sm"
 		>
 			Enquire
 		</a>

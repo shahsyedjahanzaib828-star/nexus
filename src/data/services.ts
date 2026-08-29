@@ -311,7 +311,8 @@ export const services = [
 		related: [
 			'sole-proprietorship-vs-private-limited-company-karachi',
 			'private-limited-company-benefits-corporate-governance',
-			'sole-proprietorship-pakistan-legal-liabilities'
+			'sole-proprietorship-pakistan-legal-liabilities',
+			'avoid-secp-fbr-penalties-business-compliance-karachi'
 		]
 	},
 	{

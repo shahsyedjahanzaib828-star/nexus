@@ -14,9 +14,9 @@ import {
 	mailHref
 } from '../data/site';
 
-const title = 'About the Practice | Karachi Legal Practitioner';
+const title = `About ${site.name} | Karachi Legal Practitioner`;
 const description =
-	'About Jahanzaib Legal Services, a Karachi legal practice handling litigation, property, corporate, tax and intellectual property matters across Pakistan.';
+	`About ${site.name}, a Karachi legal practice handling litigation, property, corporate, tax and intellectual property matters across Pakistan.`;
 const canonical = absoluteUrl('/about');
 
 const schema = {
@@ -200,18 +200,20 @@ const principles = [
 							A street-level office address is not published on this website. Location is stated at city level only until a verified public address is available.
 						</p>
 						<div class="mt-8 space-y-4 text-sm text-[#696764]">
-							<a href={phoneHref} class="flex items-center gap-3 hover:text-[#0c0c0c]">
-								<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">☎</span>{site.phone}
-							</a>
-							<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-[#0c0c0c]">
-								<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">◉</span>WhatsApp consultation
-							</a>
-							<a href={mailHref} class="flex items-center gap-3 hover:text-[#0c0c0c]">
-								<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">@</span>{site.email}
-							</a>
-							<span class="flex items-center gap-3">
-								<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">⌂</span>{site.city}, {site.region}, {site.country}
-							</span>
+							<address class="not-italic space-y-4">
+								<a href={phoneHref} class="flex items-center gap-3 hover:text-[#0c0c0c]">
+									<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">☎</span>{site.phone}
+								</a>
+								<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 hover:text-[#0c0c0c]">
+									<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">◉</span>WhatsApp consultation
+								</a>
+								<a href={mailHref} class="flex items-center gap-3 hover:text-[#0c0c0c]">
+									<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">@</span>{site.email}
+								</a>
+								<span class="flex items-center gap-3">
+									<span class="grid h-9 w-9 place-items-center rounded-full bg-[#fef5f2] text-[#a83009]" aria-hidden="true">⌂</span>{site.city}, {site.region}, {site.country}
+								</span>
+							</address>
 						</div>
 					</div>
 					<div class="rounded-2xl bg-[#0c0c0c] p-5 text-white sm:p-7">

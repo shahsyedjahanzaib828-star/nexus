@@ -31,6 +31,7 @@ const webpageSchema = {
 	'description': post.description,
 	'isPartOf': { '@id': entityIds.website },
 	'about': { '@id': entityIds.organization },
+	'mainEntity': { '@id': `${canonical}#article` },
 	'inLanguage': 'en-PK'
 };
 
@@ -55,11 +56,23 @@ const articleSchema = {
 		post.label
 	]
 };
-const faqSchema = {
-	'@type': 'FAQPage',
-	'mainEntity': post.faq.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } }))
+const faqSchema =
+	post.faq.length > 0
+		? {
+				'@type': 'FAQPage',
+				'@id': `${canonical}#faq`,
+				'mainEntityOfPage': { '@id': `${canonical}#webpage` },
+				'mainEntity': post.faq.map(([question, answer]) => ({
+					'@type': 'Question',
+					name: question,
+					acceptedAnswer: { '@type': 'Answer', text: answer }
+				}))
+			}
+		: null;
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [webpageSchema, articleSchema, ...(faqSchema ? [faqSchema] : [])]
 };
-const schema = { '@context': 'https://schema.org', '@graph': [webpageSchema, articleSchema, faqSchema] };
 
 const breadcrumbs = [
 	{ name: 'Home', href: '/' },

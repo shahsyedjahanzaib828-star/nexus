@@ -41,7 +41,7 @@ const latestInsight = insightNavPosts[0];
 		</a>
 
 		<nav class="hidden min-w-0 items-center gap-3 text-[11px] font-bold uppercase tracking-[0.08em] text-[#696764] xl:gap-4 lg:flex" aria-label="Main navigation">
-			<a href="/about" class={linkClass('about')}>About</a>
+			<a href="/about" class:list={['touch-target', linkClass('about')]}>About</a>
 
 			<details class="nav-dropdown relative" open={practiceMenuOpen ? true : undefined}>
 				<summary class:list={['touch-target min-h-12', menuClass(practiceMenuOpen)]}>
@@ -111,7 +111,7 @@ const latestInsight = insightNavPosts[0];
 									<a
 										href={`/blog/${post.slug}`}
 										class:list={[
-											'touch-target block rounded-lg px-2.5 py-2 normal-case tracking-normal hover:bg-[#f5f2ee]',
+											'touch-target flex min-h-12 w-full flex-col justify-center rounded-lg px-2.5 py-2 normal-case tracking-normal hover:bg-[#f5f2ee]',
 											activeBlogSlug === post.slug ? 'bg-[#fef5f2] text-[#0c0c0c]' : 'text-[#696764] hover:text-[#0c0c0c]'
 										]}
 									>
@@ -128,7 +128,7 @@ const latestInsight = insightNavPosts[0];
 				</div>
 			</details>
 
-			<a href="/contact" class={linkClass('contact')}>Contact</a>
+			<a href="/contact" class:list={['touch-target', linkClass('contact')]}>Contact</a>
 			<a
 				href={whatsappHref}
 				target="_blank"
@@ -148,13 +148,16 @@ const latestInsight = insightNavPosts[0];
 			  Absolute children of closed <details> can still paint/measure in some engines and inflate scrollWidth at 320px.
 			*/}
 			<details class="group lg:hidden">
-				<summary class="touch-target list-none rounded-full border border-[#c4c2be] px-2.5 py-2 text-sm font-bold text-[#0c0c0c] sm:px-4 sm:py-2.5">
-					<span aria-hidden="true">☰</span><span class="sr-only">Open navigation menu</span>
+				<summary
+					class="touch-target inline-flex min-h-12 min-w-12 list-none items-center justify-center rounded-full border border-[#c4c2be] px-0 text-sm font-bold text-[#0c0c0c] sm:min-w-0 sm:px-4 sm:py-2.5"
+					aria-label="Menu"
+				>
+					<span aria-hidden="true">☰</span><span class="sr-only">Menu</span>
 				</summary>
 				<nav class="absolute inset-x-0 top-full z-50 hidden max-w-full px-3 group-open:block sm:px-5" aria-label="Mobile navigation">
-					<div class="mx-auto max-h-[min(75dvh,36rem)] w-full min-w-0 max-w-full overflow-x-hidden overflow-y-auto rounded-xl border border-[#e9e6e2] bg-white p-2 text-sm font-semibold text-[#696764] shadow-xl">
-						<a href="/" class="touch-target w-full max-w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Home</a>
-						<a href="/about" class="touch-target w-full max-w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">About</a>
+					<div class="mx-auto max-h-[min(75dvh,36rem)] w-full min-w-0 max-w-full overflow-x-hidden overflow-y-auto overscroll-contain rounded-xl border border-[#e9e6e2] bg-white p-2 text-sm font-semibold text-[#696764] shadow-xl">
+						<a href="/" class="touch-target flex w-full max-w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Home</a>
+						<a href="/about" class="touch-target flex w-full max-w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">About</a>
 
 						<details class="min-w-0 rounded-lg border border-[#e9e6e2]">
 							<summary class="touch-target flex min-h-12 min-w-0 list-none items-center justify-between gap-2 px-3 py-2 font-bold text-[#0c0c0c]">
@@ -194,8 +197,8 @@ const latestInsight = insightNavPosts[0];
 							</div>
 						</details>
 
-						<a href="/contact" class="touch-target mt-1 block w-full max-w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Contact</a>
-						<a href={phoneHref} class="touch-target mt-1 block w-full max-w-full rounded-lg border border-[#e9e6e2] px-3 py-3 text-center font-bold text-[#0c0c0c]">Call {site.phone}</a>
+						<a href="/contact" class="touch-target mt-1 flex w-full max-w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Contact</a>
+						<a href={phoneHref} class="touch-target mt-1 flex w-full max-w-full justify-center rounded-lg border border-[#e9e6e2] px-3 py-3 text-center font-bold text-[#0c0c0c]">Call {site.phone}</a>
 					</div>
 				</nav>
 			</details>

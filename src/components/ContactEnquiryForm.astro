@@ -100,8 +100,8 @@ const { formId = 'contact-form', headingId } = Astro.props as {
 			></textarea>
 		</label>
 
-		{/* Honeypot — leave empty. Hidden from people; simple bot filter only. */}
-		<div class="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+		{/* Honeypot — leave empty. Hidden from people and assistive tech; simple bot filter only. */}
+		<div class="pointer-events-none absolute -left-[10000px] top-auto h-px w-px overflow-hidden opacity-0" aria-hidden="true">
 			<label for={`${formId}-company`}>Company</label>
 			<input id={`${formId}-company`} type="text" name="company" tabindex="-1" autocomplete="off" />
 		</div>

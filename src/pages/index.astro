@@ -40,21 +40,28 @@ const homeFaq: [string, string][] = [
 	]
 ];
 
+const homeTitle = 'Karachi Lawyer | FBR, Litigation & Corporate Law';
+const homeDescription = `${site.city} lawyer for FBR return filing, civil, criminal and family litigation, SECP company registration, property matters and trademark protection.`;
+const homeCanonical = absoluteUrl('/');
+
 const schema = {
 	'@context': 'https://schema.org',
 	'@graph': [
 		{
 			'@type': 'WebPage',
-			'@id': `${absoluteUrl('/')}#webpage`,
-			'name': 'Karachi Lawyer | FBR, Litigation & Corporate Law',
-			'description': `${site.city} lawyer for FBR return filing, civil, criminal and family litigation, SECP company registration, property matters and trademark protection.`,
-			'url': absoluteUrl('/'),
+			'@id': `${homeCanonical}#webpage`,
+			'name': homeTitle,
+			'description': homeDescription,
+			'url': homeCanonical,
 			'isPartOf': { '@id': entityIds.website },
 			'about': { '@id': entityIds.organization },
+			'mainEntity': { '@id': entityIds.organization },
 			'inLanguage': 'en-PK'
 		},
 		{
 			'@type': 'FAQPage',
+			'@id': `${homeCanonical}#faq`,
+			'mainEntityOfPage': { '@id': `${homeCanonical}#webpage` },
 			'mainEntity': homeFaq.map(([question, answer]) => ({
 				'@type': 'Question',
 				name: question,
@@ -66,8 +73,10 @@ const schema = {
 ---
 
 <Layout
+	title={homeTitle}
+	description={homeDescription}
 	schema={schema}
-	canonical={absoluteUrl('/')}
+	canonical={homeCanonical}
 	includePracticeEntity={true}
 	ogImage="/og/home.png"
 	ogImageAlt={`${site.name} — lawyer in ${site.city}`}
@@ -97,11 +106,11 @@ const schema = {
 				<div class="mx-auto max-w-7xl px-5 py-5 lg:px-8">
 					<h2 id="practices-heading" class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">Our practices</h2>
 					<div class="mt-3 grid gap-2 sm:grid-cols-3">
-						<a href="/services" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3 hover:border-[#faac93]">
+						<a href="/services#practice-areas" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3 hover:border-[#faac93]">
 							<span class="block text-sm font-bold text-[#0c0c0c]">Practice Areas</span>
 							<span class="mt-1 block text-xs leading-5 text-[#696764]">Litigation, property and trademark counsel</span>
 						</a>
-						<a href="/services" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3 hover:border-[#faac93]">
+						<a href="/services#business-services" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3 hover:border-[#faac93]">
 							<span class="block text-sm font-bold text-[#0c0c0c]">Business Services</span>
 							<span class="mt-1 block text-xs leading-5 text-[#696764]">Corporate setup, FBR and WeBOC</span>
 						</a>

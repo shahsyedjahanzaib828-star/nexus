@@ -20,6 +20,17 @@ const sameGroup = (isPracticeAreaSlug(service.slug) ? practiceAreaServices : bus
 );
 const otherGroup = (isPracticeAreaSlug(service.slug) ? businessServices : practiceAreaServices);
 
+const webpageSchema = {
+	'@type': 'WebPage',
+	'@id': `${canonical}#webpage`,
+	'name': service.seoTitle,
+	'description': service.description,
+	'url': canonical,
+	'isPartOf': { '@id': entityIds.website },
+	'about': { '@id': entityIds.organization },
+	'mainEntity': { '@id': `${canonical}#service` },
+	'inLanguage': 'en-PK'
+};
 const serviceSchema = {
 	'@type': 'Service',
 	'@id': `${canonical}#service`,
@@ -29,6 +40,7 @@ const serviceSchema = {
 	'serviceType': service.label,
 	'provider': { '@id': entityIds.organization },
 	'areaServed': areaServedNodes(),
+	'mainEntityOfPage': { '@id': `${canonical}#webpage` },
 	'hasOfferCatalog': {
 		'@type': 'OfferCatalog',
 		'name': service.heading,
@@ -37,13 +49,15 @@ const serviceSchema = {
 };
 const faqSchema = {
 	'@type': 'FAQPage',
+	'@id': `${canonical}#faq`,
+	'mainEntityOfPage': { '@id': `${canonical}#webpage` },
 	'mainEntity': service.faq.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } }))
 };
-const schema = { '@context': 'https://schema.org', '@graph': [serviceSchema, faqSchema] };
+const schema = { '@context': 'https://schema.org', '@graph': [webpageSchema, serviceSchema, faqSchema] };
 
 const breadcrumbs = [
 	{ name: 'Home', href: '/' },
-	{ name: 'Practice Areas', href: '/services' },
+	{ name: 'Services', href: '/services' },
 	{ name: service.label, href: `/services/${service.slug}` }
 ];
 ---

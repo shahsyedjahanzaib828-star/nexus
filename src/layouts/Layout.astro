@@ -72,6 +72,13 @@ const legalServiceSchema = withOptionalFields(
 		'address': locationAddress(),
 		'serviceType': services.map((service) => service.label),
 		'knowsAbout': [...organization.knowsAbout],
+		'contactPoint': {
+			'@type': 'ContactPoint',
+			telephone: organization.telephone,
+			email: organization.email,
+			contactType: 'customer service',
+			areaServed: 'PK'
+		},
 		'hasOfferCatalog': {
 			'@type': 'OfferCatalog',
 			'name': 'Legal and corporate services',
@@ -84,7 +91,8 @@ const legalServiceSchema = withOptionalFields(
 				}
 			}))
 		},
-		'employee': { '@id': entityIds.person }
+		'employee': { '@id': entityIds.person },
+		'founder': { '@id': entityIds.person }
 	},
 	{
 		sameAs: organization.sameAs
