@@ -1,22 +1,33 @@
 ---
 import { site, phoneHref, whatsappHref } from '../data/site';
-import { services } from '../data/services';
+import {
+	practiceAreaServices,
+	businessServices,
+	isPracticeAreaSlug,
+	isBusinessServiceSlug
+} from '../data/navigation';
 
 const { current } = Astro.props as { current?: 'home' | 'services' | 'blog' | 'about' | 'contact' };
 
-const links = [
-	{ href: '/about', label: 'About', key: 'about' },
-	{ href: '/blog', label: 'Blog', key: 'blog' },
-	{ href: '/contact', label: 'Contact', key: 'contact' }
-];
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const activeServiceSlug =
+	pathname.startsWith('/services/') && pathname !== '/services'
+		? pathname.slice('/services/'.length)
+		: '';
+
 const linkClass = (key: string) => (current === key ? 'text-[#a83009]' : 'hover:text-[#0c0c0c]');
+const menuClass = (active: boolean) =>
+	active ? 'text-[#a83009]' : 'cursor-pointer list-none gap-1 hover:text-[#0c0c0c]';
+
+const practiceMenuOpen = isPracticeAreaSlug(activeServiceSlug);
+const businessMenuOpen = isBusinessServiceSlug(activeServiceSlug);
 ---
 
 <header class="sticky top-0 z-40 border-b border-[#e9e6e2] bg-[#fbfaf8]/95 backdrop-blur">
 	<div class="hidden border-b border-[#e9e6e2] bg-[#0c0c0c] text-[#e9e6e2] lg:block">
-	<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-1.5 text-xs font-semibold lg:px-8">
+		<div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-1.5 text-xs font-semibold lg:px-8">
 			<p>{site.city} · {site.region} · {site.country}</p>
-			<div class="flex items-center gap-5">
+			<div class="flex items-center gap-4">
 				<a href={phoneHref} class="min-h-0 text-[#e9e6e2] hover:text-white">{site.phone}</a>
 				<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="min-h-0 text-[#f45a27] hover:text-white">WhatsApp</a>
 				<a href="/contact" class="min-h-0 text-[#e9e6e2] hover:text-white">Enquire</a>
@@ -24,67 +35,136 @@ const linkClass = (key: string) => (current === key ? 'text-[#a83009]' : 'hover:
 		</div>
 	</div>
 
-	<div class="mx-auto flex min-w-0 max-w-7xl flex-wrap items-center justify-between gap-x-2 gap-y-2 px-3 py-2.5 sm:px-5 sm:py-3 lg:px-8 lg:py-3.5">
-		<a href="/" aria-label={`${site.name} home`} class="flex min-w-0 flex-1 items-center gap-2 sm:flex-none sm:gap-3">
-			<span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#0c0c0c] text-lg text-[#f45a27] sm:h-10 sm:w-10 sm:text-xl">§</span>
+	<div class="mx-auto flex min-w-0 max-w-7xl items-center justify-between gap-x-2 gap-y-2 px-3 py-2.5 sm:px-5 sm:py-3 lg:px-8 lg:py-3">
+		<a href="/" aria-label={`${site.name} home`} class="flex min-w-0 flex-1 items-center gap-2 sm:flex-none sm:gap-2.5">
+			<span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#0c0c0c] text-lg text-[#f45a27]">§</span>
 			<span class="min-w-0 text-sm font-bold leading-tight">
 				<span class="block truncate">{site.name}</span>
-				<span class="mt-0.5 hidden truncate text-[10px] font-medium uppercase tracking-[0.15em] text-[#252424] sm:block">{site.tagline}</span>
+				<span class="mt-0.5 hidden truncate text-[10px] font-medium uppercase tracking-[0.14em] text-[#252424] lg:block">{site.tagline}</span>
 			</span>
 		</a>
 
-		<nav class="hidden items-center gap-7 text-sm font-semibold text-[#696764] lg:flex" aria-label="Main navigation">
-			{current !== 'home' && <a href="/" class="hover:text-[#0c0c0c]">Home</a>}
+		<nav class="hidden items-center gap-5 text-xs font-bold uppercase tracking-[0.08em] text-[#696764] lg:flex" aria-label="Main navigation">
+			<a href="/" class:list={[current === 'home' ? 'text-[#a83009]' : 'hover:text-[#0c0c0c]']}>Home</a>
+			<a href="/about" class={linkClass('about')}>About</a>
 
-			<details class="relative">
-				<summary class:list={['cursor-pointer list-none gap-1', linkClass('services')]}>
-					Practice Areas <span aria-hidden="true" class="text-[10px]">▾</span>
+			<details class="nav-dropdown relative" open={practiceMenuOpen ? true : undefined}>
+				<summary class:list={['touch-target min-h-12', menuClass(practiceMenuOpen)]}>
+					Practice Areas <span aria-hidden="true" class="text-[9px]">▾</span>
 				</summary>
-				<div class="absolute left-1/2 top-full z-30 w-[38rem] -translate-x-1/2 pt-3">
-					<div class="rounded-2xl border border-[#e9e6e2] bg-white p-4 shadow-xl">
-						<p class="px-2 pb-3 text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">Choose a practice area</p>
-						<ul class="grid grid-cols-2 gap-1">
-							{services.map((service) => (
+				<div class="nav-panel absolute left-0 top-full z-30 w-[22rem] max-w-[calc(100vw-2rem)] pt-2">
+					<div class="rounded-xl border border-[#e9e6e2] bg-white p-3 shadow-xl">
+						<p class="px-2 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#a83009]">Litigation &amp; advisory counsel</p>
+						<ul class="space-y-0.5">
+							{practiceAreaServices.map((service) => (
 								<li>
-									<a href={`/services/${service.slug}`} class="flex w-full items-start gap-3 rounded-xl px-3 py-3 text-[#696764] hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">
-										<span class="mt-0.5 text-base text-[#a83009]" aria-hidden="true">{service.icon}</span>
+									<a
+										href={`/services/${service.slug}`}
+										class:list={[
+											'flex w-full items-start gap-2.5 rounded-lg px-2.5 py-2.5 normal-case tracking-normal hover:bg-[#f5f2ee]',
+											activeServiceSlug === service.slug ? 'bg-[#fef5f2] text-[#0c0c0c]' : 'text-[#696764] hover:text-[#0c0c0c]'
+										]}
+									>
+										<span class="mt-0.5 text-sm text-[#a83009]" aria-hidden="true">{service.icon}</span>
 										<span>
 											<span class="block text-sm font-bold text-[#0c0c0c]">{service.label}</span>
-											<span class="mt-1 block text-xs font-normal leading-4">{service.heading}</span>
+											<span class="mt-0.5 block text-xs font-normal leading-4 text-[#696764]">{service.heading}</span>
 										</span>
 									</a>
 								</li>
 							))}
 						</ul>
-						<a href="/services" class="mt-2 w-full justify-center rounded-xl bg-[#f5f2ee] px-3 py-3 text-sm font-bold text-[#0c0c0c]">
-							View all practice areas ↗
+						<a href="/services" class="mt-2 w-full justify-center rounded-lg bg-[#f5f2ee] px-3 py-2.5 text-xs font-bold normal-case tracking-normal text-[#0c0c0c]">
+							All services ↗
 						</a>
 					</div>
 				</div>
 			</details>
 
-			{links.map((link) => <a href={link.href} class={linkClass(link.key)}>{link.label}</a>)}
+			<details class="nav-dropdown relative" open={businessMenuOpen ? true : undefined}>
+				<summary class:list={['touch-target min-h-12', menuClass(businessMenuOpen)]}>
+					Business Services <span aria-hidden="true" class="text-[9px]">▾</span>
+				</summary>
+				<div class="nav-panel absolute right-0 top-full z-30 w-[22rem] max-w-[calc(100vw-2rem)] pt-2">
+					<div class="rounded-xl border border-[#e9e6e2] bg-white p-3 shadow-xl">
+						<p class="px-2 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[#a83009]">Corporate, tax &amp; trade</p>
+						<ul class="space-y-0.5">
+							{businessServices.map((service) => (
+								<li>
+									<a
+										href={`/services/${service.slug}`}
+										class:list={[
+											'flex w-full items-start gap-2.5 rounded-lg px-2.5 py-2.5 normal-case tracking-normal hover:bg-[#f5f2ee]',
+											activeServiceSlug === service.slug ? 'bg-[#fef5f2] text-[#0c0c0c]' : 'text-[#696764] hover:text-[#0c0c0c]'
+										]}
+									>
+										<span class="mt-0.5 text-sm text-[#a83009]" aria-hidden="true">{service.icon}</span>
+										<span>
+											<span class="block text-sm font-bold text-[#0c0c0c]">{service.label}</span>
+											<span class="mt-0.5 block text-xs font-normal leading-4 text-[#696764]">{service.heading}</span>
+										</span>
+									</a>
+								</li>
+							))}
+						</ul>
+						<a href="/services" class="mt-2 w-full justify-center rounded-lg bg-[#f5f2ee] px-3 py-2.5 text-xs font-bold normal-case tracking-normal text-[#0c0c0c]">
+							View all services ↗
+						</a>
+					</div>
+				</div>
+			</details>
+
+			<a href="/blog" class={linkClass('blog')}>Insights</a>
+			<a href="/contact" class={linkClass('contact')}>Contact</a>
 		</nav>
 
 		<div class="flex shrink-0 items-center gap-1.5 sm:gap-2">
 			<details class="lg:hidden">
-		<summary class="touch-target list-none rounded-full border border-[#c4c2be] px-2.5 py-2 text-sm font-bold text-[#0c0c0c] sm:px-4 sm:py-2.5">
+				<summary class="touch-target list-none rounded-full border border-[#c4c2be] px-2.5 py-2 text-sm font-bold text-[#0c0c0c] sm:px-4 sm:py-2.5">
 					<span aria-hidden="true">☰</span><span class="sr-only">Open navigation menu</span>
 				</summary>
 				<nav class="absolute left-0 right-0 top-full z-50 w-full max-w-full px-3 sm:px-5" aria-label="Mobile navigation">
-					<div class="mx-auto grid max-h-[min(70dvh,36rem)] w-full max-w-7xl gap-1 overflow-x-hidden overflow-y-auto rounded-2xl border border-[#e9e6e2] bg-white p-2 text-sm font-semibold text-[#696764] shadow-xl">
-						<a href="/" class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Home</a>
-						{services.map((service) => (
-							<a href={`/services/${service.slug}`} class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">{service.label}</a>
-						))}
-						<a href="/about" class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">About</a>
-						<a href="/blog" class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Blog</a>
-						<a href="/contact" class="w-full rounded-xl px-4 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Contact</a>
+					<div class="mx-auto max-h-[min(75dvh,36rem)] w-full max-w-7xl overflow-x-hidden overflow-y-auto rounded-xl border border-[#e9e6e2] bg-white p-2 text-sm font-semibold text-[#696764] shadow-xl">
+						<a href="/" class="touch-target w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Home</a>
+						<a href="/about" class="touch-target w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">About</a>
+
+						<details class="rounded-lg border border-[#e9e6e2]">
+							<summary class="touch-target flex min-h-12 list-none items-center justify-between px-3 py-2 font-bold text-[#0c0c0c]">
+								Practice Areas <span aria-hidden="true" class="text-[#a83009]">+</span>
+							</summary>
+							<div class="space-y-0.5 px-1 pb-2">
+								{practiceAreaServices.map((service) => (
+									<a href={`/services/${service.slug}`} class="touch-target block rounded-lg px-3 py-2.5 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">{service.label}</a>
+								))}
+								<a href="/services" class="touch-target block rounded-lg px-3 py-2.5 text-[#a83009]">All services ↗</a>
+							</div>
+						</details>
+
+						<details class="mt-1 rounded-lg border border-[#e9e6e2]">
+							<summary class="touch-target flex min-h-12 list-none items-center justify-between px-3 py-2 font-bold text-[#0c0c0c]">
+								Business Services <span aria-hidden="true" class="text-[#a83009]">+</span>
+							</summary>
+							<div class="space-y-0.5 px-1 pb-2">
+								{businessServices.map((service) => (
+									<a href={`/services/${service.slug}`} class="touch-target block rounded-lg px-3 py-2.5 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">{service.label}</a>
+								))}
+								<a href="/services" class="touch-target block rounded-lg px-3 py-2.5 text-[#a83009]">View all services ↗</a>
+							</div>
+						</details>
+
+						<a href="/blog" class="touch-target mt-1 block w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Insights</a>
+						<a href="/contact" class="touch-target block w-full rounded-lg px-3 py-3 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">Contact</a>
+						<a href={phoneHref} class="touch-target mt-1 block w-full rounded-lg border border-[#e9e6e2] px-3 py-3 text-center font-bold text-[#0c0c0c]">Call {site.phone}</a>
 					</div>
 				</nav>
 			</details>
 
-			<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="touch-target hidden min-h-0 whitespace-nowrap rounded-full bg-[#0c0c0c] px-3 py-2 text-xs font-bold text-white hover:-translate-y-0.5 sm:inline-flex sm:px-4 sm:py-2.5 sm:text-sm">
+			<a
+				href={whatsappHref}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="touch-target hidden min-h-0 whitespace-nowrap rounded-full bg-[#0c0c0c] px-3 py-2 text-xs font-bold text-white sm:inline-flex sm:px-4 sm:py-2.5 sm:text-sm"
+			>
 				WhatsApp <span aria-hidden="true">↗</span>
 			</a>
 		</div>
