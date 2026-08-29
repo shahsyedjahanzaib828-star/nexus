@@ -1,67 +1,63 @@
 ---
 import { site, phoneHref, mailHref } from '../data/site';
-import { services } from '../data/services';
-import { blogPosts } from '../data/blog';
+import { practiceAreaServices, businessServices } from '../data/navigation';
 
-const recentPosts = blogPosts.slice(0, 3);
-
-const columns = [
-	{
-		title: 'Practice areas',
-		links: services.map((service) => ({ href: `/services/${service.slug}`, label: service.label }))
-	},
-	{
-		title: 'Recent insights',
-		links: recentPosts.map((post) => ({ href: `/blog/${post.slug}`, label: post.title }))
-	},
-	{
-		title: 'Practice',
-		links: [
-			{ href: '/about', label: 'About the practice' },
-			{ href: '/services', label: 'All services' },
-			{ href: '/blog', label: 'Legal insights' },
-			{ href: '/contact', label: 'Contact' },
-			{ href: '/privacy', label: 'Privacy policy' },
-			{ href: '/terms', label: 'Terms of use' }
-		]
-	}
+const firmLinks = [
+	{ href: '/about', label: 'About' },
+	{ href: '/blog', label: 'Insights' },
+	{ href: '/contact', label: 'Contact' },
+	{ href: '/services', label: 'All Services' },
+	{ href: '/privacy', label: 'Privacy policy' },
+	{ href: '/terms', label: 'Terms of use' }
 ];
 ---
 
 <footer class="border-t border-[#e9e6e2] bg-[#f5f2ee]">
 	<div class="mx-auto max-w-7xl px-5 py-8 lg:px-8">
-		<div class="grid gap-8 lg:grid-cols-[1fr_1.6fr]">
+		<div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-8">
 			<div>
-				<a href="/" class="flex items-center gap-3 text-sm font-bold text-[#0c0c0c]">
-					<span class="grid h-9 w-9 place-items-center rounded-full bg-[#0c0c0c] text-lg text-[#f45a27]">§</span>{site.name}
+				<a href="/" class="flex items-center gap-2.5 text-sm font-bold text-[#0c0c0c]">
+					<span class="grid h-8 w-8 place-items-center rounded-full bg-[#0c0c0c] text-base text-[#f45a27]">§</span>{site.name}
 				</a>
-				<p class="mt-4 max-w-sm text-sm leading-6 text-[#252424]">{site.tagline} in {site.city}, {site.region}, {site.country}.</p>
-				<p class="mt-3 text-sm font-semibold text-[#696764]">Location: {site.city}, {site.region}, {site.country}</p>
+				<p class="mt-3 max-w-xs text-sm leading-6 text-[#252424]">{site.tagline} · {site.city}, {site.country}</p>
 				<p class="mt-2 text-sm text-[#252424]">
-					<a href={phoneHref} class="hover:text-[#0c0c0c]">{site.phone}</a> · <a href={mailHref} class="hover:text-[#0c0c0c]">{site.email}</a>
+					<a href={phoneHref} class="hover:text-[#a83009]">{site.phone}</a>
+					{' · '}
+					<a href={mailHref} class="hover:text-[#a83009]">{site.email}</a>
 				</p>
 			</div>
 
-			<div class="grid text-sm lg:grid-cols-3 lg:gap-8">
-				{columns.map((column) => (
-					<details class="group border-b border-[#e9e6e2] lg:border-0">
-						<summary class="flex list-none items-center justify-between py-4 font-bold text-[#0c0c0c] lg:pointer-events-none lg:cursor-default lg:py-0">
-							{column.title}
-							<span class="text-[#a83009] lg:hidden" aria-hidden="true">+</span>
-						</summary>
-						<ul class="hidden space-y-2 pb-5 group-open:block lg:mt-3 lg:block lg:pb-0">
-							{column.links.map((link) => (
-								<li><a href={link.href} class="leading-6 text-[#252424] hover:text-[#a83009]">{link.label}</a></li>
-							))}
-						</ul>
-					</details>
-				))}
+			<div class="grid gap-4 text-sm sm:grid-cols-3 sm:gap-6">
+				<div>
+					<h2 class="text-xs font-bold uppercase tracking-[0.12em] text-[#a83009]">Practice areas</h2>
+					<ul class="mt-2.5 space-y-1.5">
+						{practiceAreaServices.map((service) => (
+							<li><a href={`/services/${service.slug}`} class="leading-5 text-[#252424] hover:text-[#a83009]">{service.label}</a></li>
+						))}
+					</ul>
+				</div>
+				<div>
+					<h2 class="text-xs font-bold uppercase tracking-[0.12em] text-[#a83009]">Business services</h2>
+					<ul class="mt-2.5 space-y-1.5">
+						{businessServices.map((service) => (
+							<li><a href={`/services/${service.slug}`} class="leading-5 text-[#252424] hover:text-[#a83009]">{service.label}</a></li>
+						))}
+					</ul>
+				</div>
+				<div>
+					<h2 class="text-xs font-bold uppercase tracking-[0.12em] text-[#a83009]">Firm</h2>
+					<ul class="mt-2.5 space-y-1.5">
+						{firmLinks.map((link) => (
+							<li><a href={link.href} class="leading-5 text-[#252424] hover:text-[#a83009]">{link.label}</a></li>
+						))}
+					</ul>
+				</div>
 			</div>
 		</div>
 
-		<div class="mt-8 border-t border-[#e9e6e2] pt-5 text-xs leading-6 text-[#252424]">
-			<p><strong class="text-[#696764]">Legal Disclaimer:</strong> Website information is general information only and is not legal advice. Every matter is fact-specific. Calling, messaging, emailing, or submitting an enquiry through this website does not create an advocate-client relationship until engagement is formally agreed in writing. Results are not guaranteed.</p>
-			<p class="mt-3">© {new Date().getFullYear()} {site.name}. All rights reserved. {site.city}, {site.region}, {site.country}.</p>
+		<div class="mt-6 border-t border-[#e9e6e2] pt-4 text-xs leading-5 text-[#252424]">
+			<p><strong class="text-[#696764]">Legal disclaimer:</strong> Website information is general information only and is not legal advice. Contacting the practice does not create an advocate-client relationship until engagement is agreed in writing. Results are not guaranteed.</p>
+			<p class="mt-2">© {new Date().getFullYear()} {site.name}. {site.city}, {site.region}, {site.country}.</p>
 		</div>
 	</div>
 </footer>

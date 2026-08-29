@@ -163,6 +163,18 @@ h2 {
 		border-radius: 1rem;
 		padding: 1.25rem;
 	}
+
+	.nav-dropdown > summary {
+		list-style: none;
+	}
+
+	.nav-dropdown > summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.nav-panel a:focus-visible {
+		outline-offset: 0;
+	}
 }
 
 .skip-link {
