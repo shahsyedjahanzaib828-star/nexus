@@ -50,11 +50,10 @@ export const navBusinessLabels: Record<(typeof businessServiceSlugs)[number], st
 	'weboc-registration-consultant-karachi': 'Import, Export & Trade / WeBOC'
 };
 
-/** Homepage featured practices — max four, existing service pages. */
+/** Homepage featured practices — max three, existing service pages. */
 export const featuredServiceSlugs = [
 	'litigation-lawyer-karachi',
 	'fbr-tax-filing-services-karachi',
-	'property-lawyer-karachi',
 	'secp-company-registration-karachi'
 ] as const;
 

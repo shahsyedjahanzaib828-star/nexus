@@ -4,7 +4,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import ContactEnquiryForm from '../components/ContactEnquiryForm.astro';
 import { blogPosts } from '../data/blog';
-import { site, absoluteUrl, entityIds, phoneHref, mailHref } from '../data/site';
+import { site, absoluteUrl, entityIds, phoneHref, mailHref, whatsappHref } from '../data/site';
 import { featuredServices } from '../data/navigation';
 
 const latestInsight = blogPosts[0];
@@ -77,42 +77,35 @@ const schema = {
 
 		<main id="main-content">
 			<section class="border-b border-[#e9e6e2] bg-[#f5f2ee]">
-				<div class="mx-auto max-w-3xl px-5 py-8 lg:px-8 lg:py-10">
+				<div class="mx-auto max-w-3xl px-5 py-7 lg:px-8 lg:py-9">
 					<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#a83009]">{site.name} · {site.city}</p>
 					<h1 class="type-hero mt-3 font-semibold text-[#0c0c0c]">
 						Legal counsel in {site.city} for <span class="text-[#a83009]">litigation, FBR and companies.</span>
 					</h1>
 					<p class="mt-3 max-w-2xl text-sm leading-6 text-[#252424] sm:text-base sm:leading-7">
-						{site.name} is a {site.city}-based practice for litigation, FBR return filing, company setup, property matters, WeBOC registration and trademark protection.
+						{site.name} is a {site.city}-based practice for litigation, FBR return filing, company setup, property matters, WeBOC registration and trademark protection. Direct counsel for individuals, families and businesses — with the record and forum established first.
 					</p>
 					<div class="mt-5 flex flex-wrap gap-2.5">
 						<a href="/contact" class="touch-target min-h-12 rounded-full bg-[#a83009] px-5 py-3 text-sm font-bold text-white">Discuss your matter ↗</a>
 						<a href={phoneHref} class="touch-target min-h-12 rounded-full border border-[#c4c2be] px-5 py-3 text-sm font-bold text-[#0c0c0c]">Call {site.phone}</a>
+						<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="touch-target min-h-12 rounded-full border border-[#c4c2be] px-5 py-3 text-sm font-bold text-[#0c0c0c]">WhatsApp ↗</a>
 					</div>
 				</div>
 			</section>
 
-			<section class="border-b border-[#e9e6e2] bg-white">
-				<div class="mx-auto max-w-3xl px-5 py-6 lg:px-8">
-					<p class="text-sm leading-6 text-[#696764]">
-						{site.tagline} in {site.city}. Direct counsel for individuals, families and businesses — court work, filings and compliance handled with the record and forum established first.
-					</p>
-				</div>
-			</section>
-
 			<section class="border-b border-[#e9e6e2] bg-white" aria-labelledby="practices-heading">
-				<div class="mx-auto max-w-7xl px-5 py-6 lg:px-8">
+				<div class="mx-auto max-w-7xl px-5 py-5 lg:px-8">
 					<h2 id="practices-heading" class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">Our practices</h2>
 					<div class="mt-3 grid gap-2 sm:grid-cols-3">
-						<a href="/services" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3.5 hover:border-[#faac93]">
+						<a href="/services" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3 hover:border-[#faac93]">
 							<span class="block text-sm font-bold text-[#0c0c0c]">Practice Areas</span>
 							<span class="mt-1 block text-xs leading-5 text-[#696764]">Litigation, property and trademark counsel</span>
 						</a>
-						<a href="/services" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3.5 hover:border-[#faac93]">
+						<a href="/services" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3 hover:border-[#faac93]">
 							<span class="block text-sm font-bold text-[#0c0c0c]">Business Services</span>
 							<span class="mt-1 block text-xs leading-5 text-[#696764]">Corporate setup, FBR and WeBOC</span>
 						</a>
-						<a href="/blog" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3.5 hover:border-[#faac93]">
+						<a href="/blog" class="touch-target rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] px-4 py-3 hover:border-[#faac93]">
 							<span class="block text-sm font-bold text-[#0c0c0c]">Insights</span>
 							<span class="mt-1 block text-xs leading-5 text-[#696764]">Guides on tax, property and litigation</span>
 						</a>
@@ -121,14 +114,14 @@ const schema = {
 			</section>
 
 			<section class="border-b border-[#e9e6e2] bg-[#fbfaf8]">
-				<div class="mx-auto max-w-7xl px-5 py-6 lg:px-8">
+				<div class="mx-auto max-w-7xl px-5 py-5 lg:px-8">
 					<div class="flex flex-wrap items-end justify-between gap-3">
 						<h2 class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">Featured practices</h2>
 						<a href="/services" class="text-xs font-bold text-[#a83009] hover:text-[#0c0c0c]">Explore all services ↗</a>
 					</div>
-					<div class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+					<div class="mt-3 grid gap-2 sm:grid-cols-3">
 						{featuredServices.map((service) => (
-							<a href={`/services/${service.slug}`} class="touch-target rounded-xl border border-[#e9e6e2] bg-white px-4 py-3.5 hover:border-[#faac93]">
+							<a href={`/services/${service.slug}`} class="touch-target rounded-xl border border-[#e9e6e2] bg-white px-4 py-3 hover:border-[#faac93]">
 								<span class="block text-xs font-bold uppercase tracking-[0.1em] text-[#a83009]">{service.label}</span>
 								<span class="mt-1 block text-sm font-semibold leading-snug text-[#0c0c0c]">{service.heading}</span>
 							</a>
@@ -138,9 +131,9 @@ const schema = {
 			</section>
 
 			<section class="border-b border-[#e9e6e2] bg-white" aria-labelledby="fbr-spotlight-heading">
-				<div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+				<div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between lg:px-8">
 					<div class="max-w-xl">
-						<h2 id="fbr-spotlight-heading" class="text-base font-semibold text-[#0c0c0c] sm:text-lg">
+						<h2 id="fbr-spotlight-heading" class="text-base font-semibold text-[#0c0c0c]">
 							Need FBR return filing in {site.city}?
 						</h2>
 						<p class="mt-1 text-sm leading-6 text-[#696764]">
@@ -155,9 +148,9 @@ const schema = {
 
 			{latestInsight && (
 				<section class="border-b border-[#e9e6e2] bg-[#fbfaf8]">
-					<div class="mx-auto max-w-7xl px-5 py-5 lg:px-8">
+					<div class="mx-auto max-w-7xl px-5 py-4 lg:px-8">
 						<div class="flex flex-wrap items-start justify-between gap-3">
-							<div class="max-w-2xl">
+							<div class="max-w-2xl min-w-0">
 								<p class="text-[10px] font-bold uppercase tracking-[0.14em] text-[#a83009]">Latest insight</p>
 								<h2 class="mt-1 text-base font-semibold leading-snug text-[#0c0c0c]">
 									<a href={`/blog/${latestInsight.slug}`} class="hover:text-[#a83009]">{latestInsight.title}</a>
@@ -170,16 +163,16 @@ const schema = {
 			)}
 
 			<section id="faq" class="border-b border-[#e9e6e2] bg-white">
-				<div class="mx-auto grid max-w-7xl gap-5 px-5 py-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8 lg:py-8">
+				<div class="mx-auto grid max-w-7xl gap-4 px-5 py-5 lg:grid-cols-[0.7fr_1.3fr] lg:px-8 lg:py-6">
 					<div>
 						<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">FAQ</p>
-						<h2 class="mt-2 text-xl font-semibold text-[#0c0c0c] sm:text-2xl">Before you get in touch.</h2>
+						<h2 class="mt-2 text-lg font-semibold text-[#0c0c0c] sm:text-xl">Before you get in touch.</h2>
 						<p class="mt-2 text-sm leading-6 text-[#696764]">If your question is not covered here, ask on a call or by WhatsApp.</p>
 					</div>
-					<div class="space-y-2">
+					<div class="space-y-1.5">
 						{homeFaq.map(([question, answer]) => (
 							<details class="group rounded-xl border border-[#e9e6e2] bg-[#fbfaf8] p-1.5">
-								<summary class="touch-target flex min-h-12 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-lg px-2.5 py-2.5 text-left text-sm font-semibold text-[#0c0c0c] marker:hidden">
+								<summary class="touch-target flex min-h-12 w-full cursor-pointer list-none items-center justify-between gap-3 rounded-lg px-2.5 py-2 text-left text-sm font-semibold text-[#0c0c0c] marker:hidden">
 									<span class="pr-2">{question}</span>
 									<span class="shrink-0 text-[#a83009] group-open:rotate-45" aria-hidden="true">+</span>
 								</summary>
@@ -190,17 +183,20 @@ const schema = {
 				</div>
 			</section>
 
-			<section id="contact" class="mx-auto grid min-w-0 max-w-7xl gap-5 px-5 py-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8 lg:py-8">
+			<section id="contact" class="mx-auto grid min-w-0 max-w-7xl gap-4 px-5 py-5 lg:grid-cols-[0.7fr_1.3fr] lg:px-8 lg:py-6">
 				<div class="min-w-0">
 					<p class="text-xs font-bold uppercase tracking-[0.16em] text-[#a83009]">Enquire</p>
-					<h2 id="home-enquiry-heading" class="mt-2 text-xl font-semibold text-[#0c0c0c] sm:text-2xl">Tell us where you need counsel.</h2>
+					<h2 id="home-enquiry-heading" class="mt-2 text-lg font-semibold text-[#0c0c0c] sm:text-xl">Tell us where you need counsel.</h2>
 					<p class="mt-2 text-sm leading-6 text-[#696764]">Share a few details for an initial enquiry. Your information is treated with professional confidentiality.</p>
 					<p class="mt-2 text-sm text-[#696764]">
 						Prefer a dedicated page? <a href="/contact" class="font-bold text-[#a83009] hover:text-[#0c0c0c]">Contact</a>
 					</p>
-					<div class="mt-4 min-w-0 space-y-1 text-sm text-[#696764]">
+					<div class="mt-3 min-w-0 space-y-1 text-sm text-[#696764]">
 						<a href={phoneHref} class="touch-target flex min-h-12 min-w-0 max-w-full items-center gap-2 rounded-lg px-1 py-2 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">
 							<span aria-hidden="true" class="shrink-0">☎</span><span class="min-w-0 break-all">{site.phone}</span>
+						</a>
+						<a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="touch-target flex min-h-12 min-w-0 max-w-full items-center gap-2 rounded-lg px-1 py-2 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">
+							<span aria-hidden="true" class="shrink-0">◉</span><span class="min-w-0">WhatsApp</span>
 						</a>
 						<a href={mailHref} class="touch-target flex min-h-12 min-w-0 max-w-full items-center gap-2 rounded-lg px-1 py-2 hover:bg-[#f5f2ee] hover:text-[#0c0c0c]">
 							<span aria-hidden="true" class="shrink-0">@</span><span class="min-w-0 break-all">{site.email}</span>
