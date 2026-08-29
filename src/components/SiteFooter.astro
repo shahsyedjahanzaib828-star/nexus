@@ -1,63 +1,76 @@
 ---
 import { site, phoneHref, mailHref } from '../data/site';
-import { practiceAreaServices, businessServices } from '../data/navigation';
+import {
+	practiceAreaServices,
+	businessServices,
+	footerPracticeLabels,
+	footerBusinessLabels
+} from '../data/navigation';
 
 const firmLinks = [
 	{ href: '/about', label: 'About' },
 	{ href: '/blog', label: 'Insights' },
 	{ href: '/contact', label: 'Contact' },
 	{ href: '/services', label: 'All Services' },
-	{ href: '/privacy', label: 'Privacy policy' },
-	{ href: '/terms', label: 'Terms of use' }
+	{ href: '/privacy', label: 'Privacy' },
+	{ href: '/terms', label: 'Terms' }
 ];
 ---
 
 <footer class="border-t border-[#e9e6e2] bg-[#f5f2ee]">
-	<div class="mx-auto max-w-7xl px-5 py-8 lg:px-8">
-		<div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-8">
-			<div>
-				<a href="/" class="flex items-center gap-2.5 text-sm font-bold text-[#0c0c0c]">
-					<span class="grid h-8 w-8 place-items-center rounded-full bg-[#0c0c0c] text-base text-[#f45a27]">§</span>{site.name}
+	<div class="mx-auto max-w-7xl px-5 py-6 lg:px-8">
+		<div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+			<div class="sm:col-span-2 lg:col-span-1">
+				<a href="/" class="flex items-center gap-2 text-sm font-bold text-[#0c0c0c]">
+					<span class="grid h-7 w-7 place-items-center rounded-full bg-[#0c0c0c] text-sm text-[#f45a27]">§</span>{site.name}
 				</a>
-				<p class="mt-3 max-w-xs text-sm leading-6 text-[#252424]">{site.tagline} · {site.city}, {site.country}</p>
-				<p class="mt-2 text-sm text-[#252424]">
+				<p class="mt-2 text-xs leading-5 text-[#252424]">{site.tagline} · {site.city}</p>
+				<p class="mt-1.5 min-w-0 text-xs text-[#252424]">
 					<a href={phoneHref} class="hover:text-[#a83009]">{site.phone}</a>
 					{' · '}
-					<a href={mailHref} class="hover:text-[#a83009]">{site.email}</a>
+					<a href={mailHref} class="break-all hover:text-[#a83009]">{site.email}</a>
 				</p>
 			</div>
 
-			<div class="grid gap-4 text-sm sm:grid-cols-3 sm:gap-6">
-				<div>
-					<h2 class="text-xs font-bold uppercase tracking-[0.12em] text-[#a83009]">Practice areas</h2>
-					<ul class="mt-2.5 space-y-1.5">
-						{practiceAreaServices.map((service) => (
-							<li><a href={`/services/${service.slug}`} class="leading-5 text-[#252424] hover:text-[#a83009]">{service.label}</a></li>
-						))}
-					</ul>
-				</div>
-				<div>
-					<h2 class="text-xs font-bold uppercase tracking-[0.12em] text-[#a83009]">Business services</h2>
-					<ul class="mt-2.5 space-y-1.5">
-						{businessServices.map((service) => (
-							<li><a href={`/services/${service.slug}`} class="leading-5 text-[#252424] hover:text-[#a83009]">{service.label}</a></li>
-						))}
-					</ul>
-				</div>
-				<div>
-					<h2 class="text-xs font-bold uppercase tracking-[0.12em] text-[#a83009]">Firm</h2>
-					<ul class="mt-2.5 space-y-1.5">
-						{firmLinks.map((link) => (
-							<li><a href={link.href} class="leading-5 text-[#252424] hover:text-[#a83009]">{link.label}</a></li>
-						))}
-					</ul>
-				</div>
+			<div>
+				<h2 class="text-[10px] font-bold uppercase tracking-[0.12em] text-[#a83009]">Practice areas</h2>
+				<ul class="mt-2 space-y-1">
+					{practiceAreaServices.map((service) => (
+						<li>
+							<a href={`/services/${service.slug}`} class="text-xs leading-5 text-[#252424] hover:text-[#a83009]">
+								{footerPracticeLabels[service.slug as keyof typeof footerPracticeLabels]}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<div>
+				<h2 class="text-[10px] font-bold uppercase tracking-[0.12em] text-[#a83009]">Business services</h2>
+				<ul class="mt-2 space-y-1">
+					{businessServices.map((service) => (
+						<li>
+							<a href={`/services/${service.slug}`} class="text-xs leading-5 text-[#252424] hover:text-[#a83009]">
+								{footerBusinessLabels[service.slug as keyof typeof footerBusinessLabels]}
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<div>
+				<h2 class="text-[10px] font-bold uppercase tracking-[0.12em] text-[#a83009]">Firm</h2>
+				<ul class="mt-2 space-y-1">
+					{firmLinks.map((link) => (
+						<li><a href={link.href} class="text-xs leading-5 text-[#252424] hover:text-[#a83009]">{link.label}</a></li>
+					))}
+				</ul>
 			</div>
 		</div>
 
-		<div class="mt-6 border-t border-[#e9e6e2] pt-4 text-xs leading-5 text-[#252424]">
-			<p><strong class="text-[#696764]">Legal disclaimer:</strong> Website information is general information only and is not legal advice. Contacting the practice does not create an advocate-client relationship until engagement is agreed in writing. Results are not guaranteed.</p>
-			<p class="mt-2">© {new Date().getFullYear()} {site.name}. {site.city}, {site.region}, {site.country}.</p>
-		</div>
+		<p class="mt-5 border-t border-[#e9e6e2] pt-3 text-[11px] leading-5 text-[#252424]">
+			<strong class="text-[#696764]">Legal disclaimer:</strong> Website information is general information only and is not legal advice. Contacting the practice does not create an advocate-client relationship until engagement is agreed in writing. Results are not guaranteed.
+			{' '}© {new Date().getFullYear()} {site.name}. {site.city}, {site.region}, {site.country}.
+		</p>
 	</div>
 </footer>
